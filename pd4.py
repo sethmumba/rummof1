@@ -68,9 +68,9 @@ except Exception:
 # ============================================================
 
 SCRIPT_DIR = Path(__file__).resolve().parent
-PDF_PATH = SCRIPT_DIR / "input4.pdf"
+PDF_PATH = SCRIPT_DIR / "input.pdf"
 
-OUTPUT_DIR = SCRIPT_DIR / "simulation_output"
+OUTPUT_DIR = Path(r"C:\typing_sim\simulation_output")
 STATE_FILE = OUTPUT_DIR / "typing_state.json"
 EVENT_LOG_FILE = OUTPUT_DIR / "events.jsonl"
 SESSION_SUMMARY_FILE = OUTPUT_DIR / "session_summary.json"
@@ -2039,13 +2039,19 @@ class TypingSimulation:
 
             sprint_elapsed = self.elapsed_ms / 1000
 
-            self.state.save(
-                index + 1,
-                self.session_id,
-                self.seed,
-            )
+            if (index + 1) % 25 == 0:
+                self.state.save(index + 1, self.session_id, self.seed)
 
             self.maybe_micro_break()
+
+        self.state.save(len(self.items), self.session_id, self.seed)
+
+        # Turn formatting off at the end if needed.
+        if self.current_formatting["bold"]:
+            self.executor.toggle_bold()
+            self.current_formatting["bold"] = False
+
+
 
         # Turn formatting off at the end if needed.
         if self.current_formatting["bold"]:

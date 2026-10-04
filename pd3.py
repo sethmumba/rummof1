@@ -75,7 +75,7 @@ SESSION_SUMMARY_FILE = OUTPUT_DIR / "session_summary.json"
 
 # Set to False for a pure offline simulation that does not touch
 # the keyboard/mouse.
-EXECUTE_IN_APPLICATION = False
+EXECUTE_IN_APPLICATION = True
 
 # Reproducibility:
 # Set to an integer for a reproducible session.
