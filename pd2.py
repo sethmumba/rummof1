@@ -19,7 +19,7 @@ keyboard = KeyboardController()
 
 # --- FILE PATH SETUP ---
 SCRIPT_DIR = Path(__file__).resolve().parent
-PDF_PATH = SCRIPT_DIR / "input.pdf"
+PDF_PATH = SCRIPT_DIR / "input4.pdf"
 STATE_FILE = SCRIPT_DIR / "typing_state.json"
 
 # --- WORKDAY SCHEDULE CONFIGURATION ---
