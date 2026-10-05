@@ -18,11 +18,6 @@ Install:
 Optional:
     The execution adapter expects the same hm.py helpers used by the
     original program: human_click, human_reading_wander, human_scroll.
-
-IMPORTANT:
-The simulator is the primary component. The Windows executor is only
-an output adapter; the generated event stream can be used independently
-as synthetic training data.
 """
 
 from __future__ import annotations
@@ -30,6 +25,7 @@ from __future__ import annotations
 import argparse
 import csv
 import json
+import logging
 import math
 import random
 import statistics
@@ -64,6 +60,18 @@ except Exception:
 
 
 # ============================================================
+# LOGGING SETUP
+# ============================================================
+
+logging.basicConfig(
+    level=logging.INFO,
+    format="[%(asctime)s] [%(levelname)s] %(message)s",
+    datefmt="%H:%M:%S",
+)
+logger = logging.getLogger("TypingSim")
+
+
+# ============================================================
 # CONFIGURATION
 # ============================================================
 
@@ -76,43 +84,26 @@ EVENT_LOG_FILE = OUTPUT_DIR / "events.jsonl"
 SESSION_SUMMARY_FILE = OUTPUT_DIR / "session_summary.json"
 CALIBRATION_REPORT_FILE = OUTPUT_DIR / "calibration_report.json"
 
-# Optional local empirical reference dataset. The program will NOT bundle
-# third-party research data; point this at a dataset you are permitted to use.
-# CMU benchmark CSV:
-# https://www.cs.cmu.edu/~keystroke/DSL-StrongPasswordData.csv
+# Optional local empirical reference dataset. 
 REFERENCE_DATA_PATH: Optional[Path] = None
 AUTO_DOWNLOAD_CMU_REFERENCE = False
 CMU_REFERENCE_URL = "https://www.cs.cmu.edu/~keystroke/DSL-StrongPasswordData.csv"
 
-# When enabled, fit the simulator's timing/error priors from the reference
-# data before generating the session.
 ENABLE_EMPIRICAL_CALIBRATION = True
 CALIBRATION_MAX_ROWS = 250_000
 CALIBRATION_TRIM_FRACTION = 0.01
 
-# Set to False for a pure offline simulation that does not touch
-# the keyboard/mouse.
 EXECUTE_IN_APPLICATION = True
-
-# Reproducibility:
-# Set to an integer for a reproducible session.
-# Set to None for a fresh random seed every run.
 RANDOM_SEED: Optional[int] = 20261004
-
-# Choose a human profile.
 PROFILE_NAME = "average"
 
-# Work schedule.
 STARTUP_DELAY_SECONDS = 10
 WORK_SPRINT_MINUTES = (75, 105)
 LONG_BREAK_MINUTES = (12, 18)
 SHORT_BREAK_MINUTES = (1, 3)
 SHORT_BREAK_INTERVAL_LINES = (35, 60)
 
-# Application coordinates retained from the original program.
 SAFE_TITLE_BAR_CLICK = (600, 15)
-
-# Safety: do not allow an accidental runaway execution.
 MAX_SESSION_HOURS = 12
 
 
@@ -150,8 +141,6 @@ class HumanProfile:
     fatigue_error_multiplier: float
     recovery_rate: float
 
-    # Probability that a generated error is intentionally left
-    # uncorrected.
     uncorrected_probability: float
 
 
@@ -289,8 +278,6 @@ class Event:
 # KEYBOARD MODEL
 # ============================================================
 
-# Approximate QWERTY coordinates. Coordinates are intentionally
-# continuous so physical distance can influence substitution odds.
 KEY_POSITIONS = {
     "q": (0.0, 0.0), "w": (1.0, 0.0), "e": (2.0, 0.0),
     "r": (3.0, 0.0), "t": (4.0, 0.0), "y": (5.0, 0.0),
@@ -308,7 +295,6 @@ KEY_POSITIONS = {
     "0": (9.0, -1.0),
 }
 
-# Retained as a fallback and for modifier-independent error selection.
 SHIFTED = {
     "!": "1", "@": "2", "#": "3", "$": "4", "%": "5",
     "^": "6", "&": "7", "*": "8", "(": "9", ")": "0",
@@ -351,8 +337,6 @@ def nearby_keys(char: str, radius: float = 1.65) -> list[str]:
 # ============================================================
 
 class PDFDocumentParser:
-    """Extracts text/images and retains basic formatting/geometry."""
-
     def __init__(self, pdf_path: Path):
         self.pdf_path = pdf_path
 
@@ -369,8 +353,6 @@ class PDFDocumentParser:
             x in font for x in ("italic", "oblique")
         )
 
-        # PyMuPDF does not expose underline uniformly through span flags,
-        # so this remains conservative.
         underline = bool(flags & 4)
 
         return bold, italic, underline
@@ -387,8 +369,6 @@ class PDFDocumentParser:
             for page_number, page in enumerate(doc, start=1):
                 blocks = page.get_text("dict").get("blocks", [])
 
-                # Sort by vertical position first, then horizontal position.
-                # This is substantially safer than blindly trusting source order.
                 blocks = sorted(
                     blocks,
                     key=lambda b: (
@@ -427,7 +407,6 @@ class PDFDocumentParser:
                                 )
                                 next_id += 1
 
-                            # Preserve visual line boundaries.
                             items.append(
                                 DocumentItem(
                                     item_id=next_id,
@@ -473,20 +452,6 @@ class PDFDocumentParser:
 # ============================================================
 
 class EmpiricalCalibrator:
-    """Fit simulator priors from real keystroke reference data.
-
-    Supported reference styles:
-      1. CMU DSL-StrongPasswordData.csv, which contains H.*, DD.* and UD.*
-         timing features in seconds.
-      2. Generic event CSV/TSV files containing key/timestamp information.
-
-    The calibrator deliberately does not manufacture measurements that the
-    reference data does not contain. For example, CMU's fixed-password
-    benchmark is excellent for hold/digraph timing but is not a general
-    free-text WPM dataset, so its WPM estimate is labelled as an equivalent
-    rate rather than treated as a literal typing-speed measurement.
-    """
-
     def __init__(
         self,
         path: Path,
@@ -596,23 +561,17 @@ class EmpiricalCalibrator:
             [x for x in dd_values if x > 0], self.trim_fraction
         )
 
-        # DD is a down-down digraph interval, so it is the closest direct
-        # reference for the simulator's inter-key interval.
         iki = self._stats(dd_values)
         hold = self._stats(h_values)
 
         positive_ud = [x for x in ud_values if x > 0]
         negative_ud = [x for x in ud_values if x < 0]
 
-        # Convert the empirical IKI distribution to the lognormal sigma used
-        # by the simulator's character-delay generator.
         log_sigma = None
         if len(dd_values) > 1:
             logs = [math.log(x) for x in dd_values]
             log_sigma = statistics.stdev(logs)
 
-        # Fixed-password data has no natural word boundaries. This is an
-        # equivalent 5-character WPM based solely on the observed DD mean.
         equivalent_wpm = None
         if iki["mean"] and iki["mean"] > 0:
             equivalent_wpm = 60.0 / (iki["mean"] * 5.0)
@@ -689,7 +648,6 @@ class EmpiricalCalibrator:
             if timestamp_col:
                 try:
                     t = float(row[timestamp_col])
-                    # Normalize obvious millisecond timestamps.
                     if abs(t) > 1e11:
                         t /= 1000.0
                     timestamps.append(t)
@@ -749,7 +707,6 @@ class EmpiricalCalibrator:
         profile: HumanProfile,
         report: dict[str, Any],
     ) -> HumanProfile:
-        """Return a calibrated copy of a profile without mutating the preset."""
         import copy
         calibrated = copy.deepcopy(profile)
 
@@ -757,13 +714,11 @@ class EmpiricalCalibrator:
         wpm = report.get("wpm")
         error_rate = report.get("error_rate")
 
-        # Timing calibration: prefer a direct IKI median/mean.
         iki_mean = iki.get("mean") if isinstance(iki, dict) else None
         iki_p95 = iki.get("p95") if isinstance(iki, dict) else None
         iki_median = iki.get("median") if isinstance(iki, dict) else None
 
         if iki_mean and iki_mean > 0:
-            # WPM-equivalent based on five characters per word.
             empirical_wpm = 60.0 / (iki_mean * 5.0)
             calibrated.base_wpm = max(
                 calibrated.min_wpm,
@@ -777,10 +732,8 @@ class EmpiricalCalibrator:
                 min(calibrated.max_wpm, empirical_wpm),
             )
 
-        # Fit the timing noise from the observed positive IKI distribution.
         sigma = report.get("lognormal_iki_sigma")
         if sigma is None and iki_mean and iki_median and iki_mean > 0:
-            # Fallback approximation for positive right-skewed distributions.
             ratio = max(1.0001, iki_mean / iki_median)
             sigma = min(0.65, math.sqrt(2.0 * math.log(ratio)))
 
@@ -790,16 +743,12 @@ class EmpiricalCalibrator:
                 min(0.70, float(sigma)),
             )
 
-        # Error calibration is only applied when the reference actually has
-        # error labels. CMU timing data does not contain natural free-text
-        # error labels, so its error rate is intentionally not invented.
         if error_rate is not None and 0 < error_rate < 0.30:
             calibrated.base_error_rate = max(
                 0.002,
                 min(0.08, float(error_rate)),
             )
 
-        # Use observed timing range to improve realistic pause-free key timing.
         if iki_median:
             calibrated.word_pause_ms = (
                 max(30.0, min(100.0, iki_median * 1000 * 0.45)),
@@ -860,16 +809,13 @@ class HumanBehaviorModel:
         )
 
         drift = self.rng.gauss(0, self.profile.wpm_stddev * 0.025)
-
         fatigue_factor = max(0.60, 1.0 - self.fatigue * 0.25)
-
         target = self.profile.base_wpm * fatigue_factor
 
         self.current_wpm += (
             (target - self.current_wpm) * 0.03
             + drift
         )
-
         self.current_wpm = max(
             self.profile.min_wpm,
             min(self.profile.max_wpm, self.current_wpm),
@@ -889,13 +835,11 @@ class HumanBehaviorModel:
         )
 
     def base_char_delay(self) -> float:
-        # WPM -> approximate seconds/character.
         cps = max(1.0, self.current_wpm * 5.0 / 60.0)
         return 1.0 / cps
 
     def character_delay(self, previous: Optional[str], current: str) -> float:
         base = self.base_char_delay()
-
         multiplier = 1.0
 
         if previous and previous.lower() in FINGER and current.lower() in FINGER:
@@ -911,20 +855,16 @@ class HumanBehaviorModel:
         if current in ".,;:!?":
             multiplier += 0.10
 
-        # Log-normal noise creates positive timing values and a long tail.
         delay = self.rng.lognormvariate(
             math.log(max(0.025, base * multiplier)),
             self.profile.key_interval_sigma,
         )
-
         return max(0.025, min(1.8, delay))
 
     def should_pause(self, current: str) -> bool:
         probability = self.profile.pause_probability
-
         if current in ".!?":
             probability *= 2.0
-
         return self.rng.random() < probability
 
     def pause_duration(self, reason: str) -> float:
@@ -935,7 +875,6 @@ class HumanBehaviorModel:
         else:
             lo, hi = self.profile.thinking_pause_ms
 
-        # Log-normal-ish positive pause distribution.
         midpoint = max(1.0, (lo + hi) / 2)
         sigma = 0.45
         value = self.rng.lognormvariate(math.log(midpoint), sigma)
@@ -943,7 +882,6 @@ class HumanBehaviorModel:
 
     def choose_error(self, char: str) -> Optional[str]:
         p = self.error_probability(char)
-
         if self.rng.random() >= p:
             return None
 
@@ -977,7 +915,6 @@ class HumanBehaviorModel:
 
         if not names:
             return "substitution"
-
         return self.rng.choices(names, weights=weights, k=1)[0]
 
     def correction_mode(self) -> str:
@@ -1004,8 +941,6 @@ class EventLogger:
         self.path = path
         self.path.parent.mkdir(parents=True, exist_ok=True)
         self.event_count = 0
-
-        # Start a fresh event log for a new session.
         self.path.write_text("", encoding="utf-8")
 
     def write(self, event: Event) -> None:
@@ -1063,7 +998,6 @@ class Metrics:
         )
 
         minutes = max(0.001, elapsed_ms / 60000)
-
         wpm = words / minutes
 
         latencies = [
@@ -1153,7 +1087,7 @@ class StateManager:
         try:
             return json.loads(self.path.read_text(encoding="utf-8"))
         except Exception as exc:
-            print(f"Warning: state file could not be read: {exc}")
+            logger.warning(f"Warning: state file could not be read: {exc}")
             return {
                 "item_index": 0,
                 "session_id": None,
@@ -1174,6 +1108,7 @@ class StateManager:
             encoding="utf-8",
         )
         tmp.replace(self.path)
+        logger.info(f"Checkpoint saved: progress preserved up to document item {item_index}")
 
     def clear(self) -> None:
         if self.path.exists():
@@ -1313,10 +1248,6 @@ class TypingSimulation:
             SHORT_BREAK_INTERVAL_LINES[1],
         )
 
-    # --------------------------------------------------------
-    # EVENT CREATION
-    # --------------------------------------------------------
-
     def emit(
         self,
         event_type: str,
@@ -1359,13 +1290,14 @@ class TypingSimulation:
     def sleep_simulated(self, seconds: float) -> None:
         self.elapsed_ms += seconds * 1000
 
-        # In offline mode, simulated time advances without real waiting.
         if self.config.execute:
             time.sleep(seconds)
 
         self.behavior.advance(seconds / 60)
 
     def emit_pause(self, duration_ms: float, reason: str, item=None) -> None:
+        if reason == "thinking":
+            logger.info(f"Thinking pause: resting for {duration_ms:.0f}ms")
         self.emit(
             "pause",
             item=item,
@@ -1376,10 +1308,6 @@ class TypingSimulation:
         )
         self.sleep_simulated(duration_ms / 1000)
 
-    # --------------------------------------------------------
-    # FORMATTING
-    # --------------------------------------------------------
-
     def apply_formatting(self, item: DocumentItem) -> None:
         desired = {
             "bold": item.is_bold,
@@ -1387,13 +1315,13 @@ class TypingSimulation:
             "underline": item.is_underline,
         }
 
-        # The original execution layer only directly supports bold.
-        # We still record the other formatting states in the event stream.
         if desired["bold"] != self.current_formatting["bold"]:
             if self.config.execute:
                 self.executor.toggle_bold()
 
             self.current_formatting["bold"] = desired["bold"]
+            state_str = "ENABLED" if desired["bold"] else "DISABLED"
+            logger.info(f"Formatting change: Bold {state_str}")
 
             self.emit(
                 "format",
@@ -1407,17 +1335,12 @@ class TypingSimulation:
         self.current_formatting["italic"] = desired["italic"]
         self.current_formatting["underline"] = desired["underline"]
 
-    # --------------------------------------------------------
-    # ERROR GENERATION
-    # --------------------------------------------------------
-
     def substitution(self, char: str) -> Optional[str]:
         candidates = nearby_keys(char)
 
         if not candidates:
             return None
 
-        # Closer keys have substantially higher probability.
         weights = []
         for candidate in candidates:
             d = key_distance(char, candidate)
@@ -1435,11 +1358,6 @@ class TypingSimulation:
         error_type: str,
         item: DocumentItem,
     ) -> tuple[str, bool]:
-        """
-        Returns:
-            actual character generated for the current logical position,
-            whether the original character should be advanced.
-        """
 
         mode = self.behavior.correction_mode()
 
@@ -1449,6 +1367,7 @@ class TypingSimulation:
             if wrong is None:
                 return char, True
 
+            logger.info(f"Simulating typo: '{char}' -> '{wrong}' (Mode: {mode})")
             self.emit(
                 "key",
                 intended=char,
@@ -1474,6 +1393,7 @@ class TypingSimulation:
                 self.executor.backspace()
                 self.sleep_simulated(delay / 1000)
 
+                logger.info(f"Backspace & retry: replacing '{wrong}' with '{char}'")
                 self.emit(
                     "correction",
                     intended=char,
@@ -1500,9 +1420,9 @@ class TypingSimulation:
 
                 self.sleep_simulated(delay / 1000)
 
-                # Delayed correction is represented in the event stream.
                 self.executor.backspace()
                 self.executor.tap(char)
+                logger.info(f"Delayed backspace & retry: replacing '{wrong}' with '{char}'")
 
                 self.emit(
                     "correction",
@@ -1525,6 +1445,7 @@ class TypingSimulation:
             return wrong, True
 
         if error_type == "omission":
+            logger.info(f"Simulating omission of character '{char}'")
             self.emit(
                 "key",
                 intended=char,
@@ -1535,7 +1456,6 @@ class TypingSimulation:
             )
 
             if mode == "immediate":
-                # The user realizes the omission and types it after a pause.
                 delay = self.rng.uniform(
                     *self.profile.correction_delay_ms
                 )
@@ -1560,6 +1480,7 @@ class TypingSimulation:
             return "", True
 
         if error_type == "duplication":
+            logger.info(f"Simulating key bounce / duplicate: '{char}{char}'")
             self.executor.tap(char)
             self.executor.tap(char)
 
@@ -1601,6 +1522,7 @@ class TypingSimulation:
         if error_type == "capitalization":
             wrong = char.lower() if char.isupper() else char.upper()
 
+            logger.info(f"Simulating case error: '{char}' typed as '{wrong}'")
             self.executor.tap(wrong)
             self.sleep_simulated(
                 self.behavior.character_delay(None, wrong)
@@ -1639,8 +1561,8 @@ class TypingSimulation:
             return wrong, True
 
         if error_type == "space":
-            # Randomly omit or duplicate spaces.
             if self.rng.random() < 0.5:
+                logger.info("Simulating space omission")
                 self.emit(
                     "key",
                     intended=" ",
@@ -1651,6 +1573,7 @@ class TypingSimulation:
                 )
                 return "", True
 
+            logger.info("Simulating double space")
             self.executor.tap(" ")
             self.executor.tap(" ")
 
@@ -1682,7 +1605,8 @@ class TypingSimulation:
                 char,
                 self.substitution(char) or char,
             )
-
+            
+            logger.info(f"Simulating punctuation typo: '{char}' -> '{wrong}'")
             self.executor.tap(wrong)
 
             self.emit(
@@ -1721,15 +1645,9 @@ class TypingSimulation:
             return wrong, True
 
         if error_type == "transposition":
-            # Actual transposition is handled in the main text loop,
-            # because it requires looking at the next character.
             return char, True
 
         return char, True
-
-    # --------------------------------------------------------
-    # TEXT
-    # --------------------------------------------------------
 
     def type_text(self, item: DocumentItem) -> None:
         text = item.text
@@ -1739,7 +1657,6 @@ class TypingSimulation:
         while i < len(text):
             char = text[i]
 
-            # Preserve whitespace and line handling.
             if char == "\n":
                 self.executor.enter(soft=True)
                 self.emit(
@@ -1755,7 +1672,6 @@ class TypingSimulation:
                 previous = "\n"
                 continue
 
-            # Possible transposition.
             if (
                 i + 1 < len(text)
                 and char.isalpha()
@@ -1765,7 +1681,8 @@ class TypingSimulation:
                 * self.profile.transposition_probability
             ):
                 second = text[i + 1]
-
+                logger.info(f"Simulating transposition typo: '{char}{second}' -> '{second}{char}'")
+                
                 self.executor.tap(second)
                 self.executor.tap(char)
 
@@ -1790,7 +1707,6 @@ class TypingSimulation:
                         *self.profile.correction_delay_ms
                     )
 
-                    # Correcting a two-character transposition.
                     self.executor.backspace()
                     self.executor.backspace()
                     self.executor.tap(char)
@@ -1829,7 +1745,6 @@ class TypingSimulation:
                 if advance:
                     i += 1
 
-                # Pause occasionally at semantic boundaries.
                 if char == " " and self.behavior.should_pause(char):
                     duration = self.behavior.pause_duration(
                         "word_boundary"
@@ -1842,7 +1757,6 @@ class TypingSimulation:
 
                 continue
 
-            # Normal key.
             delay = self.behavior.character_delay(
                 previous,
                 char,
@@ -1897,11 +1811,8 @@ class TypingSimulation:
             previous = char
             i += 1
 
-    # --------------------------------------------------------
-    # IMAGES / BREAKS
-    # --------------------------------------------------------
-
     def insert_image(self, item: DocumentItem) -> None:
+        logger.info(f"Pasting image ({len(item.image_bytes or b'')} bytes)...")
         if item.image_bytes:
             self.executor.paste_image(item.image_bytes)
 
@@ -1949,6 +1860,11 @@ class TypingSimulation:
             *SHORT_BREAK_MINUTES
         )
 
+        logger.info(
+            f"--- [SHORT BREAK] Resting for {duration:.1f} min ({duration * 60:.0f}s) "
+            f"after {self.lines_since_break} lines ---"
+        )
+
         self.emit(
             "break",
             metadata={
@@ -1960,15 +1876,12 @@ class TypingSimulation:
         self.sleep_simulated(duration * 60)
 
         self.behavior.recover(duration)
+        logger.info(f"--- [SHORT BREAK ENDED] Resumed typing. Fatigue recovered to: {self.behavior.fatigue:.1%} ---")
 
         self.lines_since_break = 0
         self.next_break_target = self.rng.randint(
             *SHORT_BREAK_INTERVAL_LINES
         )
-
-    # --------------------------------------------------------
-    # SESSION
-    # --------------------------------------------------------
 
     def run(self, start_index: int = 0) -> dict[str, Any]:
         session_started = datetime.now(timezone.utc)
@@ -1977,9 +1890,13 @@ class TypingSimulation:
             *WORK_SPRINT_MINUTES
         )
         sprint_elapsed = 0.0
+        
+        total_items = len(self.items)
+        logger.info(f"Session started with {total_items} document items. Initial sprint: {sprint_duration:.1f} minutes")
 
         for index in range(start_index, len(self.items)):
             if self.elapsed_ms / 3_600_000 >= MAX_SESSION_HOURS:
+                logger.warning("Max session hours reached. Halting simulation.")
                 self.emit(
                     "session_stop",
                     metadata={
@@ -1990,10 +1907,14 @@ class TypingSimulation:
 
             item = self.items[index]
 
-            # Long break.
             if sprint_elapsed >= sprint_duration * 60:
                 duration = self.rng.uniform(
                     *LONG_BREAK_MINUTES
+                )
+
+                logger.info(
+                    f"\n{'='*50}\n[LONG BREAK] Sustained sprint reached {sprint_elapsed / 60:.1f} min.\n"
+                    f"Taking a human rest for {duration:.1f} minutes...\n{'='*50}"
                 )
 
                 self.emit(
@@ -2007,11 +1928,25 @@ class TypingSimulation:
 
                 self.sleep_simulated(duration * 60)
                 self.behavior.recover(duration)
+                
+                logger.info(
+                    f"[LONG BREAK ENDED] Resuming typing session. "
+                    f"WPM reset to {self.behavior.current_wpm:.1f}, Fatigue: {self.behavior.fatigue:.1%}\n{'='*50}\n"
+                )
 
                 sprint_duration = self.rng.uniform(
                     *WORK_SPRINT_MINUTES
                 )
                 sprint_elapsed = 0.0
+
+            if item.item_type == "text":
+                preview = (item.text[:30] + "...") if len(item.text) > 30 else item.text.replace("\n", "\\n")
+                logger.info(
+                    f"[{index + 1}/{total_items}] Page {item.page} | Typing: {repr(preview)} "
+                    f"| WPM: {self.behavior.current_wpm:.1f} | Fatigue: {self.behavior.fatigue:.1%}"
+                )
+            elif item.item_type == "image":
+                logger.info(f"[{index + 1}/{total_items}] Page {item.page} | Inserting Image")
 
             self.apply_formatting(item)
 
@@ -2046,14 +1981,6 @@ class TypingSimulation:
 
         self.state.save(len(self.items), self.session_id, self.seed)
 
-        # Turn formatting off at the end if needed.
-        if self.current_formatting["bold"]:
-            self.executor.toggle_bold()
-            self.current_formatting["bold"] = False
-
-
-
-        # Turn formatting off at the end if needed.
         if self.current_formatting["bold"]:
             self.executor.toggle_bold()
             self.current_formatting["bold"] = False
@@ -2082,9 +2009,9 @@ class TypingSimulation:
 # ============================================================
 
 def print_summary(summary: dict[str, Any]) -> None:
-    print("\n" + "=" * 60)
-    print("SIMULATION COMPLETE")
-    print("=" * 60)
+    logger.info("\n" + "=" * 60)
+    logger.info("SIMULATION COMPLETE")
+    logger.info("=" * 60)
 
     fields = [
         ("Session", "session_id"),
@@ -2102,18 +2029,18 @@ def print_summary(summary: dict[str, Any]) -> None:
     ]
 
     for label, key in fields:
-        print(f"{label:<28}: {summary.get(key)}")
+        logger.info(f"{label:<28}: {summary.get(key)}")
 
     flags = summary.get("quality_flags", [])
 
-    print("\nQuality flags:")
+    logger.info("\nQuality flags:")
     if flags:
         for flag in flags:
-            print(f"  - {flag}")
+            logger.info(f"  - {flag}")
     else:
-        print("  None")
+        logger.info("  None")
 
-    print("=" * 60)
+    logger.info("=" * 60)
 
 
 # ============================================================
@@ -2181,8 +2108,6 @@ def main() -> None:
     state_manager = StateManager(config.state_file)
     state = state_manager.load()
 
-    # A saved session keeps the same seed/session ID so it can be
-    # reproduced after interruption.
     if state.get("seed") is not None:
         seed = int(state["seed"])
 
@@ -2192,14 +2117,11 @@ def main() -> None:
     profile = PROFILES[config.profile_name]
     calibration_report = None
 
-    # --------------------------------------------------------
-    # EMPIRICAL CALIBRATION
-    # --------------------------------------------------------
     reference_path = args.reference_data
 
     if ENABLE_EMPIRICAL_CALIBRATION and not args.no_calibration:
         if reference_path:
-            print("Loading empirical reference data...")
+            logger.info("Loading empirical reference data...")
             calibrator = EmpiricalCalibrator(reference_path)
             calibration_report = calibrator.fit()
             calibrator.write_report(
@@ -2210,26 +2132,26 @@ def main() -> None:
                 profile,
                 calibration_report,
             )
-            print(
+            logger.info(
                 "Empirical calibration applied: "
                 f"{calibration_report.get('dataset_type')}"
             )
         else:
-            print(
+            logger.info(
                 "No empirical reference dataset configured. "
                 "Using profile priors only."
             )
 
-    print("=" * 60)
-    print("AI TRAINING TYPING SIMULATOR")
-    print("=" * 60)
-    print(f"PDF:          {PDF_PATH}")
-    print(f"Profile:      {config.profile_name}")
-    print(f"Calibrated:   {calibration_report is not None}")
-    print(f"Seed:         {seed}")
-    print(f"Session:      {session_id}")
-    print(f"Execution:    {config.execute}")
-    print(f"Resume at:    item {start_index}")
+    logger.info("=" * 60)
+    logger.info("AI TRAINING TYPING SIMULATOR")
+    logger.info("=" * 60)
+    logger.info(f"PDF:          {PDF_PATH}")
+    logger.info(f"Profile:      {config.profile_name}")
+    logger.info(f"Calibrated:   {calibration_report is not None}")
+    logger.info(f"Seed:         {seed}")
+    logger.info(f"Session:      {session_id}")
+    logger.info(f"Execution:    {config.execute}")
+    logger.info(f"Resume at:    item {start_index}")
 
     if calibration_report:
         iki = (
@@ -2237,18 +2159,9 @@ def main() -> None:
             or calibration_report.get("inter_key_seconds")
             or {}
         )
-        print(
-            "Reference IKI median: "
-            f"{iki.get('median')} seconds"
-        )
-        print(
-            "Calibrated base WPM:   "
-            f"{profile.base_wpm:.2f}"
-        )
-        print(
-            "Calibrated timing sigma: "
-            f"{profile.key_interval_sigma:.3f}"
-        )
+        logger.info(f"Reference IKI median: {iki.get('median')} seconds")
+        logger.info(f"Calibrated base WPM:   {profile.base_wpm:.2f}")
+        logger.info(f"Calibrated timing sigma: {profile.key_interval_sigma:.3f}")
 
     parser = PDFDocumentParser(PDF_PATH)
     items = parser.parse()
@@ -2256,10 +2169,10 @@ def main() -> None:
     if not items:
         raise RuntimeError("No readable content was found in the PDF.")
 
-    print(f"Document items: {len(items)}")
+    logger.info(f"Document items: {len(items)}")
 
     if config.execute:
-        print(
+        logger.info(
             f"\nFocus the target application. "
             f"Simulation starts in {STARTUP_DELAY_SECONDS} seconds."
         )
@@ -2275,6 +2188,7 @@ def main() -> None:
                 flush=True,
             )
             time.sleep(1)
+        print(" " * 30, end="\r")
 
         if human_click is not None:
             human_click(
@@ -2295,8 +2209,6 @@ def main() -> None:
             start_index=start_index,
         )
 
-        # Attach calibration provenance to the session summary without
-        # copying the entire reference dataset into every event.
         if calibration_report:
             summary["calibration"] = {
                 "enabled": True,
@@ -2311,19 +2223,18 @@ def main() -> None:
             )
 
     except KeyboardInterrupt:
-        print("\nSimulation interrupted. State has been preserved.")
+        logger.warning("\nSimulation interrupted. State has been preserved.")
         raise
 
     print_summary(summary)
 
-    # Successful completion removes resume state.
     if state_manager.path.exists():
         state_manager.clear()
 
-    print(f"\nEvent log:        {EVENT_LOG_FILE}")
-    print(f"Session summary:  {SESSION_SUMMARY_FILE}")
+    logger.info(f"\nEvent log:        {EVENT_LOG_FILE}")
+    logger.info(f"Session summary:  {SESSION_SUMMARY_FILE}")
     if calibration_report:
-        print(f"Calibration:      {CALIBRATION_REPORT_FILE}")
+        logger.info(f"Calibration:      {CALIBRATION_REPORT_FILE}")
 
 
 if __name__ == "__main__":
