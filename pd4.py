@@ -1889,6 +1889,7 @@ class TypingSimulation:
         sprint_duration = self.rng.uniform(
             *WORK_SPRINT_MINUTES
         )
+        sprint_start_ms = self.elapsed_ms
         sprint_elapsed = 0.0
         
         total_items = len(self.items)
@@ -1937,6 +1938,7 @@ class TypingSimulation:
                 sprint_duration = self.rng.uniform(
                     *WORK_SPRINT_MINUTES
                 )
+                sprint_start_ms = self.elapsed_ms
                 sprint_elapsed = 0.0
 
             if item.item_type == "text":
@@ -1972,7 +1974,7 @@ class TypingSimulation:
             elif item.item_type == "image":
                 self.insert_image(item)
 
-            sprint_elapsed = self.elapsed_ms / 1000
+            sprint_elapsed = (self.elapsed_ms - sprint_start_ms) / 1000
 
             if (index + 1) % 25 == 0:
                 self.state.save(index + 1, self.session_id, self.seed)
