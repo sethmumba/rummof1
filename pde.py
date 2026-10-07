@@ -4,11 +4,13 @@ AI Training Data Entry Simulation Engine: CSV to Excel
 A modular human typing simulator that:
 - Reads and parses tabular data from a CSV file.
 - Types cell-by-cell into Microsoft Excel using realistic human keystrokes.
-- Navigates via Tab (next column) and Enter (next row).
+- Formats headers automatically (Bolds them).
+- ALWAYS Autofits column width (Alt+H, O, I) for EVERY cell so data never overlaps.
+- Simulates realistic "chunk reading" (memorizes a row, types it fast, pauses at the end).
+- Models a 15% chance to "glance back" at the source document mid-row.
 - Models biomechanical finger movement, fatigue, drift, and thinking pauses.
 - Simulates realistic typos, adjacent-key slips, transpositions, and backspace repairs.
-- Calibrates against empirical keystroke datasets (e.g., CMU dataset).
-- Maintains crash-resilient resumable state and structured event logs.
+- Maintains crash-resilient resumable state and ALWAYS resumes from Column A of the current row.
 
 Install:
     pip install pynput pywin32
@@ -78,13 +80,14 @@ EXECUTE_IN_APPLICATION = True
 RANDOM_SEED: Optional[int] = 20261004
 PROFILE_NAME = "average"
 
-STARTUP_DELAY_SECONDS = 25
+STARTUP_DELAY_SECONDS = 10
 WORK_SPRINT_MINUTES = (75, 105)
 LONG_BREAK_MINUTES = (12, 18)
 SHORT_BREAK_MINUTES = (1, 3)
 SHORT_BREAK_INTERVAL_ROWS = (25, 45)
 
-SAFE_EXCEL_CELL_CLICK = (559, 16)
+# X and Y coordinates to click to ensure Excel is focused before typing
+SAFE_EXCEL_CELL_CLICK = (250, 250)  
 MAX_SESSION_HOURS = 12
 
 
@@ -126,10 +129,11 @@ class HumanProfile:
     uncorrected_probability: float
 
 
+# Profiles adjusted for "Chunk Reading"
 PROFILES = {
     "fast_accurate": HumanProfile(
         name="fast_accurate",
-        base_wpm=72, wpm_stddev=4, min_wpm=55, max_wpm=95,
+        base_wpm=60, wpm_stddev=4, min_wpm=45, max_wpm=85,
         base_error_rate=0.008,
         correction_probability=0.90,
         delayed_correction_probability=0.07,
@@ -141,9 +145,9 @@ PROFILES = {
         space_error_probability=0.08,
         pause_probability=0.025,
         word_pause_ms=(45, 180),
-        cell_pause_ms=(80, 220),
-        row_pause_ms=(300, 700),
-        thinking_pause_ms=(450, 1800),
+        cell_pause_ms=(150, 350),   # Fast physical Tab transition (no reading)
+        row_pause_ms=(1500, 3500),  # Reading the whole row at the start
+        thinking_pause_ms=(1000, 2500),
         key_interval_sigma=0.20,
         correction_delay_ms=(100, 600),
         fatigue_rate=0.003,
@@ -153,7 +157,7 @@ PROFILES = {
     ),
     "average": HumanProfile(
         name="average",
-        base_wpm=58, wpm_stddev=7, min_wpm=38, max_wpm=82,
+        base_wpm=48, wpm_stddev=7, min_wpm=32, max_wpm=72,
         base_error_rate=0.018,
         correction_probability=0.82,
         delayed_correction_probability=0.13,
@@ -165,9 +169,9 @@ PROFILES = {
         space_error_probability=0.13,
         pause_probability=0.055,
         word_pause_ms=(60, 260),
-        cell_pause_ms=(120, 400),
-        row_pause_ms=(500, 1200),
-        thinking_pause_ms=(600, 2400),
+        cell_pause_ms=(200, 500),   # Average physical Tab transition (no reading)
+        row_pause_ms=(2500, 5000),  # Reading the whole row at the start
+        thinking_pause_ms=(1500, 4000),
         key_interval_sigma=0.28,
         correction_delay_ms=(120, 900),
         fatigue_rate=0.005,
@@ -177,7 +181,7 @@ PROFILES = {
     ),
     "slow_careful": HumanProfile(
         name="slow_careful",
-        base_wpm=43, wpm_stddev=5, min_wpm=28, max_wpm=62,
+        base_wpm=38, wpm_stddev=5, min_wpm=25, max_wpm=55,
         base_error_rate=0.009,
         correction_probability=0.90,
         delayed_correction_probability=0.10,
@@ -189,9 +193,9 @@ PROFILES = {
         space_error_probability=0.08,
         pause_probability=0.095,
         word_pause_ms=(100, 380),
-        cell_pause_ms=(180, 600),
-        row_pause_ms=(800, 2000),
-        thinking_pause_ms=(700, 3000),
+        cell_pause_ms=(300, 800),   # Slower physical Tab transition
+        row_pause_ms=(3500, 7000),  # Reading the whole row at the start
+        thinking_pause_ms=(2000, 5000),
         key_interval_sigma=0.25,
         correction_delay_ms=(150, 1100),
         fatigue_rate=0.0035,
@@ -575,7 +579,8 @@ class EventLogger:
     def __init__(self, path: Path):
         self.path = path
         self.path.parent.mkdir(parents=True, exist_ok=True)
-        self.path.write_text("", encoding="utf-8")
+        if not self.path.exists():
+            self.path.write_text("", encoding="utf-8")
 
     def write(self, event: Event) -> None:
         with self.path.open("a", encoding="utf-8") as f:
@@ -652,7 +657,6 @@ class StateManager:
         tmp = self.path.with_suffix(".tmp")
         tmp.write_text(json.dumps(payload, indent=2), encoding="utf-8")
         tmp.replace(self.path)
-        logger.info(f"Checkpoint saved: progress up to cell {cell_index}")
 
     def clear(self) -> None:
         if self.path.exists():
@@ -683,18 +687,53 @@ class WindowsExcelExecutor:
         if self.enabled:
             self.tap(Key.backspace)
 
+    def toggle_bold(self) -> None:
+        if not self.enabled:
+            return
+        self.keyboard.press(Key.ctrl)
+        time.sleep(0.05)
+        self.tap('b', hold=0.05)
+        self.keyboard.release(Key.ctrl)
+        time.sleep(0.1)
+
+    def commit_in_place(self) -> None:
+        """Commits the cell text but keeps the cursor on the current cell (Ctrl+Enter)."""
+        if not self.enabled:
+            return
+        self.keyboard.press(Key.ctrl)
+        time.sleep(0.05)
+        self.tap(Key.enter, hold=0.05)
+        self.keyboard.release(Key.ctrl)
+        time.sleep(0.1)
+
+    def autofit_column(self) -> None:
+        """Simulates Alt + H, O, I to autofit the column width in Excel."""
+        if not self.enabled:
+            return
+        self.tap(Key.alt)
+        time.sleep(0.2)
+        self.tap('h')
+        time.sleep(0.1)
+        self.tap('o')
+        time.sleep(0.1)
+        self.tap('i')
+        time.sleep(0.2)
+
+    def home(self) -> None:
+        """Returns the cursor to the first column (A) of the current row."""
+        if self.enabled:
+            self.tap(Key.home)
+            time.sleep(0.1)
+
     def tab(self) -> None:
-        """Navigates to the next column in Excel."""
         if self.enabled:
             self.tap(Key.tab)
 
     def enter(self) -> None:
-        """Commits cell and returns to start of next row."""
         if self.enabled:
             self.tap(Key.enter)
 
     def alt_enter(self) -> None:
-        """Enters newline within a single Excel cell."""
         if not self.enabled:
             return
         self.keyboard.press(Key.alt)
@@ -872,7 +911,6 @@ class ExcelTypingSimulation:
         while i < len(text):
             char = text[i]
 
-            # In Excel, newline inside cell requires Alt+Enter
             if char == "\n":
                 self.executor.alt_enter()
                 self.emit(
@@ -926,7 +964,7 @@ class ExcelTypingSimulation:
         sprint_start_ms = self.elapsed_ms
 
         total_cells = len(self.cells)
-        logger.info(f"Session started with {total_cells} total cells across rows.")
+        logger.info(f"Session starting typing data loop...")
 
         for index in range(start_index, total_cells):
             if self.elapsed_ms / 3_600_000 >= MAX_SESSION_HOURS:
@@ -935,7 +973,6 @@ class ExcelTypingSimulation:
 
             cell = self.cells[index]
 
-            # Work sprint checks
             sprint_elapsed = (self.elapsed_ms - sprint_start_ms) / 1000
             if sprint_elapsed >= sprint_duration * 60:
                 duration = self.rng.uniform(*LONG_BREAK_MINUTES)
@@ -946,13 +983,23 @@ class ExcelTypingSimulation:
                 sprint_duration = self.rng.uniform(*WORK_SPRINT_MINUTES)
                 sprint_start_ms = self.elapsed_ms
 
-            # Type cell contents
+            if cell.row_idx == 0:
+                self.executor.toggle_bold()
+                self.emit("format", metadata={"action": "toggle_bold_on"}, row_idx=cell.row_idx, col_idx=cell.col_idx)
+
             self.type_cell(cell)
 
-            # Move to next cell or next row
+            # AUTO-FIT COLUMN FOR EVERY CELL
+            self.executor.commit_in_place()
+            self.executor.autofit_column()
+            self.emit("format", metadata={"action": "autofit_column_width"}, row_idx=cell.row_idx, col_idx=cell.col_idx)
+
             if cell.is_last_in_row:
-                # End of row: Enter moves down and aligns to col 1
-                self.executor.enter()
+                # Because we used commit_in_place (Ctrl+Enter), we must navigate manually
+                # Down goes to the next row, Home brings us to Column A
+                self.executor.tap(Key.down)
+                self.executor.home()
+
                 self.emit(
                     "navigation",
                     metadata={"action": "enter_new_row"},
@@ -960,6 +1007,8 @@ class ExcelTypingSimulation:
                     col_idx=cell.col_idx,
                 )
                 self.rows_since_break += 1
+                
+                # Reading pause for the new row (long pause to read entire line)
                 pause_dur = self.behavior.pause_duration("row_transition")
                 self.emit_pause(
                     pause_dur,
@@ -968,7 +1017,6 @@ class ExcelTypingSimulation:
                     col_idx=cell.col_idx,
                 )
 
-                # Check micro break after rows
                 if self.rows_since_break >= self.next_break_target:
                     brk_duration = self.rng.uniform(*SHORT_BREAK_MINUTES)
                     logger.info(f"[SHORT BREAK] Resting for {brk_duration:.1f} min...")
@@ -977,7 +1025,7 @@ class ExcelTypingSimulation:
                     self.rows_since_break = 0
                     self.next_break_target = self.rng.randint(*SHORT_BREAK_INTERVAL_ROWS)
             else:
-                # Next column in same row: Tab
+                # Still in the same row, tab to next column
                 self.executor.tab()
                 self.emit(
                     "navigation",
@@ -985,19 +1033,28 @@ class ExcelTypingSimulation:
                     row_idx=cell.row_idx,
                     col_idx=cell.col_idx,
                 )
+                
+                # Physical key transition pause
                 pause_dur = self.behavior.pause_duration("cell_transition")
+                reason = "cell_transition"
+
+                # 15% chance the human forgets the chunk they memorized and glances back at the source mid-row
+                if self.rng.random() < 0.15:
+                    glance_pause = self.rng.uniform(1000, 2500)
+                    pause_dur += glance_pause
+                    reason = "glance_back_at_source"
+                    logger.info(f"Row {cell.row_idx+1}: Glancing back at source document mid-row...")
+
                 self.emit_pause(
                     pause_dur,
-                    "cell_transition",
+                    reason,
                     row_idx=cell.row_idx,
                     col_idx=cell.col_idx,
                 )
 
-            # Periodic checkpointing
-            if (index + 1) % 25 == 0:
-                self.state.save(index + 1, self.session_id, self.seed)
+            # Checkpoint the exact cell we just completed
+            self.state.save(index + 1, self.session_id, self.seed)
 
-        self.state.save(total_cells, self.session_id, self.seed)
         summary = self.metrics.summary()
         summary.update({
             "session_id": self.session_id,
@@ -1055,14 +1112,27 @@ def main() -> None:
     if not cells:
         raise RuntimeError("No readable rows found in the CSV.")
 
-    logger.info(f"Target CSV: {args.csv} ({len(cells)} cells)")
-    logger.info(f"Starting at cell index {start_index}. Focus target Excel window!")
+    # --- RESUMPTION LOGIC: SNAP TO BEGINNING OF CURRENT ROW ---
+    if 0 < start_index < len(cells):
+        target_row = cells[start_index].row_idx
+        while start_index > 0 and cells[start_index - 1].row_idx == target_row:
+            start_index -= 1
+            
+    starting_row_number = cells[start_index].row_idx + 1 
+
+    logger.info(f"Target CSV: {args.csv} ({len(cells)} total cells)")
+    
+    if start_index > 0:
+        logger.info(f"RESUMING SAVED SESSION: Found checkpoint.")
+        logger.info(f"--> PLEASE CLICK COLUMN A of ROW {starting_row_number} IN EXCEL! <--")
+    else:
+        logger.info("--> PLEASE CLICK COLUMN A of ROW 1 IN EXCEL! <--")
 
     if config.execute:
         for remaining in range(STARTUP_DELAY_SECONDS, 0, -1):
-            print(f"Focus Excel cell. Starting in {remaining}s...", end="\r", flush=True)
+            print(f"Starting in {remaining}s... Focus the correct cell in Excel!", end="\r", flush=True)
             time.sleep(1)
-        print(" " * 45, end="\r")
+        print(" " * 65, end="\r")
 
         if human_click is not None:
             human_click(SAFE_EXCEL_CELL_CLICK[0], SAFE_EXCEL_CELL_CLICK[1])
@@ -1075,9 +1145,18 @@ def main() -> None:
         session_id=session_id,
     )
 
-    summary = simulation.run(start_index=start_index)
-    logger.info("Simulation completed.")
-    logger.info(json.dumps(summary, indent=2))
+    try:
+        summary = simulation.run(start_index=start_index)
+        logger.info("Simulation completed fully.")
+        logger.info(json.dumps(summary, indent=2))
+        
+        # Clear state file if simulation finishes completely
+        if state_manager.path.exists():
+            state_manager.clear()
+            
+    except KeyboardInterrupt:
+        logger.warning("\nSimulation interrupted by user. State has been preserved at the start of the current row.")
+        raise
 
 
 if __name__ == "__main__":
