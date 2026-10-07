@@ -1,0 +1,1001 @@
+transaction_id,transaction_datetime,branch,product_category,product_name,quantity,unit_price_kes,payment_method
+TXN100001,2026-07-01 11:19:40,Mombasa - Nyali,Household,Sunlight Dish Soap 750ml,1,190,M-Pesa
+TXN100002,2026-07-01 13:00:10,Nakuru - Town,Beverages,Tusker Lager 500ml,3,225,Airtel Money
+TXN100003,2026-07-01 13:04:22,Nairobi - Thika Road,Groceries,Pishori Rice 2kg,1,420,Cash
+TXN100004,2026-07-01 13:08:40,Nairobi - Thika Road,Clothing & Home,School Uniform Sweater,3,1100,M-Pesa
+TXN100005,2026-07-01 16:54:46,Eldoret - Elgon View,Groceries,Weetabix 24s,1,460,Cash
+TXN100006,2026-07-01 17:00:57,Nakuru - Town,Groceries,Brookside Fresh Milk 500ml,2,65,Visa/Mastercard Card
+TXN100007,2026-07-01 17:13:42,Nairobi - Thika Road,Beverages,Dasani Water 1.5L,5,70,M-Pesa
+TXN100008,2026-07-01 18:18:38,Nairobi - Karen,Groceries,Brookside Fresh Milk 500ml,12,65,M-Pesa
+TXN100009,2026-07-01 20:21:53,Nairobi - Thika Road,Beverages,Minute Maid Juice 1L,2,190,Visa/Mastercard Card
+TXN100010,2026-07-02 10:23:59,Nairobi - Westlands,Groceries,Unga Jogoo Maize Flour 2kg,1,195,M-Pesa
+TXN100011,2026-07-02 10:56:44,Nairobi - Thika Road,Personal Care,Sanitary Pads (Pack),1,160,Cash
+TXN100012,2026-07-02 12:09:00,Kisumu - Milimani,Meat & Dairy,Fresh Tilapia 1kg,2,650,Cash
+TXN100013,2026-07-02 14:36:06,Nairobi - Westlands,Groceries,Kabras Sugar 2kg,2,340,M-Pesa
+TXN100014,2026-07-02 14:55:20,Kisumu - Milimani,Clothing & Home,Bedsheet Set Double,1,2300,Visa/Mastercard Card
+TXN100015,2026-07-02 17:05:31,Nakuru - Town,Personal Care,Nivea Body Lotion 400ml,2,610,M-Pesa
+TXN100016,2026-07-02 18:38:11,Nairobi - Thika Road,Personal Care,Dettol Soap 175g,3,140,M-Pesa
+TXN100017,2026-07-02 19:25:59,Eldoret - Elgon View,Clothing & Home,Bath Towel,1,930,Visa/Mastercard Card
+TXN100018,2026-07-03 10:42:29,Nairobi - Westlands,Groceries,Brookside Fresh Milk 500ml,4,65,M-Pesa
+TXN100019,2026-07-03 10:59:34,Nairobi - Westlands,Groceries,Unga Jogoo Maize Flour 2kg,1,195,Visa/Mastercard Card
+TXN100020,2026-07-03 11:34:01,Nairobi - Westlands,Groceries,Pishori Rice 2kg,1,435,M-Pesa
+TXN100021,2026-07-03 11:45:58,Nakuru - Town,Groceries,Pishori Rice 2kg,4,410,Airtel Money
+TXN100022,2026-07-03 12:04:01,Nairobi - Thika Road,Personal Care,Dettol Soap 175g,4,140,M-Pesa
+TXN100023,2026-07-03 15:17:34,Mombasa - Nyali,Clothing & Home,Cotton T-Shirt,2,800,M-Pesa
+TXN100024,2026-07-03 16:10:07,Mombasa - Nyali,Fresh Produce,Tomatoes 1kg,2,120,Visa/Mastercard Card
+TXN100025,2026-07-03 17:57:38,Kisumu - Milimani,Groceries,Unga Jogoo Maize Flour 2kg,3,190,M-Pesa
+TXN100026,2026-07-03 19:49:43,Mombasa - Nyali,Groceries,Brookside Fresh Milk 500ml,3,65,M-Pesa
+TXN100027,2026-07-03 20:02:27,Nairobi - Karen,Personal Care,Colgate Toothpaste 100ml,2,185,M-Pesa
+TXN100028,2026-07-03 20:41:39,Nairobi - Westlands,Beverages,Coca-Cola 2L,12,155,Visa/Mastercard Card
+TXN100029,2026-07-04 09:30:39,Nakuru - Town,Personal Care,Colgate Toothpaste 100ml,2,175,Cash
+TXN100030,2026-07-04 09:41:49,Mombasa - Nyali,Meat & Dairy,Farmer's Choice Sausages 500g,1,450,Cash
+TXN100031,2026-07-04 10:35:05,Nairobi - Westlands,Beverages,Minute Maid Juice 1L,5,195,M-Pesa
+TXN100032,2026-07-04 11:41:09,Nakuru - Town,Beverages,Tusker Lager 500ml,4,225,Cash
+TXN100033,2026-07-04 14:21:02,Nairobi - Karen,Groceries,Unga Jogoo Maize Flour 2kg,1,195,M-Pesa
+TXN100034,2026-07-04 15:40:34,Kisumu - Milimani,Fresh Produce,Bananas 1kg,2,90,Cash
+TXN100035,2026-07-04 17:50:28,Nairobi - Thika Road,Meat & Dairy,Fresh Tilapia 1kg,2,650,M-Pesa
+TXN100036,2026-07-04 18:33:48,Nairobi - Westlands,Clothing & Home,Cotton T-Shirt,1,825,Cash
+TXN100037,2026-07-04 18:56:26,Eldoret - Elgon View,Clothing & Home,Bath Towel,2,930,Visa/Mastercard Card
+TXN100038,2026-07-04 20:54:28,Nairobi - Thika Road,Meat & Dairy,Cheddar Cheese 250g,1,420,Visa/Mastercard Card
+TXN100039,2026-07-05 08:05:03,Nairobi - Westlands,Electronics,Microwave Oven 20L,1,9785,Visa/Mastercard Card
+TXN100040,2026-07-05 11:25:09,Nairobi - Westlands,Beverages,Ketepa Pride Tea Bags 100s,3,320,Visa/Mastercard Card
+TXN100041,2026-07-05 11:31:12,Nairobi - Thika Road,Groceries,Blue Band Margarine 500g,3,255,Cash
+TXN100042,2026-07-05 12:05:52,Nairobi - Thika Road,Household,Sunlight Dish Soap 750ml,2,190,Visa/Mastercard Card
+TXN100043,2026-07-05 12:11:49,Nakuru - Town,Groceries,Tuzo Tea Leaves 500g,1,285,M-Pesa
+TXN100044,2026-07-05 16:00:52,Mombasa - Nyali,Groceries,Blue Band Margarine 500g,12,255,Visa/Mastercard Card
+TXN100045,2026-07-05 17:17:09,Nairobi - Thika Road,Beverages,Tusker Lager 500ml,2,230,Visa/Mastercard Card
+TXN100046,2026-07-05 17:53:38,Nairobi - Thika Road,Fresh Produce,Onions 1kg,1,110,M-Pesa
+TXN100047,2026-07-05 18:31:41,Mombasa - Nyali,Groceries,Blue Band Margarine 500g,1,255,M-Pesa
+TXN100048,2026-07-05 18:58:05,Nakuru - Town,Fresh Produce,Tomatoes 1kg,3,120,M-Pesa
+TXN100049,2026-07-05 19:11:26,Nairobi - Westlands,Personal Care,Dettol Soap 175g,6,145,Visa/Mastercard Card
+TXN100050,2026-07-05 19:14:12,Nakuru - Town,Household,Sunlight Dish Soap 750ml,1,185,Visa/Mastercard Card
+TXN100051,2026-07-05 21:36:30,Eldoret - Elgon View,Beverages,Coca-Cola 2L,2,145,M-Pesa
+TXN100052,2026-07-06 10:50:53,Nairobi - Westlands,Meat & Dairy,Beef Steak 1kg,6,805,Cash
+TXN100053,2026-07-06 14:24:58,Nakuru - Town,Groceries,Unga Jogoo Maize Flour 2kg,2,185,Visa/Mastercard Card
+TXN100054,2026-07-06 14:44:04,Nairobi - Westlands,Meat & Dairy,Beef Steak 1kg,6,805,Visa/Mastercard Card
+TXN100055,2026-07-06 14:51:36,Nairobi - Thika Road,Beverages,Minute Maid Juice 1L,2,190,Airtel Money
+TXN100056,2026-07-06 16:21:04,Nairobi - Westlands,Groceries,Brookside Fresh Milk 500ml,3,65,M-Pesa
+TXN100057,2026-07-06 16:44:30,Nairobi - Westlands,Beverages,Dasani Water 1.5L,1,70,M-Pesa
+TXN100058,2026-07-06 18:19:53,Nairobi - Thika Road,Beverages,Tusker Lager 500ml,2,230,M-Pesa
+TXN100059,2026-07-06 18:28:34,Nakuru - Town,Groceries,Tuzo Tea Leaves 500g,1,285,Visa/Mastercard Card
+TXN100060,2026-07-06 18:37:12,Nairobi - Karen,Personal Care,Nivea Body Lotion 400ml,4,640,M-Pesa
+TXN100061,2026-07-06 20:50:25,Kisumu - Milimani,Meat & Dairy,Farmer's Choice Sausages 500g,3,450,M-Pesa
+TXN100062,2026-07-06 20:57:54,Nairobi - Thika Road,Meat & Dairy,Farmer's Choice Sausages 500g,5,450,Visa/Mastercard Card
+TXN100063,2026-07-07 08:16:12,Nakuru - Town,Beverages,Tusker Lager 500ml,4,225,Visa/Mastercard Card
+TXN100064,2026-07-07 12:39:59,Mombasa - Nyali,Groceries,Elianto Cooking Oil 1L,1,360,M-Pesa
+TXN100065,2026-07-07 14:12:12,Nairobi - Karen,Beverages,Dasani Water 1.5L,4,70,Cash
+TXN100066,2026-07-07 16:44:08,Nairobi - Westlands,Beverages,Tusker Lager 500ml,1,235,M-Pesa
+TXN100067,2026-07-07 17:18:13,Nakuru - Town,Fresh Produce,Avocado Hass (each),2,40,Cash
+TXN100068,2026-07-08 11:18:14,Mombasa - Nyali,Household,Doom Insecticide 300ml,2,380,Visa/Mastercard Card
+TXN100069,2026-07-08 12:02:51,Nakuru - Town,Fresh Produce,Bananas 1kg,1,90,Cash
+TXN100070,2026-07-08 12:23:27,Mombasa - Nyali,Groceries,Weetabix 24s,2,470,M-Pesa
+TXN100071,2026-07-08 12:29:03,Nairobi - Thika Road,Electronics,Microwave Oven 20L,1,9500,Visa/Mastercard Card
+TXN100072,2026-07-08 12:40:27,Nairobi - Karen,Groceries,Unga Jogoo Maize Flour 2kg,2,195,M-Pesa
+TXN100073,2026-07-08 15:58:43,Nairobi - Thika Road,Fresh Produce,Tomatoes 1kg,1,120,Cash
+TXN100074,2026-07-08 17:15:15,Mombasa - Nyali,Beverages,Nescafe Classic 100g,1,520,Visa/Mastercard Card
+TXN100075,2026-07-08 17:20:11,Nairobi - Westlands,Groceries,Unga Jogoo Maize Flour 2kg,1,195,M-Pesa
+TXN100076,2026-07-08 19:24:20,Nairobi - Westlands,Personal Care,Colgate Toothpaste 100ml,4,185,Visa/Mastercard Card
+TXN100077,2026-07-08 21:54:25,Nakuru - Town,Fresh Produce,Onions 1kg,2,110,M-Pesa
+TXN100078,2026-07-09 08:06:33,Kisumu - Milimani,Groceries,Fresh Eggs Tray (30),1,480,M-Pesa
+TXN100079,2026-07-09 10:37:48,Eldoret - Elgon View,Groceries,Kabras Sugar 2kg,3,325,M-Pesa
+TXN100080,2026-07-09 12:41:26,Eldoret - Elgon View,Personal Care,Colgate Toothpaste 100ml,2,175,M-Pesa
+TXN100081,2026-07-09 13:17:40,Kisumu - Milimani,Fresh Produce,Bananas 1kg,1,90,Visa/Mastercard Card
+TXN100082,2026-07-09 13:17:42,Nairobi - Westlands,Personal Care,Nivea Body Lotion 400ml,5,640,Visa/Mastercard Card
+TXN100083,2026-07-09 17:54:26,Nairobi - Karen,Groceries,Elianto Cooking Oil 1L,3,370,Cash
+TXN100084,2026-07-09 18:41:02,Nairobi - Westlands,Household,Jik Bleach 750ml,1,215,M-Pesa
+TXN100085,2026-07-09 19:23:18,Mombasa - Nyali,Groceries,Weetabix 24s,3,470,Store Gift Card
+TXN100086,2026-07-10 09:46:16,Nairobi - Westlands,Household,Omo Detergent 1kg,5,340,Cash
+TXN100087,2026-07-10 11:48:37,Nairobi - Westlands,Household,Kitchen Foil Roll,1,270,Visa/Mastercard Card
+TXN100088,2026-07-10 13:15:46,Nairobi - Thika Road,Beverages,Nescafe Classic 100g,2,520,M-Pesa
+TXN100089,2026-07-10 13:47:02,Nakuru - Town,Fresh Produce,Carrots 1kg,4,100,Cash
+TXN100090,2026-07-10 14:55:54,Nairobi - Thika Road,Meat & Dairy,Beef Steak 1kg,3,780,M-Pesa
+TXN100091,2026-07-10 15:17:42,Eldoret - Elgon View,Meat & Dairy,Cheddar Cheese 250g,1,410,Cash
+TXN100092,2026-07-10 16:33:23,Nairobi - Westlands,Fresh Produce,Bananas 1kg,1,95,Visa/Mastercard Card
+TXN100093,2026-07-10 17:56:49,Mombasa - Nyali,Groceries,Weetabix 24s,3,470,Visa/Mastercard Card
+TXN100094,2026-07-10 18:20:33,Kisumu - Milimani,Groceries,Brookside Fresh Milk 500ml,2,65,M-Pesa
+TXN100095,2026-07-11 10:04:54,Nairobi - Karen,Household,Toilet Paper 10 Rolls,1,465,Visa/Mastercard Card
+TXN100096,2026-07-11 10:06:47,Mombasa - Nyali,Household,Jik Bleach 750ml,2,210,Cash
+TXN100097,2026-07-11 12:42:27,Nairobi - Westlands,Meat & Dairy,Lato Yoghurt 500ml,2,125,Cash
+TXN100098,2026-07-11 13:09:04,Nairobi - Thika Road,Groceries,Blue Band Margarine 500g,2,255,M-Pesa
+TXN100099,2026-07-11 14:07:19,Mombasa - Nyali,Household,Sunlight Dish Soap 750ml,2,190,M-Pesa
+TXN100100,2026-07-11 14:40:03,Kisumu - Milimani,Fresh Produce,Watermelon (each),3,250,M-Pesa
+TXN100101,2026-07-11 15:33:45,Nairobi - Thika Road,Fresh Produce,Onions 1kg,1,110,Cash
+TXN100102,2026-07-11 15:40:11,Nairobi - Karen,Fresh Produce,Tomatoes 1kg,1,125,Visa/Mastercard Card
+TXN100103,2026-07-11 17:42:31,Nakuru - Town,Beverages,Nescafe Classic 100g,6,510,M-Pesa
+TXN100104,2026-07-11 17:46:24,Nairobi - Thika Road,Electronics,Bluetooth Speaker,1,3800,Visa/Mastercard Card
+TXN100105,2026-07-11 18:35:57,Nairobi - Westlands,Clothing & Home,School Uniform Sweater,2,1135,M-Pesa
+TXN100106,2026-07-11 18:52:04,Nairobi - Westlands,Clothing & Home,Cooking Pot Set 5pc,1,4325,Cash
+TXN100107,2026-07-12 09:25:45,Nairobi - Thika Road,Beverages,Nescafe Classic 100g,2,520,Cash
+TXN100108,2026-07-12 11:32:29,Nairobi - Karen,Meat & Dairy,Farmer's Choice Sausages 500g,1,465,Cash
+TXN100109,2026-07-12 11:43:19,Nairobi - Westlands,Household,Doom Insecticide 300ml,2,390,Visa/Mastercard Card
+TXN100110,2026-07-12 12:18:50,Nairobi - Thika Road,Fresh Produce,Sukuma Wiki Bunch,1,30,Visa/Mastercard Card
+TXN100111,2026-07-12 12:29:09,Nakuru - Town,Meat & Dairy,Beef Steak 1kg,1,765,Visa/Mastercard Card
+TXN100112,2026-07-12 13:06:11,Nairobi - Karen,Clothing & Home,Bedsheet Set Double,1,2370,M-Pesa
+TXN100113,2026-07-12 14:26:21,Nairobi - Karen,Fresh Produce,Onions 1kg,4,115,Cash
+TXN100114,2026-07-12 16:02:01,Nairobi - Westlands,Groceries,Kabras Sugar 2kg,2,340,M-Pesa
+TXN100115,2026-07-12 17:21:59,Mombasa - Nyali,Clothing & Home,Cotton T-Shirt,1,800,Visa/Mastercard Card
+TXN100116,2026-07-12 18:54:20,Nairobi - Thika Road,Beverages,Ketepa Pride Tea Bags 100s,1,310,Visa/Mastercard Card
+TXN100117,2026-07-12 19:28:20,Nairobi - Westlands,Groceries,Fresh Eggs Tray (30),3,495,M-Pesa
+TXN100118,2026-07-12 19:28:51,Nairobi - Thika Road,Groceries,Brookside Fresh Milk 500ml,2,65,M-Pesa
+TXN100119,2026-07-12 20:54:15,Nakuru - Town,Groceries,Fresh Eggs Tray (30),2,470,Visa/Mastercard Card
+TXN100120,2026-07-13 13:20:42,Nairobi - Thika Road,Groceries,Brookside Fresh Milk 500ml,3,65,M-Pesa
+TXN100121,2026-07-13 17:26:14,Nairobi - Thika Road,Personal Care,Sanitary Pads (Pack),1,160,Visa/Mastercard Card
+TXN100122,2026-07-13 18:34:24,Mombasa - Nyali,Groceries,Weetabix 24s,3,470,Airtel Money
+TXN100123,2026-07-13 18:45:55,Nakuru - Town,Groceries,Brookside Fresh Milk 500ml,3,65,M-Pesa
+TXN100124,2026-07-13 19:18:14,Nairobi - Thika Road,Fresh Produce,Bananas 1kg,1,90,M-Pesa
+TXN100125,2026-07-13 19:32:12,Mombasa - Nyali,Meat & Dairy,Lato Yoghurt 500ml,2,120,M-Pesa
+TXN100126,2026-07-13 19:40:22,Mombasa - Nyali,Electronics,Bluetooth Speaker,1,3800,M-Pesa
+TXN100127,2026-07-14 08:09:03,Kisumu - Milimani,Beverages,Dasani Water 1.5L,1,70,Store Gift Card
+TXN100128,2026-07-14 08:16:14,Mombasa - Nyali,Meat & Dairy,Cheddar Cheese 250g,2,420,M-Pesa
+TXN100129,2026-07-14 08:45:04,Nairobi - Westlands,Beverages,Dasani Water 1.5L,5,70,Cash
+TXN100130,2026-07-14 10:14:20,Nairobi - Thika Road,Clothing & Home,Bath Towel,4,950,M-Pesa
+TXN100131,2026-07-14 10:38:51,Nairobi - Thika Road,Beverages,Coca-Cola 2L,4,150,Visa/Mastercard Card
+TXN100132,2026-07-14 11:11:35,Nairobi - Thika Road,Fresh Produce,Avocado Hass (each),3,40,Cash
+TXN100133,2026-07-14 12:12:34,Nairobi - Thika Road,Fresh Produce,Watermelon (each),1,250,Visa/Mastercard Card
+TXN100134,2026-07-14 13:35:56,Eldoret - Elgon View,Personal Care,Sanitary Pads (Pack),3,155,M-Pesa
+TXN100135,2026-07-14 13:37:19,Nairobi - Karen,Groceries,Unga Jogoo Maize Flour 2kg,1,195,Visa/Mastercard Card
+TXN100136,2026-07-14 15:38:12,Nairobi - Karen,Household,Kitchen Foil Roll,12,270,M-Pesa
+TXN100137,2026-07-14 17:19:54,Mombasa - Nyali,Beverages,Coca-Cola 2L,4,150,M-Pesa
+TXN100138,2026-07-14 18:02:32,Nakuru - Town,Groceries,Pishori Rice 2kg,5,410,M-Pesa
+TXN100139,2026-07-14 18:09:17,Nairobi - Westlands,Groceries,Kabras Sugar 2kg,3,340,Cash
+TXN100140,2026-07-14 18:59:34,Nairobi - Westlands,Groceries,Unga Jogoo Maize Flour 2kg,2,195,Visa/Mastercard Card
+TXN100141,2026-07-14 19:43:46,Nakuru - Town,Groceries,Weetabix 24s,1,460,M-Pesa
+TXN100142,2026-07-15 08:21:41,Kisumu - Milimani,Groceries,Brookside Fresh Milk 500ml,6,65,Cash
+TXN100143,2026-07-15 08:42:26,Nairobi - Westlands,Beverages,Coca-Cola 2L,1,155,Cash
+TXN100144,2026-07-15 09:49:30,Nairobi - Westlands,Household,Omo Detergent 1kg,1,340,Cash
+TXN100145,2026-07-15 10:56:34,Eldoret - Elgon View,Groceries,Fresh Eggs Tray (30),1,470,Cash
+TXN100146,2026-07-15 12:27:20,Nairobi - Thika Road,Groceries,Elianto Cooking Oil 1L,2,360,M-Pesa
+TXN100147,2026-07-15 13:01:34,Nairobi - Thika Road,Fresh Produce,Carrots 1kg,3,100,Cash
+TXN100148,2026-07-15 13:46:29,Kisumu - Milimani,Beverages,Ketepa Pride Tea Bags 100s,1,310,Visa/Mastercard Card
+TXN100149,2026-07-15 15:12:57,Nakuru - Town,Household,Toilet Paper 10 Rolls,3,440,Visa/Mastercard Card
+TXN100150,2026-07-15 17:01:08,Nairobi - Westlands,Groceries,Kabras Sugar 2kg,2,340,M-Pesa
+TXN100151,2026-07-15 18:57:02,Nairobi - Westlands,Groceries,Weetabix 24s,1,485,Cash
+TXN100152,2026-07-15 19:42:31,Nairobi - Westlands,Groceries,Pishori Rice 2kg,3,435,Visa/Mastercard Card
+TXN100153,2026-07-15 19:55:01,Nairobi - Karen,Groceries,Blue Band Margarine 500g,2,265,M-Pesa
+TXN100154,2026-07-15 19:55:09,Nairobi - Karen,Groceries,Pishori Rice 2kg,1,435,Visa/Mastercard Card
+TXN100155,2026-07-15 20:56:53,Nakuru - Town,Household,Jik Bleach 750ml,1,205,Airtel Money
+TXN100156,2026-07-16 08:33:27,Nairobi - Thika Road,Household,Sunlight Dish Soap 750ml,4,190,M-Pesa
+TXN100157,2026-07-16 10:38:08,Mombasa - Nyali,Fresh Produce,Sukuma Wiki Bunch,4,30,M-Pesa
+TXN100158,2026-07-16 12:51:27,Mombasa - Nyali,Household,Toilet Paper 10 Rolls,5,450,M-Pesa
+TXN100159,2026-07-16 13:46:36,Nairobi - Westlands,Groceries,Elianto Cooking Oil 1L,1,370,M-Pesa
+TXN100160,2026-07-16 16:30:44,Mombasa - Nyali,Groceries,Unga Jogoo Maize Flour 2kg,1,190,Cash
+TXN100161,2026-07-16 17:15:23,Nakuru - Town,Meat & Dairy,Lato Yoghurt 500ml,1,120,Cash
+TXN100162,2026-07-16 18:01:21,Nairobi - Karen,Household,Toilet Paper 10 Rolls,2,465,Airtel Money
+TXN100163,2026-07-16 18:13:51,Nairobi - Karen,Beverages,Tusker Lager 500ml,2,235,Cash
+TXN100164,2026-07-16 19:28:26,Kisumu - Milimani,Household,Omo Detergent 1kg,1,330,M-Pesa
+TXN100165,2026-07-16 20:13:37,Nairobi - Westlands,Personal Care,Dettol Soap 175g,3,145,M-Pesa
+TXN100166,2026-07-17 10:18:20,Kisumu - Milimani,Household,Jik Bleach 750ml,1,210,Visa/Mastercard Card
+TXN100167,2026-07-17 12:16:54,Kisumu - Milimani,Fresh Produce,Watermelon (each),3,250,M-Pesa
+TXN100168,2026-07-17 14:07:36,Kisumu - Milimani,Electronics,Bluetooth Speaker,1,3800,M-Pesa
+TXN100169,2026-07-17 15:14:24,Nairobi - Thika Road,Groceries,Pishori Rice 2kg,1,420,M-Pesa
+TXN100170,2026-07-17 15:31:07,Nairobi - Karen,Personal Care,Dove Shampoo 400ml,1,555,M-Pesa
+TXN100171,2026-07-17 15:53:17,Nakuru - Town,Household,Sunlight Dish Soap 750ml,1,185,Cash
+TXN100172,2026-07-17 18:12:34,Nairobi - Thika Road,Fresh Produce,Avocado Hass (each),1,40,Cash
+TXN100173,2026-07-17 18:33:07,Nairobi - Thika Road,Household,Sunlight Dish Soap 750ml,2,190,Cash
+TXN100174,2026-07-17 19:03:23,Mombasa - Nyali,Personal Care,Colgate Toothpaste 100ml,1,180,Airtel Money
+TXN100175,2026-07-17 20:30:22,Nairobi - Thika Road,Fresh Produce,Avocado Hass (each),1,40,Store Gift Card
+TXN100176,2026-07-17 20:41:04,Nakuru - Town,Fresh Produce,Avocado Hass (each),1,40,Cash
+TXN100177,2026-07-18 08:35:59,Nairobi - Westlands,Groceries,Fresh Eggs Tray (30),2,495,Airtel Money
+TXN100178,2026-07-18 08:47:03,Eldoret - Elgon View,Household,Sunlight Dish Soap 750ml,3,185,M-Pesa
+TXN100179,2026-07-18 10:03:53,Nakuru - Town,Household,Jik Bleach 750ml,1,205,M-Pesa
+TXN100180,2026-07-18 12:17:31,Nairobi - Thika Road,Groceries,Brookside Fresh Milk 500ml,2,65,Cash
+TXN100181,2026-07-18 12:31:01,Eldoret - Elgon View,Fresh Produce,Avocado Hass (each),2,40,M-Pesa
+TXN100182,2026-07-18 12:41:05,Mombasa - Nyali,Groceries,Blue Band Margarine 500g,2,255,Visa/Mastercard Card
+TXN100183,2026-07-18 13:45:57,Nakuru - Town,Meat & Dairy,Whole Chicken 1.5kg,2,705,Visa/Mastercard Card
+TXN100184,2026-07-18 15:35:20,Nairobi - Karen,Clothing & Home,Bedsheet Set Double,1,2370,M-Pesa
+TXN100185,2026-07-18 17:10:21,Nairobi - Karen,Fresh Produce,Carrots 1kg,5,105,Visa/Mastercard Card
+TXN100186,2026-07-18 17:21:56,Nairobi - Karen,Meat & Dairy,Lato Yoghurt 500ml,1,125,Cash
+TXN100187,2026-07-18 18:42:33,Kisumu - Milimani,Clothing & Home,Cooking Pot Set 5pc,1,4200,M-Pesa
+TXN100188,2026-07-18 18:51:30,Nairobi - Thika Road,Meat & Dairy,Whole Chicken 1.5kg,2,720,M-Pesa
+TXN100189,2026-07-18 19:42:07,Eldoret - Elgon View,Household,Sunlight Dish Soap 750ml,4,185,M-Pesa
+TXN100190,2026-07-19 10:00:36,Nairobi - Westlands,Beverages,Nescafe Classic 100g,2,535,M-Pesa
+TXN100191,2026-07-19 10:15:22,Nairobi - Karen,Fresh Produce,Tomatoes 1kg,3,125,Store Gift Card
+TXN100192,2026-07-19 11:37:26,Nairobi - Westlands,Groceries,Elianto Cooking Oil 1L,5,370,Visa/Mastercard Card
+TXN100193,2026-07-19 13:04:15,Nakuru - Town,Fresh Produce,Avocado Hass (each),1,40,M-Pesa
+TXN100194,2026-07-19 13:10:50,Nairobi - Thika Road,Groceries,Tuzo Tea Leaves 500g,12,290,M-Pesa
+TXN100195,2026-07-19 13:44:37,Eldoret - Elgon View,Clothing & Home,School Uniform Sweater,1,1080,M-Pesa
+TXN100196,2026-07-19 14:59:52,Kisumu - Milimani,Groceries,Exe Wheat Flour 2kg,1,205,M-Pesa
+TXN100197,2026-07-19 16:27:13,Kisumu - Milimani,Beverages,Coca-Cola 2L,5,150,M-Pesa
+TXN100198,2026-07-19 17:28:41,Mombasa - Nyali,Groceries,Weetabix 24s,2,470,M-Pesa
+TXN100199,2026-07-19 18:01:05,Nairobi - Thika Road,Household,Jik Bleach 750ml,1,210,M-Pesa
+TXN100200,2026-07-19 18:38:00,Nairobi - Thika Road,Groceries,Brookside Fresh Milk 500ml,12,65,Visa/Mastercard Card
+TXN100201,2026-07-19 19:19:41,Mombasa - Nyali,Beverages,Tusker Lager 500ml,1,230,M-Pesa
+TXN100202,2026-07-20 10:12:21,Nakuru - Town,Fresh Produce,Carrots 1kg,1,100,M-Pesa
+TXN100203,2026-07-20 11:37:37,Mombasa - Nyali,Household,Omo Detergent 1kg,6,330,M-Pesa
+TXN100204,2026-07-20 11:39:46,Mombasa - Nyali,Personal Care,Nivea Body Lotion 400ml,4,620,Visa/Mastercard Card
+TXN100205,2026-07-20 14:00:11,Nakuru - Town,Fresh Produce,Sukuma Wiki Bunch,5,30,Cash
+TXN100206,2026-07-20 16:25:37,Nairobi - Westlands,Beverages,Ketepa Pride Tea Bags 100s,3,320,Cash
+TXN100207,2026-07-20 19:48:26,Kisumu - Milimani,Household,Jik Bleach 750ml,3,210,M-Pesa
+TXN100208,2026-07-21 08:31:05,Mombasa - Nyali,Groceries,Brookside Fresh Milk 500ml,6,65,Cash
+TXN100209,2026-07-21 09:31:58,Nairobi - Westlands,Groceries,Fresh Eggs Tray (30),1,495,Cash
+TXN100210,2026-07-21 10:09:32,Nairobi - Thika Road,Groceries,Kabras Sugar 2kg,4,330,Cash
+TXN100211,2026-07-21 11:36:42,Nairobi - Thika Road,Personal Care,Dettol Soap 175g,3,140,M-Pesa
+TXN100212,2026-07-21 13:45:14,Nairobi - Karen,Fresh Produce,Bananas 1kg,4,95,Cash
+TXN100213,2026-07-21 18:59:44,Nairobi - Westlands,Beverages,Minute Maid Juice 1L,2,195,M-Pesa
+TXN100214,2026-07-21 20:51:11,Eldoret - Elgon View,Personal Care,Colgate Toothpaste 100ml,1,175,Visa/Mastercard Card
+TXN100215,2026-07-22 09:39:27,Nairobi - Thika Road,Beverages,Dasani Water 1.5L,1,70,Airtel Money
+TXN100216,2026-07-22 13:24:16,Mombasa - Nyali,Electronics,Bluetooth Speaker,1,3800,Visa/Mastercard Card
+TXN100217,2026-07-22 14:46:13,Mombasa - Nyali,Beverages,Dasani Water 1.5L,5,70,M-Pesa
+TXN100218,2026-07-22 14:59:37,Mombasa - Nyali,Groceries,Pishori Rice 2kg,4,420,M-Pesa
+TXN100219,2026-07-22 15:52:45,Mombasa - Nyali,Household,Sunlight Dish Soap 750ml,1,190,M-Pesa
+TXN100220,2026-07-22 16:10:31,Nairobi - Thika Road,Household,Omo Detergent 1kg,1,330,M-Pesa
+TXN100221,2026-07-22 17:02:36,Nairobi - Karen,Clothing & Home,Bedsheet Set Double,2,2370,Visa/Mastercard Card
+TXN100222,2026-07-22 18:22:10,Nakuru - Town,Groceries,Weetabix 24s,2,460,Cash
+TXN100223,2026-07-23 09:55:24,Mombasa - Nyali,Beverages,Dasani Water 1.5L,2,70,M-Pesa
+TXN100224,2026-07-23 10:06:33,Nairobi - Karen,Groceries,Kabras Sugar 2kg,2,340,M-Pesa
+TXN100225,2026-07-23 11:37:20,Mombasa - Nyali,Household,Doom Insecticide 300ml,1,380,Visa/Mastercard Card
+TXN100226,2026-07-23 11:53:21,Kisumu - Milimani,Electronics,Bluetooth Speaker,2,3800,Visa/Mastercard Card
+TXN100227,2026-07-23 14:06:35,Nairobi - Westlands,Groceries,Elianto Cooking Oil 1L,1,370,Cash
+TXN100228,2026-07-23 14:41:28,Nairobi - Thika Road,Personal Care,Dettol Soap 175g,12,140,Visa/Mastercard Card
+TXN100229,2026-07-23 15:44:41,Nairobi - Thika Road,Groceries,Pishori Rice 2kg,3,420,Airtel Money
+TXN100230,2026-07-23 17:02:46,Nakuru - Town,Meat & Dairy,Beef Steak 1kg,1,765,M-Pesa
+TXN100231,2026-07-23 17:05:53,Nairobi - Westlands,Groceries,Brookside Fresh Milk 500ml,5,65,Visa/Mastercard Card
+TXN100232,2026-07-23 17:57:19,Nairobi - Westlands,Household,Omo Detergent 1kg,2,340,Cash
+TXN100233,2026-07-23 18:08:06,Nairobi - Thika Road,Fresh Produce,Avocado Hass (each),2,40,Airtel Money
+TXN100234,2026-07-23 19:43:29,Nakuru - Town,Clothing & Home,Bedsheet Set Double,1,2255,M-Pesa
+TXN100235,2026-07-23 21:04:11,Nairobi - Westlands,Clothing & Home,Cooking Pot Set 5pc,1,4325,M-Pesa
+TXN100236,2026-07-24 09:04:43,Nakuru - Town,Personal Care,Dove Shampoo 400ml,1,530,M-Pesa
+TXN100237,2026-07-24 10:07:40,Mombasa - Nyali,Meat & Dairy,Lato Yoghurt 500ml,1,120,M-Pesa
+TXN100238,2026-07-24 12:05:47,Nairobi - Westlands,Clothing & Home,Bath Towel,5,980,Cash
+TXN100239,2026-07-24 12:28:56,Nairobi - Karen,Groceries,Blue Band Margarine 500g,2,265,M-Pesa
+TXN100240,2026-07-24 12:30:08,Kisumu - Milimani,Household,Doom Insecticide 300ml,4,380,M-Pesa
+TXN100241,2026-07-24 15:31:23,Nairobi - Westlands,Electronics,Electric Kettle 1.7L,1,2470,M-Pesa
+TXN100242,2026-07-24 19:14:45,Nairobi - Westlands,Fresh Produce,Irish Potatoes 2kg,1,165,Cash
+TXN100243,2026-07-25 08:47:50,Nairobi - Westlands,Groceries,Weetabix 24s,1,485,Cash
+TXN100244,2026-07-25 10:09:43,Nairobi - Westlands,Personal Care,Dove Shampoo 400ml,2,555,Visa/Mastercard Card
+TXN100245,2026-07-25 10:27:05,Nakuru - Town,Clothing & Home,Bedsheet Set Double,1,2255,M-Pesa
+TXN100246,2026-07-25 10:42:51,Eldoret - Elgon View,Meat & Dairy,Beef Steak 1kg,4,765,Store Gift Card
+TXN100247,2026-07-25 11:58:58,Kisumu - Milimani,Household,Omo Detergent 1kg,1,330,M-Pesa
+TXN100248,2026-07-25 12:26:48,Nairobi - Karen,Clothing & Home,Bath Towel,6,980,Cash
+TXN100249,2026-07-25 18:31:32,Nairobi - Westlands,Meat & Dairy,Fresh Tilapia 1kg,2,670,M-Pesa
+TXN100250,2026-07-25 20:34:36,Kisumu - Milimani,Household,Kitchen Foil Roll,2,260,Cash
+TXN100251,2026-07-26 10:23:11,Nakuru - Town,Fresh Produce,Watermelon (each),5,245,M-Pesa
+TXN100252,2026-07-26 11:02:24,Nakuru - Town,Beverages,Minute Maid Juice 1L,3,185,Cash
+TXN100253,2026-07-26 13:09:15,Nairobi - Thika Road,Groceries,Elianto Cooking Oil 1L,4,360,Visa/Mastercard Card
+TXN100254,2026-07-26 15:54:50,Nairobi - Karen,Groceries,Weetabix 24s,1,485,M-Pesa
+TXN100255,2026-07-26 18:04:11,Nairobi - Thika Road,Electronics,Bluetooth Speaker,1,3800,M-Pesa
+TXN100256,2026-07-26 18:34:48,Nairobi - Thika Road,Household,Jik Bleach 750ml,1,210,M-Pesa
+TXN100257,2026-07-27 11:55:52,Nairobi - Thika Road,Household,Toilet Paper 10 Rolls,3,450,M-Pesa
+TXN100258,2026-07-27 15:22:30,Nairobi - Karen,Groceries,Fresh Eggs Tray (30),1,495,Visa/Mastercard Card
+TXN100259,2026-07-27 15:40:01,Nairobi - Thika Road,Fresh Produce,Sukuma Wiki Bunch,2,30,Visa/Mastercard Card
+TXN100260,2026-07-27 16:52:18,Nairobi - Thika Road,Household,Jik Bleach 750ml,2,210,M-Pesa
+TXN100261,2026-07-27 17:16:42,Nairobi - Westlands,Groceries,Kabras Sugar 2kg,1,340,M-Pesa
+TXN100262,2026-07-27 18:51:03,Nairobi - Thika Road,Meat & Dairy,Cheddar Cheese 250g,1,420,M-Pesa
+TXN100263,2026-07-28 10:06:08,Nairobi - Karen,Household,Kitchen Foil Roll,3,270,M-Pesa
+TXN100264,2026-07-28 11:48:45,Kisumu - Milimani,Household,Omo Detergent 1kg,2,330,Cash
+TXN100265,2026-07-28 16:53:29,Nairobi - Karen,Groceries,Tuzo Tea Leaves 500g,3,300,M-Pesa
+TXN100266,2026-07-28 18:30:53,Nairobi - Karen,Beverages,Tusker Lager 500ml,3,235,M-Pesa
+TXN100267,2026-07-28 18:56:37,Mombasa - Nyali,Personal Care,Colgate Toothpaste 100ml,3,180,Cash
+TXN100268,2026-07-29 08:12:25,Nairobi - Karen,Fresh Produce,Onions 1kg,5,115,Cash
+TXN100269,2026-07-29 09:58:26,Nairobi - Westlands,Meat & Dairy,Fresh Tilapia 1kg,1,670,M-Pesa
+TXN100270,2026-07-29 11:04:51,Nairobi - Karen,Personal Care,Nivea Body Lotion 400ml,1,640,M-Pesa
+TXN100271,2026-07-29 12:17:14,Mombasa - Nyali,Meat & Dairy,Whole Chicken 1.5kg,4,720,Visa/Mastercard Card
+TXN100272,2026-07-29 12:20:01,Nakuru - Town,Household,Doom Insecticide 300ml,4,370,Cash
+TXN100273,2026-07-29 12:31:01,Nakuru - Town,Fresh Produce,Watermelon (each),3,245,Visa/Mastercard Card
+TXN100274,2026-07-29 13:57:17,Nairobi - Westlands,Meat & Dairy,Lato Yoghurt 500ml,1,125,M-Pesa
+TXN100275,2026-07-29 14:05:20,Nairobi - Karen,Groceries,Kabras Sugar 2kg,2,340,Visa/Mastercard Card
+TXN100276,2026-07-29 15:28:00,Eldoret - Elgon View,Groceries,Exe Wheat Flour 2kg,4,200,M-Pesa
+TXN100277,2026-07-29 18:14:04,Nairobi - Westlands,Groceries,Kabras Sugar 2kg,1,340,Visa/Mastercard Card
+TXN100278,2026-07-29 19:36:03,Nairobi - Karen,Groceries,Pishori Rice 2kg,1,435,Cash
+TXN100279,2026-07-29 19:37:46,Nairobi - Thika Road,Personal Care,Dettol Soap 175g,2,140,M-Pesa
+TXN100280,2026-07-30 09:41:17,Mombasa - Nyali,Groceries,Brookside Fresh Milk 500ml,1,65,Visa/Mastercard Card
+TXN100281,2026-07-30 14:39:56,Nairobi - Karen,Electronics,Phone Charger Type-C,2,980,M-Pesa
+TXN100282,2026-07-30 18:46:17,Nairobi - Thika Road,Household,Kitchen Foil Roll,2,260,M-Pesa
+TXN100283,2026-07-30 19:21:34,Mombasa - Nyali,Groceries,Fresh Eggs Tray (30),3,480,Visa/Mastercard Card
+TXN100284,2026-07-30 19:26:24,Nairobi - Westlands,Fresh Produce,Watermelon (each),2,260,Cash
+TXN100285,2026-07-30 19:46:50,Mombasa - Nyali,Groceries,Unga Jogoo Maize Flour 2kg,12,190,Cash
+TXN100286,2026-07-31 09:05:59,Nairobi - Westlands,Fresh Produce,Carrots 1kg,2,105,Cash
+TXN100287,2026-07-31 10:16:12,Mombasa - Nyali,Groceries,Brookside Fresh Milk 500ml,3,65,M-Pesa
+TXN100288,2026-07-31 10:47:32,Mombasa - Nyali,Electronics,Electric Kettle 1.7L,1,2400,Visa/Mastercard Card
+TXN100289,2026-07-31 12:47:37,Nairobi - Thika Road,Beverages,Ketepa Pride Tea Bags 100s,2,310,Cash
+TXN100290,2026-07-31 14:17:21,Nairobi - Karen,Fresh Produce,Tomatoes 1kg,1,125,M-Pesa
+TXN100291,2026-07-31 16:41:30,Mombasa - Nyali,Household,Kitchen Foil Roll,5,260,Visa/Mastercard Card
+TXN100292,2026-07-31 17:41:45,Nairobi - Karen,Meat & Dairy,Beef Steak 1kg,1,805,Cash
+TXN100293,2026-07-31 18:55:12,Mombasa - Nyali,Fresh Produce,Irish Potatoes 2kg,1,160,M-Pesa
+TXN100294,2026-07-31 20:49:38,Mombasa - Nyali,Beverages,Coca-Cola 2L,2,150,M-Pesa
+TXN100295,2026-08-01 11:24:17,Nairobi - Karen,Clothing & Home,Cooking Pot Set 5pc,1,4325,Visa/Mastercard Card
+TXN100296,2026-08-01 12:51:19,Nairobi - Westlands,Groceries,Tuzo Tea Leaves 500g,2,300,M-Pesa
+TXN100297,2026-08-01 13:28:15,Kisumu - Milimani,Household,Omo Detergent 1kg,1,330,M-Pesa
+TXN100298,2026-08-01 15:18:36,Nairobi - Thika Road,Groceries,Pishori Rice 2kg,5,420,Cash
+TXN100299,2026-08-01 18:43:25,Mombasa - Nyali,Meat & Dairy,Cheddar Cheese 250g,2,420,M-Pesa
+TXN100300,2026-08-01 18:49:29,Nairobi - Thika Road,Beverages,Nescafe Classic 100g,5,520,M-Pesa
+TXN100301,2026-08-01 19:17:49,Nairobi - Karen,Household,Sunlight Dish Soap 750ml,2,195,M-Pesa
+TXN100302,2026-08-02 08:31:54,Nairobi - Thika Road,Meat & Dairy,Beef Steak 1kg,2,780,M-Pesa
+TXN100303,2026-08-02 11:18:12,Nairobi - Thika Road,Household,Kitchen Foil Roll,1,260,Airtel Money
+TXN100304,2026-08-02 12:19:43,Nairobi - Westlands,Meat & Dairy,Cheddar Cheese 250g,2,435,Cash
+TXN100305,2026-08-02 16:18:01,Nairobi - Thika Road,Personal Care,Nivea Body Lotion 400ml,2,620,Cash
+TXN100306,2026-08-02 17:19:45,Nairobi - Thika Road,Clothing & Home,Bath Towel,2,950,M-Pesa
+TXN100307,2026-08-02 17:29:18,Nairobi - Westlands,Groceries,Unga Jogoo Maize Flour 2kg,1,195,M-Pesa
+TXN100308,2026-08-02 17:56:29,Eldoret - Elgon View,Groceries,Tuzo Tea Leaves 500g,3,285,M-Pesa
+TXN100309,2026-08-02 18:46:00,Eldoret - Elgon View,Groceries,Fresh Eggs Tray (30),3,470,Visa/Mastercard Card
+TXN100310,2026-08-02 19:52:50,Nairobi - Thika Road,Meat & Dairy,Farmer's Choice Sausages 500g,2,450,Cash
+TXN100311,2026-08-03 09:38:27,Eldoret - Elgon View,Fresh Produce,Avocado Hass (each),2,40,M-Pesa
+TXN100312,2026-08-03 10:37:54,Eldoret - Elgon View,Groceries,Exe Wheat Flour 2kg,2,200,M-Pesa
+TXN100313,2026-08-03 11:04:31,Nairobi - Westlands,Clothing & Home,School Uniform Sweater,2,1135,Cash
+TXN100314,2026-08-03 11:12:53,Kisumu - Milimani,Groceries,Blue Band Margarine 500g,1,255,M-Pesa
+TXN100315,2026-08-03 13:13:35,Nairobi - Karen,Beverages,Ketepa Pride Tea Bags 100s,1,320,M-Pesa
+TXN100316,2026-08-03 15:16:57,Nairobi - Thika Road,Personal Care,Colgate Toothpaste 100ml,1,180,M-Pesa
+TXN100317,2026-08-03 15:27:57,Nairobi - Westlands,Groceries,Fresh Eggs Tray (30),3,495,Visa/Mastercard Card
+TXN100318,2026-08-03 16:40:27,Nairobi - Thika Road,Clothing & Home,Bedsheet Set Double,1,2300,M-Pesa
+TXN100319,2026-08-03 20:48:11,Nairobi - Karen,Meat & Dairy,Beef Steak 1kg,5,805,Cash
+TXN100320,2026-08-04 09:51:33,Nairobi - Westlands,Meat & Dairy,Whole Chicken 1.5kg,1,740,Visa/Mastercard Card
+TXN100321,2026-08-04 12:06:16,Mombasa - Nyali,Beverages,Tusker Lager 500ml,2,230,M-Pesa
+TXN100322,2026-08-04 12:12:08,Nairobi - Westlands,Household,Kitchen Foil Roll,1,270,M-Pesa
+TXN100323,2026-08-04 12:20:21,Nakuru - Town,Groceries,Blue Band Margarine 500g,1,250,M-Pesa
+TXN100324,2026-08-04 15:50:58,Eldoret - Elgon View,Household,Jik Bleach 750ml,2,205,M-Pesa
+TXN100325,2026-08-04 17:44:08,Mombasa - Nyali,Fresh Produce,Onions 1kg,2,110,M-Pesa
+TXN100326,2026-08-05 08:23:13,Nairobi - Westlands,Fresh Produce,Irish Potatoes 2kg,4,165,Cash
+TXN100327,2026-08-05 09:30:33,Nairobi - Westlands,Fresh Produce,Irish Potatoes 2kg,5,165,Cash
+TXN100328,2026-08-05 11:05:34,Nairobi - Thika Road,Personal Care,Colgate Toothpaste 100ml,12,180,Cash
+TXN100329,2026-08-05 11:12:06,Mombasa - Nyali,Groceries,Unga Jogoo Maize Flour 2kg,3,190,M-Pesa
+TXN100330,2026-08-05 13:48:36,Nairobi - Thika Road,Groceries,Weetabix 24s,4,470,Cash
+TXN100331,2026-08-05 15:49:28,Nairobi - Karen,Beverages,Minute Maid Juice 1L,1,195,M-Pesa
+TXN100332,2026-08-05 15:58:55,Kisumu - Milimani,Groceries,Blue Band Margarine 500g,2,255,M-Pesa
+TXN100333,2026-08-05 19:36:42,Nairobi - Westlands,Groceries,Exe Wheat Flour 2kg,1,210,M-Pesa
+TXN100334,2026-08-05 19:54:32,Nairobi - Westlands,Clothing & Home,Bedsheet Set Double,1,2370,Cash
+TXN100335,2026-08-05 20:22:22,Mombasa - Nyali,Groceries,Weetabix 24s,4,470,Cash
+TXN100336,2026-08-06 10:43:34,Eldoret - Elgon View,Fresh Produce,Watermelon (each),3,245,Visa/Mastercard Card
+TXN100337,2026-08-06 12:21:20,Nairobi - Karen,Personal Care,Colgate Toothpaste 100ml,1,185,Cash
+TXN100338,2026-08-06 12:54:42,Nairobi - Karen,Clothing & Home,Cooking Pot Set 5pc,1,4325,Cash
+TXN100339,2026-08-06 13:03:47,Nairobi - Thika Road,Groceries,Blue Band Margarine 500g,2,255,M-Pesa
+TXN100340,2026-08-06 13:36:08,Nakuru - Town,Meat & Dairy,Lato Yoghurt 500ml,4,120,Visa/Mastercard Card
+TXN100341,2026-08-06 14:00:44,Kisumu - Milimani,Electronics,Bluetooth Speaker,1,3800,Visa/Mastercard Card
+TXN100342,2026-08-06 14:27:18,Nakuru - Town,Beverages,Coca-Cola 2L,3,145,Cash
+TXN100343,2026-08-06 14:51:50,Nairobi - Westlands,Household,Doom Insecticide 300ml,1,390,M-Pesa
+TXN100344,2026-08-06 16:10:04,Nairobi - Westlands,Fresh Produce,Avocado Hass (each),2,40,M-Pesa
+TXN100345,2026-08-06 17:05:42,Mombasa - Nyali,Meat & Dairy,Whole Chicken 1.5kg,1,720,M-Pesa
+TXN100346,2026-08-06 17:25:52,Nairobi - Karen,Household,Omo Detergent 1kg,2,340,M-Pesa
+TXN100347,2026-08-06 18:14:38,Mombasa - Nyali,Household,Jik Bleach 750ml,2,210,Cash
+TXN100348,2026-08-06 19:56:22,Nairobi - Thika Road,Personal Care,Nivea Body Lotion 400ml,2,620,Cash
+TXN100349,2026-08-07 09:45:05,Kisumu - Milimani,Fresh Produce,Carrots 1kg,3,100,M-Pesa
+TXN100350,2026-08-07 12:02:44,Kisumu - Milimani,Electronics,Microwave Oven 20L,1,9500,M-Pesa
+TXN100351,2026-08-07 12:05:01,Nairobi - Thika Road,Meat & Dairy,Fresh Tilapia 1kg,1,650,Cash
+TXN100352,2026-08-07 13:36:28,Kisumu - Milimani,Groceries,Exe Wheat Flour 2kg,1,205,Cash
+TXN100353,2026-08-07 13:43:20,Kisumu - Milimani,Fresh Produce,Onions 1kg,1,110,M-Pesa
+TXN100354,2026-08-07 14:05:07,Nairobi - Karen,Household,Doom Insecticide 300ml,1,390,Cash
+TXN100355,2026-08-07 15:17:26,Nairobi - Thika Road,Household,Sunlight Dish Soap 750ml,1,190,M-Pesa
+TXN100356,2026-08-07 15:59:04,Nairobi - Westlands,Meat & Dairy,Farmer's Choice Sausages 500g,1,465,Visa/Mastercard Card
+TXN100357,2026-08-07 17:48:32,Nairobi - Thika Road,Meat & Dairy,Beef Steak 1kg,1,780,Visa/Mastercard Card
+TXN100358,2026-08-07 17:50:57,Nairobi - Westlands,Household,Jik Bleach 750ml,2,215,Cash
+TXN100359,2026-08-07 18:21:51,Eldoret - Elgon View,Groceries,Pishori Rice 2kg,1,410,Visa/Mastercard Card
+TXN100360,2026-08-07 18:40:38,Nairobi - Westlands,Meat & Dairy,Beef Steak 1kg,1,805,M-Pesa
+TXN100361,2026-08-07 19:12:20,Eldoret - Elgon View,Meat & Dairy,Beef Steak 1kg,1,765,Cash
+TXN100362,2026-08-07 19:39:56,Nairobi - Westlands,Personal Care,Sanitary Pads (Pack),1,165,Cash
+TXN100363,2026-08-07 20:15:39,Mombasa - Nyali,Fresh Produce,Irish Potatoes 2kg,2,160,Cash
+TXN100364,2026-08-07 21:54:14,Mombasa - Nyali,Personal Care,Dove Shampoo 400ml,1,540,M-Pesa
+TXN100365,2026-08-08 11:33:48,Kisumu - Milimani,Groceries,Unga Jogoo Maize Flour 2kg,4,190,Cash
+TXN100366,2026-08-08 12:03:25,Nairobi - Thika Road,Meat & Dairy,Lato Yoghurt 500ml,1,120,M-Pesa
+TXN100367,2026-08-08 12:56:10,Kisumu - Milimani,Personal Care,Nivea Body Lotion 400ml,5,620,M-Pesa
+TXN100368,2026-08-08 13:53:00,Mombasa - Nyali,Fresh Produce,Irish Potatoes 2kg,2,160,Cash
+TXN100369,2026-08-08 13:53:31,Nairobi - Karen,Personal Care,Colgate Toothpaste 100ml,12,185,M-Pesa
+TXN100370,2026-08-08 14:44:03,Nairobi - Westlands,Groceries,Tuzo Tea Leaves 500g,2,300,Cash
+TXN100371,2026-08-08 19:02:28,Eldoret - Elgon View,Groceries,Pishori Rice 2kg,2,410,Visa/Mastercard Card
+TXN100372,2026-08-08 19:27:19,Kisumu - Milimani,Meat & Dairy,Beef Steak 1kg,2,780,Airtel Money
+TXN100373,2026-08-08 19:57:26,Nakuru - Town,Personal Care,Colgate Toothpaste 100ml,2,175,Visa/Mastercard Card
+TXN100374,2026-08-08 20:00:13,Eldoret - Elgon View,Electronics,Microwave Oven 20L,1,9310,Visa/Mastercard Card
+TXN100375,2026-08-08 20:37:05,Nairobi - Karen,Beverages,Minute Maid Juice 1L,1,195,M-Pesa
+TXN100376,2026-08-09 10:33:15,Nairobi - Westlands,Fresh Produce,Tomatoes 1kg,5,125,M-Pesa
+TXN100377,2026-08-09 11:16:14,Nairobi - Westlands,Meat & Dairy,Fresh Tilapia 1kg,3,670,M-Pesa
+TXN100378,2026-08-09 13:16:09,Kisumu - Milimani,Fresh Produce,Tomatoes 1kg,2,120,M-Pesa
+TXN100379,2026-08-09 16:58:24,Mombasa - Nyali,Fresh Produce,Irish Potatoes 2kg,1,160,Cash
+TXN100380,2026-08-09 17:23:30,Kisumu - Milimani,Meat & Dairy,Fresh Tilapia 1kg,2,650,M-Pesa
+TXN100381,2026-08-09 18:18:08,Eldoret - Elgon View,Groceries,Unga Jogoo Maize Flour 2kg,6,185,M-Pesa
+TXN100382,2026-08-09 18:28:18,Eldoret - Elgon View,Beverages,Coca-Cola 2L,5,145,M-Pesa
+TXN100383,2026-08-09 18:31:48,Mombasa - Nyali,Groceries,Fresh Eggs Tray (30),3,480,Cash
+TXN100384,2026-08-09 18:46:55,Nairobi - Karen,Beverages,Coca-Cola 2L,2,155,Cash
+TXN100385,2026-08-09 18:49:36,Kisumu - Milimani,Beverages,Coca-Cola 2L,1,150,M-Pesa
+TXN100386,2026-08-09 20:43:54,Nakuru - Town,Beverages,Coca-Cola 2L,1,145,M-Pesa
+TXN100387,2026-08-10 09:37:30,Eldoret - Elgon View,Meat & Dairy,Cheddar Cheese 250g,1,410,M-Pesa
+TXN100388,2026-08-10 10:07:33,Nairobi - Thika Road,Groceries,Exe Wheat Flour 2kg,3,205,M-Pesa
+TXN100389,2026-08-10 12:44:40,Nairobi - Karen,Meat & Dairy,Cheddar Cheese 250g,4,435,M-Pesa
+TXN100390,2026-08-10 13:34:22,Nairobi - Thika Road,Clothing & Home,School Uniform Sweater,2,1100,Visa/Mastercard Card
+TXN100391,2026-08-10 14:55:47,Nakuru - Town,Groceries,Brookside Fresh Milk 500ml,3,65,Visa/Mastercard Card
+TXN100392,2026-08-10 15:56:57,Eldoret - Elgon View,Meat & Dairy,Fresh Tilapia 1kg,2,635,Visa/Mastercard Card
+TXN100393,2026-08-10 18:19:16,Nairobi - Westlands,Meat & Dairy,Cheddar Cheese 250g,1,435,M-Pesa
+TXN100394,2026-08-10 19:20:46,Nairobi - Westlands,Clothing & Home,Bath Towel,12,980,M-Pesa
+TXN100395,2026-08-10 19:23:20,Nairobi - Westlands,Fresh Produce,Irish Potatoes 2kg,3,165,Cash
+TXN100396,2026-08-11 12:03:58,Nairobi - Thika Road,Household,Doom Insecticide 300ml,2,380,Visa/Mastercard Card
+TXN100397,2026-08-11 12:49:04,Nairobi - Karen,Groceries,Unga Jogoo Maize Flour 2kg,2,195,M-Pesa
+TXN100398,2026-08-11 12:52:57,Mombasa - Nyali,Groceries,Kabras Sugar 2kg,1,330,M-Pesa
+TXN100399,2026-08-11 12:56:09,Nairobi - Karen,Clothing & Home,Cooking Pot Set 5pc,1,4325,M-Pesa
+TXN100400,2026-08-11 14:26:17,Nairobi - Thika Road,Groceries,Weetabix 24s,2,470,Visa/Mastercard Card
+TXN100401,2026-08-11 15:24:18,Eldoret - Elgon View,Meat & Dairy,Farmer's Choice Sausages 500g,1,440,M-Pesa
+TXN100402,2026-08-11 16:49:59,Kisumu - Milimani,Beverages,Ketepa Pride Tea Bags 100s,1,310,Cash
+TXN100403,2026-08-11 17:58:45,Nairobi - Westlands,Household,Doom Insecticide 300ml,3,390,Visa/Mastercard Card
+TXN100404,2026-08-11 18:07:43,Mombasa - Nyali,Fresh Produce,Watermelon (each),3,250,M-Pesa
+TXN100405,2026-08-11 18:11:31,Nakuru - Town,Household,Doom Insecticide 300ml,3,370,M-Pesa
+TXN100406,2026-08-11 19:53:59,Nairobi - Thika Road,Groceries,Fresh Eggs Tray (30),1,480,Cash
+TXN100407,2026-08-12 09:37:48,Nakuru - Town,Fresh Produce,Tomatoes 1kg,2,120,M-Pesa
+TXN100408,2026-08-12 11:12:26,Nairobi - Thika Road,Beverages,Ketepa Pride Tea Bags 100s,6,310,Cash
+TXN100409,2026-08-12 11:29:56,Nakuru - Town,Household,Omo Detergent 1kg,2,325,Cash
+TXN100410,2026-08-12 12:41:34,Nairobi - Thika Road,Meat & Dairy,Whole Chicken 1.5kg,4,720,M-Pesa
+TXN100411,2026-08-12 12:51:23,Nakuru - Town,Fresh Produce,Watermelon (each),3,245,M-Pesa
+TXN100412,2026-08-12 13:37:18,Nakuru - Town,Meat & Dairy,Beef Steak 1kg,2,765,Cash
+TXN100413,2026-08-12 13:40:40,Nairobi - Westlands,Groceries,Fresh Eggs Tray (30),2,495,Visa/Mastercard Card
+TXN100414,2026-08-12 13:42:41,Nakuru - Town,Groceries,Elianto Cooking Oil 1L,2,355,M-Pesa
+TXN100415,2026-08-12 15:47:10,Nairobi - Karen,Groceries,Exe Wheat Flour 2kg,1,210,Store Gift Card
+TXN100416,2026-08-12 16:39:38,Nairobi - Thika Road,Meat & Dairy,Farmer's Choice Sausages 500g,1,450,M-Pesa
+TXN100417,2026-08-12 16:42:55,Kisumu - Milimani,Groceries,Brookside Fresh Milk 500ml,1,65,M-Pesa
+TXN100418,2026-08-12 17:03:47,Nairobi - Westlands,Meat & Dairy,Fresh Tilapia 1kg,5,670,Visa/Mastercard Card
+TXN100419,2026-08-12 17:26:22,Kisumu - Milimani,Personal Care,Dove Shampoo 400ml,5,540,Airtel Money
+TXN100420,2026-08-12 17:42:54,Mombasa - Nyali,Groceries,Elianto Cooking Oil 1L,2,360,M-Pesa
+TXN100421,2026-08-12 19:12:51,Nakuru - Town,Groceries,Brookside Fresh Milk 500ml,5,65,M-Pesa
+TXN100422,2026-08-12 19:15:06,Nakuru - Town,Meat & Dairy,Fresh Tilapia 1kg,4,635,Cash
+TXN100423,2026-08-12 19:54:34,Nakuru - Town,Fresh Produce,Avocado Hass (each),2,40,Cash
+TXN100424,2026-08-13 11:24:10,Eldoret - Elgon View,Household,Kitchen Foil Roll,6,255,M-Pesa
+TXN100425,2026-08-13 13:49:10,Mombasa - Nyali,Fresh Produce,Watermelon (each),3,250,Cash
+TXN100426,2026-08-13 14:26:01,Nairobi - Westlands,Personal Care,Nivea Body Lotion 400ml,2,640,Airtel Money
+TXN100427,2026-08-13 15:44:44,Nairobi - Karen,Beverages,Tusker Lager 500ml,3,235,M-Pesa
+TXN100428,2026-08-13 16:00:30,Nairobi - Karen,Meat & Dairy,Lato Yoghurt 500ml,2,125,M-Pesa
+TXN100429,2026-08-13 16:23:48,Nairobi - Thika Road,Groceries,Blue Band Margarine 500g,2,255,M-Pesa
+TXN100430,2026-08-13 17:03:50,Nairobi - Westlands,Beverages,Minute Maid Juice 1L,1,195,Cash
+TXN100431,2026-08-13 18:30:53,Nairobi - Westlands,Beverages,Nescafe Classic 100g,1,535,Cash
+TXN100432,2026-08-13 19:08:05,Nairobi - Westlands,Fresh Produce,Watermelon (each),1,260,M-Pesa
+TXN100433,2026-08-13 20:38:37,Nairobi - Westlands,Groceries,Tuzo Tea Leaves 500g,2,300,M-Pesa
+TXN100434,2026-08-13 20:46:55,Nakuru - Town,Meat & Dairy,Fresh Tilapia 1kg,1,635,Visa/Mastercard Card
+TXN100435,2026-08-14 12:57:41,Nairobi - Karen,Personal Care,Dettol Soap 175g,1,145,Visa/Mastercard Card
+TXN100436,2026-08-14 13:53:57,Nairobi - Thika Road,Groceries,Pishori Rice 2kg,1,420,M-Pesa
+TXN100437,2026-08-14 14:18:43,Nairobi - Karen,Beverages,Tusker Lager 500ml,2,235,M-Pesa
+TXN100438,2026-08-14 15:54:10,Nairobi - Westlands,Groceries,Exe Wheat Flour 2kg,2,210,M-Pesa
+TXN100439,2026-08-14 16:51:02,Eldoret - Elgon View,Household,Kitchen Foil Roll,1,255,M-Pesa
+TXN100440,2026-08-14 17:44:56,Mombasa - Nyali,Groceries,Exe Wheat Flour 2kg,1,205,Visa/Mastercard Card
+TXN100441,2026-08-14 19:50:41,Nairobi - Westlands,Fresh Produce,Irish Potatoes 2kg,4,165,Cash
+TXN100442,2026-08-15 09:09:17,Mombasa - Nyali,Personal Care,Nivea Body Lotion 400ml,12,620,Visa/Mastercard Card
+TXN100443,2026-08-15 12:02:29,Nairobi - Thika Road,Meat & Dairy,Fresh Tilapia 1kg,2,650,M-Pesa
+TXN100444,2026-08-15 12:36:17,Nairobi - Westlands,Groceries,Kabras Sugar 2kg,2,340,Visa/Mastercard Card
+TXN100445,2026-08-15 13:23:32,Eldoret - Elgon View,Personal Care,Dove Shampoo 400ml,1,530,Cash
+TXN100446,2026-08-15 14:46:39,Nairobi - Westlands,Fresh Produce,Irish Potatoes 2kg,1,165,M-Pesa
+TXN100447,2026-08-15 15:56:40,Nairobi - Westlands,Fresh Produce,Irish Potatoes 2kg,1,165,Visa/Mastercard Card
+TXN100448,2026-08-15 17:11:52,Nairobi - Westlands,Personal Care,Sanitary Pads (Pack),1,165,M-Pesa
+TXN100449,2026-08-15 18:18:20,Nakuru - Town,Groceries,Blue Band Margarine 500g,1,250,M-Pesa
+TXN100450,2026-08-15 18:22:31,Nakuru - Town,Household,Kitchen Foil Roll,1,255,M-Pesa
+TXN100451,2026-08-15 19:35:20,Nairobi - Thika Road,Personal Care,Dove Shampoo 400ml,3,540,Visa/Mastercard Card
+TXN100452,2026-08-15 19:50:34,Nairobi - Thika Road,Fresh Produce,Watermelon (each),3,250,M-Pesa
+TXN100453,2026-08-15 20:12:21,Nairobi - Westlands,Groceries,Blue Band Margarine 500g,1,265,Visa/Mastercard Card
+TXN100454,2026-08-15 20:36:09,Nakuru - Town,Meat & Dairy,Whole Chicken 1.5kg,4,705,Airtel Money
+TXN100455,2026-08-16 09:01:12,Nairobi - Karen,Groceries,Brookside Fresh Milk 500ml,1,65,M-Pesa
+TXN100456,2026-08-16 09:31:57,Nairobi - Westlands,Beverages,Nescafe Classic 100g,1,535,Visa/Mastercard Card
+TXN100457,2026-08-16 12:00:10,Nairobi - Karen,Groceries,Elianto Cooking Oil 1L,3,370,M-Pesa
+TXN100458,2026-08-16 13:29:07,Mombasa - Nyali,Groceries,Fresh Eggs Tray (30),2,480,Cash
+TXN100459,2026-08-16 13:36:02,Nairobi - Thika Road,Beverages,Ketepa Pride Tea Bags 100s,2,310,M-Pesa
+TXN100460,2026-08-16 13:41:35,Nairobi - Westlands,Beverages,Nescafe Classic 100g,3,535,Store Gift Card
+TXN100461,2026-08-16 13:58:29,Nairobi - Karen,Personal Care,Colgate Toothpaste 100ml,12,185,Visa/Mastercard Card
+TXN100462,2026-08-16 14:09:45,Nairobi - Westlands,Fresh Produce,Watermelon (each),1,260,Visa/Mastercard Card
+TXN100463,2026-08-16 15:58:17,Eldoret - Elgon View,Household,Toilet Paper 10 Rolls,5,440,Airtel Money
+TXN100464,2026-08-16 16:11:48,Nairobi - Westlands,Meat & Dairy,Beef Steak 1kg,1,805,M-Pesa
+TXN100465,2026-08-16 16:57:53,Nakuru - Town,Groceries,Elianto Cooking Oil 1L,1,355,Cash
+TXN100466,2026-08-16 18:06:08,Nairobi - Thika Road,Groceries,Tuzo Tea Leaves 500g,2,290,M-Pesa
+TXN100467,2026-08-17 08:22:22,Nairobi - Westlands,Fresh Produce,Carrots 1kg,4,105,Visa/Mastercard Card
+TXN100468,2026-08-17 10:46:53,Mombasa - Nyali,Groceries,Elianto Cooking Oil 1L,1,360,M-Pesa
+TXN100469,2026-08-17 11:43:31,Mombasa - Nyali,Beverages,Tusker Lager 500ml,2,230,M-Pesa
+TXN100470,2026-08-17 13:42:17,Mombasa - Nyali,Beverages,Ketepa Pride Tea Bags 100s,3,310,M-Pesa
+TXN100471,2026-08-17 13:49:43,Eldoret - Elgon View,Beverages,Nescafe Classic 100g,1,510,Cash
+TXN100472,2026-08-17 14:50:02,Kisumu - Milimani,Fresh Produce,Sukuma Wiki Bunch,1,30,M-Pesa
+TXN100473,2026-08-17 15:30:45,Nairobi - Thika Road,Electronics,Bluetooth Speaker,1,3800,Visa/Mastercard Card
+TXN100474,2026-08-17 16:06:45,Kisumu - Milimani,Personal Care,Colgate Toothpaste 100ml,1,180,M-Pesa
+TXN100475,2026-08-17 17:14:08,Mombasa - Nyali,Meat & Dairy,Lato Yoghurt 500ml,3,120,M-Pesa
+TXN100476,2026-08-17 17:42:25,Nairobi - Westlands,Beverages,Minute Maid Juice 1L,1,195,M-Pesa
+TXN100477,2026-08-17 18:11:07,Nairobi - Thika Road,Fresh Produce,Carrots 1kg,1,100,Visa/Mastercard Card
+TXN100478,2026-08-17 20:33:37,Nairobi - Thika Road,Beverages,Dasani Water 1.5L,1,70,Visa/Mastercard Card
+TXN100479,2026-08-18 11:43:15,Nairobi - Thika Road,Groceries,Pishori Rice 2kg,1,420,M-Pesa
+TXN100480,2026-08-18 13:31:54,Kisumu - Milimani,Fresh Produce,Carrots 1kg,1,100,M-Pesa
+TXN100481,2026-08-18 13:42:50,Nairobi - Westlands,Household,Jik Bleach 750ml,2,215,Cash
+TXN100482,2026-08-18 13:43:42,Nairobi - Karen,Personal Care,Dettol Soap 175g,3,145,M-Pesa
+TXN100483,2026-08-18 14:13:42,Nairobi - Thika Road,Groceries,Brookside Fresh Milk 500ml,1,65,Visa/Mastercard Card
+TXN100484,2026-08-18 15:26:10,Nairobi - Karen,Household,Kitchen Foil Roll,1,270,Cash
+TXN100485,2026-08-18 16:29:33,Nairobi - Westlands,Groceries,Weetabix 24s,5,485,Visa/Mastercard Card
+TXN100486,2026-08-18 16:59:53,Nairobi - Westlands,Fresh Produce,Onions 1kg,1,115,M-Pesa
+TXN100487,2026-08-18 17:14:43,Nairobi - Karen,Beverages,Minute Maid Juice 1L,2,195,Cash
+TXN100488,2026-08-18 17:56:07,Nairobi - Karen,Fresh Produce,Irish Potatoes 2kg,1,165,Visa/Mastercard Card
+TXN100489,2026-08-18 18:48:55,Mombasa - Nyali,Groceries,Brookside Fresh Milk 500ml,1,65,Cash
+TXN100490,2026-08-19 13:15:47,Nakuru - Town,Groceries,Brookside Fresh Milk 500ml,1,65,M-Pesa
+TXN100491,2026-08-19 18:37:45,Kisumu - Milimani,Clothing & Home,School Uniform Sweater,1,1100,Cash
+TXN100492,2026-08-19 18:47:15,Nairobi - Westlands,Electronics,Extension Cable 4-Way,1,1235,Airtel Money
+TXN100493,2026-08-19 18:47:56,Nairobi - Westlands,Groceries,Weetabix 24s,1,485,Cash
+TXN100494,2026-08-19 19:06:15,Eldoret - Elgon View,Fresh Produce,Avocado Hass (each),2,40,M-Pesa
+TXN100495,2026-08-19 19:26:15,Eldoret - Elgon View,Clothing & Home,School Uniform Sweater,4,1080,Visa/Mastercard Card
+TXN100496,2026-08-19 19:53:26,Mombasa - Nyali,Meat & Dairy,Farmer's Choice Sausages 500g,2,450,M-Pesa
+TXN100497,2026-08-20 09:00:06,Nairobi - Thika Road,Beverages,Ketepa Pride Tea Bags 100s,2,310,Cash
+TXN100498,2026-08-20 09:25:29,Mombasa - Nyali,Meat & Dairy,Farmer's Choice Sausages 500g,1,450,Visa/Mastercard Card
+TXN100499,2026-08-20 10:17:36,Mombasa - Nyali,Meat & Dairy,Whole Chicken 1.5kg,2,720,Cash
+TXN100500,2026-08-20 11:58:42,Nairobi - Westlands,Fresh Produce,Avocado Hass (each),2,40,Cash
+TXN100501,2026-08-20 12:52:50,Nairobi - Thika Road,Groceries,Exe Wheat Flour 2kg,1,205,Visa/Mastercard Card
+TXN100502,2026-08-20 13:59:36,Kisumu - Milimani,Groceries,Weetabix 24s,1,470,M-Pesa
+TXN100503,2026-08-20 16:50:56,Nakuru - Town,Beverages,Coca-Cola 2L,2,145,Visa/Mastercard Card
+TXN100504,2026-08-20 17:08:57,Nairobi - Westlands,Meat & Dairy,Cheddar Cheese 250g,1,435,Cash
+TXN100505,2026-08-20 18:05:08,Nairobi - Westlands,Groceries,Kabras Sugar 2kg,1,340,Airtel Money
+TXN100506,2026-08-20 19:18:04,Nairobi - Westlands,Groceries,Elianto Cooking Oil 1L,1,370,M-Pesa
+TXN100507,2026-08-21 09:06:43,Mombasa - Nyali,Household,Sunlight Dish Soap 750ml,1,190,M-Pesa
+TXN100508,2026-08-21 10:34:34,Nairobi - Westlands,Beverages,Minute Maid Juice 1L,1,195,Visa/Mastercard Card
+TXN100509,2026-08-21 10:54:13,Kisumu - Milimani,Groceries,Tuzo Tea Leaves 500g,1,290,Cash
+TXN100510,2026-08-21 12:09:12,Nairobi - Thika Road,Groceries,Elianto Cooking Oil 1L,2,360,M-Pesa
+TXN100511,2026-08-21 13:25:03,Nairobi - Karen,Meat & Dairy,Whole Chicken 1.5kg,1,740,M-Pesa
+TXN100512,2026-08-21 17:53:34,Eldoret - Elgon View,Fresh Produce,Tomatoes 1kg,1,120,M-Pesa
+TXN100513,2026-08-21 19:52:00,Nairobi - Westlands,Beverages,Nescafe Classic 100g,2,535,Cash
+TXN100514,2026-08-22 10:40:14,Nairobi - Thika Road,Groceries,Brookside Fresh Milk 500ml,1,65,M-Pesa
+TXN100515,2026-08-22 10:42:46,Mombasa - Nyali,Meat & Dairy,Fresh Tilapia 1kg,1,650,Visa/Mastercard Card
+TXN100516,2026-08-22 10:53:58,Nairobi - Westlands,Groceries,Pishori Rice 2kg,3,435,Visa/Mastercard Card
+TXN100517,2026-08-22 10:56:15,Nairobi - Karen,Fresh Produce,Bananas 1kg,1,95,M-Pesa
+TXN100518,2026-08-22 13:01:11,Nakuru - Town,Meat & Dairy,Farmer's Choice Sausages 500g,5,440,M-Pesa
+TXN100519,2026-08-22 17:07:06,Eldoret - Elgon View,Meat & Dairy,Beef Steak 1kg,1,765,M-Pesa
+TXN100520,2026-08-22 17:26:32,Kisumu - Milimani,Household,Sunlight Dish Soap 750ml,5,190,M-Pesa
+TXN100521,2026-08-22 17:58:56,Mombasa - Nyali,Groceries,Weetabix 24s,12,470,M-Pesa
+TXN100522,2026-08-22 18:48:33,Nairobi - Westlands,Personal Care,Colgate Toothpaste 100ml,2,185,M-Pesa
+TXN100523,2026-08-22 18:55:47,Mombasa - Nyali,Household,Toilet Paper 10 Rolls,1,450,M-Pesa
+TXN100524,2026-08-22 19:09:04,Mombasa - Nyali,Meat & Dairy,Fresh Tilapia 1kg,1,650,Cash
+TXN100525,2026-08-22 19:30:03,Nairobi - Westlands,Groceries,Tuzo Tea Leaves 500g,1,300,Visa/Mastercard Card
+TXN100526,2026-08-22 20:17:55,Nairobi - Karen,Beverages,Ketepa Pride Tea Bags 100s,5,320,Visa/Mastercard Card
+TXN100527,2026-08-23 09:32:23,Nairobi - Westlands,Groceries,Pishori Rice 2kg,1,435,Visa/Mastercard Card
+TXN100528,2026-08-23 11:37:38,Eldoret - Elgon View,Groceries,Kabras Sugar 2kg,1,325,Cash
+TXN100529,2026-08-23 11:55:42,Nairobi - Westlands,Groceries,Unga Jogoo Maize Flour 2kg,1,195,Visa/Mastercard Card
+TXN100530,2026-08-23 12:05:30,Eldoret - Elgon View,Groceries,Weetabix 24s,1,460,M-Pesa
+TXN100531,2026-08-23 12:15:26,Nairobi - Westlands,Personal Care,Nivea Body Lotion 400ml,1,640,M-Pesa
+TXN100532,2026-08-23 12:44:30,Nairobi - Thika Road,Beverages,Minute Maid Juice 1L,1,190,Cash
+TXN100533,2026-08-23 16:08:24,Nairobi - Westlands,Groceries,Kabras Sugar 2kg,1,340,M-Pesa
+TXN100534,2026-08-23 17:36:25,Nairobi - Karen,Personal Care,Colgate Toothpaste 100ml,1,185,M-Pesa
+TXN100535,2026-08-23 17:51:10,Nakuru - Town,Groceries,Unga Jogoo Maize Flour 2kg,12,185,M-Pesa
+TXN100536,2026-08-23 19:43:41,Nakuru - Town,Household,Sunlight Dish Soap 750ml,4,185,Cash
+TXN100537,2026-08-23 20:31:19,Nairobi - Westlands,Groceries,Weetabix 24s,1,485,Visa/Mastercard Card
+TXN100538,2026-08-24 10:30:49,Nakuru - Town,Groceries,Pishori Rice 2kg,1,410,M-Pesa
+TXN100539,2026-08-24 11:20:15,Nairobi - Thika Road,Household,Doom Insecticide 300ml,3,380,Visa/Mastercard Card
+TXN100540,2026-08-24 11:44:58,Eldoret - Elgon View,Groceries,Elianto Cooking Oil 1L,1,355,M-Pesa
+TXN100541,2026-08-24 12:51:44,Nakuru - Town,Meat & Dairy,Beef Steak 1kg,2,765,M-Pesa
+TXN100542,2026-08-24 14:15:17,Kisumu - Milimani,Personal Care,Dettol Soap 175g,1,140,Visa/Mastercard Card
+TXN100543,2026-08-24 16:39:17,Nairobi - Thika Road,Clothing & Home,Bedsheet Set Double,1,2300,Visa/Mastercard Card
+TXN100544,2026-08-24 17:29:32,Nairobi - Karen,Fresh Produce,Carrots 1kg,2,105,M-Pesa
+TXN100545,2026-08-24 18:39:11,Nairobi - Thika Road,Fresh Produce,Watermelon (each),1,250,Airtel Money
+TXN100546,2026-08-24 18:44:39,Nairobi - Westlands,Meat & Dairy,Whole Chicken 1.5kg,4,740,Visa/Mastercard Card
+TXN100547,2026-08-24 19:04:18,Nairobi - Karen,Meat & Dairy,Beef Steak 1kg,3,805,Cash
+TXN100548,2026-08-24 20:24:00,Eldoret - Elgon View,Groceries,Kabras Sugar 2kg,3,325,Visa/Mastercard Card
+TXN100549,2026-08-24 21:07:46,Nairobi - Thika Road,Groceries,Exe Wheat Flour 2kg,1,205,M-Pesa
+TXN100550,2026-08-25 10:19:23,Nairobi - Westlands,Personal Care,Colgate Toothpaste 100ml,5,185,M-Pesa
+TXN100551,2026-08-25 11:59:39,Nairobi - Thika Road,Meat & Dairy,Lato Yoghurt 500ml,1,120,M-Pesa
+TXN100552,2026-08-25 12:04:21,Nairobi - Thika Road,Beverages,Nescafe Classic 100g,6,520,Visa/Mastercard Card
+TXN100553,2026-08-25 12:32:51,Eldoret - Elgon View,Fresh Produce,Avocado Hass (each),2,40,Visa/Mastercard Card
+TXN100554,2026-08-25 13:59:36,Nairobi - Karen,Groceries,Tuzo Tea Leaves 500g,2,300,M-Pesa
+TXN100555,2026-08-25 14:55:07,Nakuru - Town,Personal Care,Dettol Soap 175g,3,135,Visa/Mastercard Card
+TXN100556,2026-08-25 15:40:34,Nairobi - Karen,Fresh Produce,Avocado Hass (each),2,40,M-Pesa
+TXN100557,2026-08-25 16:21:34,Nairobi - Westlands,Beverages,Dasani Water 1.5L,3,70,Visa/Mastercard Card
+TXN100558,2026-08-25 16:52:11,Nairobi - Karen,Meat & Dairy,Fresh Tilapia 1kg,1,670,M-Pesa
+TXN100559,2026-08-25 18:31:41,Mombasa - Nyali,Fresh Produce,Avocado Hass (each),1,40,M-Pesa
+TXN100560,2026-08-25 18:58:22,Eldoret - Elgon View,Clothing & Home,Cooking Pot Set 5pc,1,4115,M-Pesa
+TXN100561,2026-08-25 20:40:57,Nairobi - Westlands,Household,Doom Insecticide 300ml,1,390,Cash
+TXN100562,2026-08-26 10:44:34,Kisumu - Milimani,Groceries,Blue Band Margarine 500g,2,255,Visa/Mastercard Card
+TXN100563,2026-08-26 14:55:37,Eldoret - Elgon View,Groceries,Weetabix 24s,1,460,M-Pesa
+TXN100564,2026-08-26 16:20:26,Nairobi - Westlands,Groceries,Exe Wheat Flour 2kg,1,210,M-Pesa
+TXN100565,2026-08-26 17:22:52,Nakuru - Town,Fresh Produce,Avocado Hass (each),2,40,Visa/Mastercard Card
+TXN100566,2026-08-26 17:48:47,Nairobi - Karen,Household,Jik Bleach 750ml,2,215,Visa/Mastercard Card
+TXN100567,2026-08-26 18:05:57,Eldoret - Elgon View,Personal Care,Nivea Body Lotion 400ml,1,610,M-Pesa
+TXN100568,2026-08-26 18:08:00,Nairobi - Westlands,Fresh Produce,Bananas 1kg,1,95,M-Pesa
+TXN100569,2026-08-26 18:20:17,Nairobi - Westlands,Household,Kitchen Foil Roll,3,270,M-Pesa
+TXN100570,2026-08-26 18:26:51,Eldoret - Elgon View,Fresh Produce,Sukuma Wiki Bunch,3,30,M-Pesa
+TXN100571,2026-08-26 18:53:48,Mombasa - Nyali,Groceries,Pishori Rice 2kg,4,420,Visa/Mastercard Card
+TXN100572,2026-08-26 20:30:01,Nairobi - Karen,Personal Care,Sanitary Pads (Pack),1,165,Visa/Mastercard Card
+TXN100573,2026-08-26 20:37:19,Nairobi - Thika Road,Beverages,Tusker Lager 500ml,3,230,M-Pesa
+TXN100574,2026-08-26 21:33:33,Nairobi - Karen,Beverages,Minute Maid Juice 1L,1,195,M-Pesa
+TXN100575,2026-08-27 10:55:43,Mombasa - Nyali,Household,Jik Bleach 750ml,3,210,M-Pesa
+TXN100576,2026-08-27 10:57:53,Nairobi - Westlands,Fresh Produce,Onions 1kg,2,115,M-Pesa
+TXN100577,2026-08-27 13:42:19,Nairobi - Thika Road,Beverages,Dasani Water 1.5L,2,70,M-Pesa
+TXN100578,2026-08-27 14:11:39,Nairobi - Thika Road,Beverages,Nescafe Classic 100g,1,520,Airtel Money
+TXN100579,2026-08-27 14:21:13,Nairobi - Thika Road,Household,Jik Bleach 750ml,1,210,M-Pesa
+TXN100580,2026-08-27 14:56:02,Nairobi - Thika Road,Personal Care,Dettol Soap 175g,2,140,Visa/Mastercard Card
+TXN100581,2026-08-27 15:05:35,Eldoret - Elgon View,Household,Doom Insecticide 300ml,3,370,M-Pesa
+TXN100582,2026-08-27 15:39:02,Nairobi - Thika Road,Household,Doom Insecticide 300ml,2,380,Airtel Money
+TXN100583,2026-08-27 16:22:21,Eldoret - Elgon View,Meat & Dairy,Cheddar Cheese 250g,1,410,Visa/Mastercard Card
+TXN100584,2026-08-27 16:27:10,Kisumu - Milimani,Beverages,Minute Maid Juice 1L,2,190,Visa/Mastercard Card
+TXN100585,2026-08-27 16:45:55,Nairobi - Karen,Groceries,Unga Jogoo Maize Flour 2kg,2,195,M-Pesa
+TXN100586,2026-08-27 17:09:55,Mombasa - Nyali,Household,Omo Detergent 1kg,4,330,M-Pesa
+TXN100587,2026-08-27 17:30:18,Mombasa - Nyali,Groceries,Elianto Cooking Oil 1L,3,360,Cash
+TXN100588,2026-08-27 18:17:52,Eldoret - Elgon View,Clothing & Home,Cooking Pot Set 5pc,1,4115,M-Pesa
+TXN100589,2026-08-27 19:24:39,Mombasa - Nyali,Groceries,Brookside Fresh Milk 500ml,5,65,Visa/Mastercard Card
+TXN100590,2026-08-27 20:01:02,Nairobi - Westlands,Fresh Produce,Avocado Hass (each),3,40,M-Pesa
+TXN100591,2026-08-28 09:11:35,Nairobi - Westlands,Beverages,Minute Maid Juice 1L,5,195,M-Pesa
+TXN100592,2026-08-28 09:12:02,Nairobi - Karen,Household,Omo Detergent 1kg,1,340,M-Pesa
+TXN100593,2026-08-28 10:13:41,Nairobi - Karen,Beverages,Coca-Cola 2L,1,155,Store Gift Card
+TXN100594,2026-08-28 13:47:43,Eldoret - Elgon View,Groceries,Tuzo Tea Leaves 500g,4,285,M-Pesa
+TXN100595,2026-08-28 14:48:21,Kisumu - Milimani,Groceries,Elianto Cooking Oil 1L,2,360,Cash
+TXN100596,2026-08-28 19:27:25,Nairobi - Thika Road,Household,Kitchen Foil Roll,3,260,M-Pesa
+TXN100597,2026-08-28 20:09:00,Nairobi - Karen,Clothing & Home,Cooking Pot Set 5pc,2,4325,Visa/Mastercard Card
+TXN100598,2026-08-28 20:13:37,Mombasa - Nyali,Fresh Produce,Tomatoes 1kg,1,120,Visa/Mastercard Card
+TXN100599,2026-08-28 20:20:37,Nairobi - Thika Road,Groceries,Pishori Rice 2kg,3,420,Cash
+TXN100600,2026-08-28 20:39:59,Eldoret - Elgon View,Groceries,Weetabix 24s,1,460,Visa/Mastercard Card
+TXN100601,2026-08-29 11:16:24,Kisumu - Milimani,Fresh Produce,Carrots 1kg,1,100,M-Pesa
+TXN100602,2026-08-29 11:42:31,Kisumu - Milimani,Meat & Dairy,Fresh Tilapia 1kg,2,650,Cash
+TXN100603,2026-08-29 12:40:34,Kisumu - Milimani,Household,Sunlight Dish Soap 750ml,6,190,M-Pesa
+TXN100604,2026-08-29 14:43:13,Nairobi - Westlands,Meat & Dairy,Farmer's Choice Sausages 500g,1,465,Cash
+TXN100605,2026-08-29 14:58:51,Mombasa - Nyali,Meat & Dairy,Whole Chicken 1.5kg,12,720,M-Pesa
+TXN100606,2026-08-29 16:05:52,Nairobi - Thika Road,Household,Doom Insecticide 300ml,2,380,Cash
+TXN100607,2026-08-29 17:00:55,Nairobi - Karen,Beverages,Tusker Lager 500ml,5,235,M-Pesa
+TXN100608,2026-08-29 17:04:18,Kisumu - Milimani,Beverages,Minute Maid Juice 1L,1,190,Cash
+TXN100609,2026-08-29 17:04:40,Mombasa - Nyali,Fresh Produce,Bananas 1kg,3,90,Cash
+TXN100610,2026-08-29 17:19:46,Kisumu - Milimani,Groceries,Elianto Cooking Oil 1L,4,360,Cash
+TXN100611,2026-08-29 19:03:43,Nairobi - Thika Road,Beverages,Ketepa Pride Tea Bags 100s,1,310,M-Pesa
+TXN100612,2026-08-29 19:19:41,Nairobi - Westlands,Fresh Produce,Sukuma Wiki Bunch,1,30,Store Gift Card
+TXN100613,2026-08-29 19:49:54,Nairobi - Westlands,Fresh Produce,Onions 1kg,2,115,M-Pesa
+TXN100614,2026-08-29 20:13:28,Nakuru - Town,Household,Doom Insecticide 300ml,1,370,Visa/Mastercard Card
+TXN100615,2026-08-29 20:39:18,Eldoret - Elgon View,Beverages,Dasani Water 1.5L,1,70,Cash
+TXN100616,2026-08-30 08:10:35,Nairobi - Thika Road,Fresh Produce,Onions 1kg,2,110,M-Pesa
+TXN100617,2026-08-30 11:57:53,Nairobi - Westlands,Groceries,Tuzo Tea Leaves 500g,4,300,Visa/Mastercard Card
+TXN100618,2026-08-30 12:04:23,Nairobi - Thika Road,Beverages,Tusker Lager 500ml,2,230,M-Pesa
+TXN100619,2026-08-30 12:30:51,Nairobi - Thika Road,Fresh Produce,Onions 1kg,1,110,M-Pesa
+TXN100620,2026-08-30 16:10:32,Eldoret - Elgon View,Groceries,Elianto Cooking Oil 1L,2,355,Cash
+TXN100621,2026-08-30 17:42:42,Nairobi - Karen,Groceries,Weetabix 24s,4,485,M-Pesa
+TXN100622,2026-08-30 18:32:02,Kisumu - Milimani,Fresh Produce,Watermelon (each),2,250,Visa/Mastercard Card
+TXN100623,2026-08-30 18:48:59,Nairobi - Thika Road,Meat & Dairy,Lato Yoghurt 500ml,3,120,M-Pesa
+TXN100624,2026-08-30 19:12:23,Nairobi - Thika Road,Beverages,Nescafe Classic 100g,12,520,M-Pesa
+TXN100625,2026-08-30 19:48:36,Eldoret - Elgon View,Beverages,Nescafe Classic 100g,3,510,M-Pesa
+TXN100626,2026-08-30 19:55:10,Nairobi - Karen,Groceries,Fresh Eggs Tray (30),1,495,M-Pesa
+TXN100627,2026-08-31 10:34:59,Nairobi - Thika Road,Clothing & Home,Bath Towel,3,950,Cash
+TXN100628,2026-08-31 11:15:17,Eldoret - Elgon View,Meat & Dairy,Whole Chicken 1.5kg,6,705,Visa/Mastercard Card
+TXN100629,2026-08-31 11:35:35,Kisumu - Milimani,Meat & Dairy,Fresh Tilapia 1kg,2,650,M-Pesa
+TXN100630,2026-08-31 14:11:03,Nairobi - Westlands,Groceries,Fresh Eggs Tray (30),1,495,Cash
+TXN100631,2026-08-31 16:42:45,Nairobi - Thika Road,Fresh Produce,Bananas 1kg,4,90,M-Pesa
+TXN100632,2026-08-31 17:09:44,Nakuru - Town,Beverages,Coca-Cola 2L,1,145,Cash
+TXN100633,2026-08-31 18:24:22,Nakuru - Town,Beverages,Ketepa Pride Tea Bags 100s,5,305,Cash
+TXN100634,2026-08-31 18:38:59,Mombasa - Nyali,Household,Doom Insecticide 300ml,1,380,M-Pesa
+TXN100635,2026-09-01 08:35:22,Mombasa - Nyali,Groceries,Unga Jogoo Maize Flour 2kg,2,190,Cash
+TXN100636,2026-09-01 10:43:13,Nairobi - Karen,Fresh Produce,Avocado Hass (each),1,40,Airtel Money
+TXN100637,2026-09-01 11:08:09,Nairobi - Thika Road,Groceries,Pishori Rice 2kg,2,420,Visa/Mastercard Card
+TXN100638,2026-09-01 13:36:12,Nairobi - Karen,Meat & Dairy,Farmer's Choice Sausages 500g,2,465,M-Pesa
+TXN100639,2026-09-01 13:36:32,Nairobi - Karen,Fresh Produce,Bananas 1kg,1,95,M-Pesa
+TXN100640,2026-09-01 15:09:49,Nairobi - Thika Road,Meat & Dairy,Beef Steak 1kg,1,780,Cash
+TXN100641,2026-09-01 15:25:54,Nairobi - Westlands,Household,Omo Detergent 1kg,2,340,Airtel Money
+TXN100642,2026-09-01 15:53:07,Nairobi - Thika Road,Meat & Dairy,Cheddar Cheese 250g,3,420,M-Pesa
+TXN100643,2026-09-01 17:08:05,Nakuru - Town,Groceries,Tuzo Tea Leaves 500g,5,285,Cash
+TXN100644,2026-09-01 17:19:30,Nairobi - Westlands,Household,Toilet Paper 10 Rolls,1,465,M-Pesa
+TXN100645,2026-09-02 10:03:55,Nairobi - Thika Road,Groceries,Brookside Fresh Milk 500ml,4,65,M-Pesa
+TXN100646,2026-09-02 11:47:55,Mombasa - Nyali,Electronics,LED Bulb 12W,1,250,M-Pesa
+TXN100647,2026-09-02 14:31:26,Nairobi - Westlands,Beverages,Tusker Lager 500ml,2,235,M-Pesa
+TXN100648,2026-09-02 14:38:02,Nairobi - Westlands,Personal Care,Nivea Body Lotion 400ml,2,640,M-Pesa
+TXN100649,2026-09-02 15:58:35,Nairobi - Westlands,Groceries,Elianto Cooking Oil 1L,3,370,Cash
+TXN100650,2026-09-02 16:07:36,Nairobi - Thika Road,Groceries,Weetabix 24s,4,470,Visa/Mastercard Card
+TXN100651,2026-09-02 18:11:08,Nakuru - Town,Fresh Produce,Irish Potatoes 2kg,2,155,Visa/Mastercard Card
+TXN100652,2026-09-02 19:22:34,Mombasa - Nyali,Fresh Produce,Carrots 1kg,3,100,Visa/Mastercard Card
+TXN100653,2026-09-03 08:15:54,Kisumu - Milimani,Clothing & Home,Cooking Pot Set 5pc,1,4200,M-Pesa
+TXN100654,2026-09-03 10:45:29,Nairobi - Westlands,Groceries,Weetabix 24s,5,485,M-Pesa
+TXN100655,2026-09-03 10:50:43,Eldoret - Elgon View,Fresh Produce,Onions 1kg,1,110,M-Pesa
+TXN100656,2026-09-03 11:17:23,Mombasa - Nyali,Beverages,Tusker Lager 500ml,1,230,M-Pesa
+TXN100657,2026-09-03 12:00:18,Mombasa - Nyali,Household,Kitchen Foil Roll,2,260,Visa/Mastercard Card
+TXN100658,2026-09-03 12:03:40,Nakuru - Town,Groceries,Tuzo Tea Leaves 500g,5,285,M-Pesa
+TXN100659,2026-09-03 12:41:24,Nairobi - Thika Road,Fresh Produce,Irish Potatoes 2kg,1,160,Cash
+TXN100660,2026-09-03 13:11:56,Nairobi - Karen,Groceries,Exe Wheat Flour 2kg,3,210,Visa/Mastercard Card
+TXN100661,2026-09-03 13:49:54,Nairobi - Westlands,Meat & Dairy,Cheddar Cheese 250g,1,435,Visa/Mastercard Card
+TXN100662,2026-09-03 13:55:43,Mombasa - Nyali,Household,Sunlight Dish Soap 750ml,12,190,Cash
+TXN100663,2026-09-03 14:58:35,Nairobi - Thika Road,Fresh Produce,Sukuma Wiki Bunch,3,30,M-Pesa
+TXN100664,2026-09-03 17:03:11,Eldoret - Elgon View,Groceries,Weetabix 24s,12,460,M-Pesa
+TXN100665,2026-09-03 17:52:09,Mombasa - Nyali,Beverages,Dasani Water 1.5L,2,70,M-Pesa
+TXN100666,2026-09-03 18:27:42,Nairobi - Karen,Meat & Dairy,Whole Chicken 1.5kg,2,740,Cash
+TXN100667,2026-09-03 19:30:45,Nairobi - Thika Road,Beverages,Dasani Water 1.5L,4,70,M-Pesa
+TXN100668,2026-09-04 11:27:05,Nakuru - Town,Electronics,Extension Cable 4-Way,1,1175,Visa/Mastercard Card
+TXN100669,2026-09-04 13:21:51,Nairobi - Westlands,Meat & Dairy,Farmer's Choice Sausages 500g,3,465,M-Pesa
+TXN100670,2026-09-04 18:24:07,Nairobi - Thika Road,Groceries,Exe Wheat Flour 2kg,2,205,Cash
+TXN100671,2026-09-04 18:36:57,Eldoret - Elgon View,Beverages,Dasani Water 1.5L,2,70,Cash
+TXN100672,2026-09-05 12:02:50,Mombasa - Nyali,Beverages,Nescafe Classic 100g,3,520,Cash
+TXN100673,2026-09-05 12:46:43,Mombasa - Nyali,Fresh Produce,Tomatoes 1kg,1,120,Visa/Mastercard Card
+TXN100674,2026-09-05 13:40:10,Nairobi - Karen,Groceries,Weetabix 24s,2,485,Visa/Mastercard Card
+TXN100675,2026-09-05 17:08:13,Nakuru - Town,Household,Sunlight Dish Soap 750ml,2,185,M-Pesa
+TXN100676,2026-09-05 17:17:53,Nairobi - Westlands,Household,Kitchen Foil Roll,2,270,Cash
+TXN100677,2026-09-05 18:21:11,Nairobi - Westlands,Beverages,Coca-Cola 2L,3,155,M-Pesa
+TXN100678,2026-09-05 18:23:01,Nairobi - Thika Road,Fresh Produce,Tomatoes 1kg,3,120,M-Pesa
+TXN100679,2026-09-05 18:46:16,Nakuru - Town,Groceries,Brookside Fresh Milk 500ml,3,65,Visa/Mastercard Card
+TXN100680,2026-09-05 18:49:53,Mombasa - Nyali,Beverages,Dasani Water 1.5L,4,70,Visa/Mastercard Card
+TXN100681,2026-09-06 09:21:56,Nairobi - Westlands,Household,Jik Bleach 750ml,2,215,M-Pesa
+TXN100682,2026-09-06 09:55:19,Nairobi - Westlands,Household,Jik Bleach 750ml,1,215,Cash
+TXN100683,2026-09-06 10:42:27,Nairobi - Westlands,Meat & Dairy,Beef Steak 1kg,1,805,M-Pesa
+TXN100684,2026-09-06 11:43:00,Nakuru - Town,Beverages,Dasani Water 1.5L,1,70,M-Pesa
+TXN100685,2026-09-06 12:13:39,Mombasa - Nyali,Groceries,Blue Band Margarine 500g,3,255,Store Gift Card
+TXN100686,2026-09-06 12:51:34,Nairobi - Karen,Household,Sunlight Dish Soap 750ml,4,195,Cash
+TXN100687,2026-09-06 12:56:05,Nairobi - Karen,Groceries,Pishori Rice 2kg,3,435,Visa/Mastercard Card
+TXN100688,2026-09-06 14:14:08,Nakuru - Town,Household,Sunlight Dish Soap 750ml,5,185,Airtel Money
+TXN100689,2026-09-06 16:39:22,Nairobi - Thika Road,Electronics,Electric Kettle 1.7L,1,2400,Visa/Mastercard Card
+TXN100690,2026-09-06 19:00:18,Nairobi - Karen,Electronics,Bluetooth Speaker,1,3915,Cash
+TXN100691,2026-09-06 19:45:35,Nakuru - Town,Beverages,Coca-Cola 2L,2,145,M-Pesa
+TXN100692,2026-09-06 20:04:33,Nairobi - Thika Road,Meat & Dairy,Cheddar Cheese 250g,2,420,Cash
+TXN100693,2026-09-06 20:14:13,Nairobi - Westlands,Personal Care,Sanitary Pads (Pack),2,165,M-Pesa
+TXN100694,2026-09-06 21:48:49,Nakuru - Town,Groceries,Weetabix 24s,1,460,M-Pesa
+TXN100695,2026-09-07 08:46:06,Nairobi - Thika Road,Electronics,Electric Kettle 1.7L,1,2400,Visa/Mastercard Card
+TXN100696,2026-09-07 08:46:39,Nakuru - Town,Groceries,Blue Band Margarine 500g,1,250,M-Pesa
+TXN100697,2026-09-07 12:35:44,Mombasa - Nyali,Groceries,Pishori Rice 2kg,2,420,M-Pesa
+TXN100698,2026-09-07 12:37:27,Eldoret - Elgon View,Personal Care,Dove Shampoo 400ml,1,530,M-Pesa
+TXN100699,2026-09-07 13:08:46,Eldoret - Elgon View,Clothing & Home,Cotton T-Shirt,3,785,Cash
+TXN100700,2026-09-07 13:22:43,Kisumu - Milimani,Household,Doom Insecticide 300ml,3,380,M-Pesa
+TXN100701,2026-09-07 14:23:04,Nairobi - Thika Road,Meat & Dairy,Fresh Tilapia 1kg,1,650,Cash
+TXN100702,2026-09-07 14:54:14,Nakuru - Town,Fresh Produce,Sukuma Wiki Bunch,3,30,Cash
+TXN100703,2026-09-07 15:07:05,Nairobi - Thika Road,Meat & Dairy,Whole Chicken 1.5kg,5,720,M-Pesa
+TXN100704,2026-09-07 16:19:05,Kisumu - Milimani,Fresh Produce,Onions 1kg,4,110,Store Gift Card
+TXN100705,2026-09-07 16:52:09,Kisumu - Milimani,Groceries,Weetabix 24s,1,470,M-Pesa
+TXN100706,2026-09-07 19:56:47,Nairobi - Westlands,Household,Doom Insecticide 300ml,4,390,Cash
+TXN100707,2026-09-08 09:04:15,Kisumu - Milimani,Beverages,Minute Maid Juice 1L,12,190,M-Pesa
+TXN100708,2026-09-08 11:09:11,Eldoret - Elgon View,Groceries,Pishori Rice 2kg,1,410,Cash
+TXN100709,2026-09-08 12:09:58,Nairobi - Westlands,Groceries,Brookside Fresh Milk 500ml,1,65,M-Pesa
+TXN100710,2026-09-08 13:20:52,Mombasa - Nyali,Personal Care,Nivea Body Lotion 400ml,1,620,M-Pesa
+TXN100711,2026-09-08 13:23:56,Nairobi - Karen,Fresh Produce,Sukuma Wiki Bunch,2,30,Cash
+TXN100712,2026-09-08 13:31:02,Nairobi - Westlands,Groceries,Kabras Sugar 2kg,2,340,Cash
+TXN100713,2026-09-08 13:48:47,Eldoret - Elgon View,Groceries,Pishori Rice 2kg,2,410,M-Pesa
+TXN100714,2026-09-08 14:02:48,Kisumu - Milimani,Beverages,Minute Maid Juice 1L,1,190,Visa/Mastercard Card
+TXN100715,2026-09-08 14:24:52,Nairobi - Karen,Groceries,Fresh Eggs Tray (30),1,495,Visa/Mastercard Card
+TXN100716,2026-09-08 14:47:46,Nakuru - Town,Groceries,Tuzo Tea Leaves 500g,3,285,Cash
+TXN100717,2026-09-08 16:05:22,Nairobi - Karen,Groceries,Kabras Sugar 2kg,3,340,M-Pesa
+TXN100718,2026-09-08 19:41:22,Nairobi - Westlands,Groceries,Elianto Cooking Oil 1L,1,370,Visa/Mastercard Card
+TXN100719,2026-09-08 20:34:19,Nairobi - Thika Road,Groceries,Unga Jogoo Maize Flour 2kg,2,190,M-Pesa
+TXN100720,2026-09-09 11:33:09,Nairobi - Thika Road,Fresh Produce,Bananas 1kg,2,90,Visa/Mastercard Card
+TXN100721,2026-09-09 11:33:55,Kisumu - Milimani,Beverages,Dasani Water 1.5L,6,70,Cash
+TXN100722,2026-09-09 11:35:27,Mombasa - Nyali,Electronics,Extension Cable 4-Way,1,1200,M-Pesa
+TXN100723,2026-09-09 12:12:01,Nairobi - Westlands,Groceries,Elianto Cooking Oil 1L,5,370,Cash
+TXN100724,2026-09-09 12:17:30,Nairobi - Thika Road,Electronics,Phone Charger Type-C,1,950,M-Pesa
+TXN100725,2026-09-09 12:40:19,Nairobi - Westlands,Beverages,Coca-Cola 2L,2,155,Airtel Money
+TXN100726,2026-09-09 13:05:25,Nairobi - Westlands,Meat & Dairy,Farmer's Choice Sausages 500g,1,465,Cash
+TXN100727,2026-09-09 13:40:44,Nairobi - Karen,Fresh Produce,Onions 1kg,2,115,M-Pesa
+TXN100728,2026-09-09 14:54:27,Kisumu - Milimani,Groceries,Pishori Rice 2kg,5,420,Visa/Mastercard Card
+TXN100729,2026-09-09 15:16:30,Nairobi - Westlands,Beverages,Dasani Water 1.5L,1,70,Cash
+TXN100730,2026-09-09 17:43:21,Mombasa - Nyali,Groceries,Fresh Eggs Tray (30),12,480,Cash
+TXN100731,2026-09-09 18:13:27,Nakuru - Town,Fresh Produce,Irish Potatoes 2kg,2,155,M-Pesa
+TXN100732,2026-09-09 19:48:34,Mombasa - Nyali,Household,Jik Bleach 750ml,3,210,Cash
+TXN100733,2026-09-09 20:53:37,Nakuru - Town,Meat & Dairy,Cheddar Cheese 250g,4,410,Cash
+TXN100734,2026-09-10 10:15:29,Nairobi - Westlands,Groceries,Fresh Eggs Tray (30),1,495,M-Pesa
+TXN100735,2026-09-10 11:42:29,Nakuru - Town,Electronics,Phone Charger Type-C,1,930,Visa/Mastercard Card
+TXN100736,2026-09-10 12:09:54,Nairobi - Westlands,Beverages,Nescafe Classic 100g,2,535,M-Pesa
+TXN100737,2026-09-10 13:48:17,Eldoret - Elgon View,Meat & Dairy,Lato Yoghurt 500ml,4,120,Visa/Mastercard Card
+TXN100738,2026-09-10 13:48:40,Nairobi - Thika Road,Clothing & Home,School Uniform Sweater,1,1100,M-Pesa
+TXN100739,2026-09-10 13:50:21,Eldoret - Elgon View,Household,Doom Insecticide 300ml,3,370,Store Gift Card
+TXN100740,2026-09-10 14:36:48,Nairobi - Thika Road,Personal Care,Dettol Soap 175g,1,140,Cash
+TXN100741,2026-09-10 17:08:19,Mombasa - Nyali,Meat & Dairy,Lato Yoghurt 500ml,1,120,M-Pesa
+TXN100742,2026-09-10 17:31:09,Mombasa - Nyali,Groceries,Kabras Sugar 2kg,12,330,Cash
+TXN100743,2026-09-10 18:26:47,Nairobi - Thika Road,Groceries,Blue Band Margarine 500g,1,255,Cash
+TXN100744,2026-09-10 18:38:38,Nairobi - Thika Road,Household,Jik Bleach 750ml,3,210,Visa/Mastercard Card
+TXN100745,2026-09-10 20:14:09,Nairobi - Westlands,Fresh Produce,Watermelon (each),3,260,M-Pesa
+TXN100746,2026-09-10 20:16:22,Mombasa - Nyali,Groceries,Pishori Rice 2kg,1,420,Cash
+TXN100747,2026-09-11 08:38:20,Mombasa - Nyali,Electronics,Electric Kettle 1.7L,1,2400,Visa/Mastercard Card
+TXN100748,2026-09-11 11:53:48,Nakuru - Town,Meat & Dairy,Cheddar Cheese 250g,1,410,M-Pesa
+TXN100749,2026-09-11 17:12:11,Nakuru - Town,Beverages,Ketepa Pride Tea Bags 100s,5,305,Cash
+TXN100750,2026-09-11 17:38:14,Mombasa - Nyali,Groceries,Unga Jogoo Maize Flour 2kg,1,190,Cash
+TXN100751,2026-09-11 18:47:39,Nairobi - Thika Road,Groceries,Exe Wheat Flour 2kg,2,205,Visa/Mastercard Card
+TXN100752,2026-09-11 20:28:07,Eldoret - Elgon View,Meat & Dairy,Fresh Tilapia 1kg,3,635,Cash
+TXN100753,2026-09-12 09:40:45,Nairobi - Thika Road,Household,Kitchen Foil Roll,12,260,Visa/Mastercard Card
+TXN100754,2026-09-12 11:02:45,Nairobi - Westlands,Fresh Produce,Irish Potatoes 2kg,2,165,Cash
+TXN100755,2026-09-12 11:10:16,Mombasa - Nyali,Electronics,Electric Kettle 1.7L,2,2400,Visa/Mastercard Card
+TXN100756,2026-09-12 11:58:04,Nakuru - Town,Groceries,Fresh Eggs Tray (30),3,470,M-Pesa
+TXN100757,2026-09-12 12:33:09,Nairobi - Karen,Groceries,Elianto Cooking Oil 1L,12,370,Cash
+TXN100758,2026-09-12 13:14:39,Mombasa - Nyali,Household,Omo Detergent 1kg,3,330,Cash
+TXN100759,2026-09-12 13:40:26,Nairobi - Karen,Fresh Produce,Watermelon (each),1,260,Visa/Mastercard Card
+TXN100760,2026-09-12 14:46:25,Nairobi - Westlands,Meat & Dairy,Lato Yoghurt 500ml,3,125,M-Pesa
+TXN100761,2026-09-12 16:10:20,Nairobi - Westlands,Personal Care,Dove Shampoo 400ml,1,555,Cash
+TXN100762,2026-09-12 16:41:34,Mombasa - Nyali,Groceries,Elianto Cooking Oil 1L,1,360,Cash
+TXN100763,2026-09-12 17:03:09,Nairobi - Westlands,Groceries,Blue Band Margarine 500g,6,265,M-Pesa
+TXN100764,2026-09-12 17:11:38,Nairobi - Karen,Groceries,Elianto Cooking Oil 1L,3,370,M-Pesa
+TXN100765,2026-09-12 18:13:54,Nairobi - Karen,Groceries,Kabras Sugar 2kg,3,340,M-Pesa
+TXN100766,2026-09-12 18:22:03,Nairobi - Thika Road,Beverages,Coca-Cola 2L,1,150,Cash
+TXN100767,2026-09-12 18:47:14,Nakuru - Town,Clothing & Home,Bedsheet Set Double,2,2255,M-Pesa
+TXN100768,2026-09-12 19:07:37,Nakuru - Town,Beverages,Minute Maid Juice 1L,2,185,M-Pesa
+TXN100769,2026-09-12 19:30:19,Nakuru - Town,Groceries,Unga Jogoo Maize Flour 2kg,2,185,Visa/Mastercard Card
+TXN100770,2026-09-12 20:09:06,Nairobi - Karen,Groceries,Exe Wheat Flour 2kg,1,210,Visa/Mastercard Card
+TXN100771,2026-09-13 08:29:29,Kisumu - Milimani,Household,Doom Insecticide 300ml,2,380,M-Pesa
+TXN100772,2026-09-13 08:57:40,Eldoret - Elgon View,Fresh Produce,Onions 1kg,2,110,M-Pesa
+TXN100773,2026-09-13 10:08:40,Nairobi - Westlands,Household,Omo Detergent 1kg,2,340,Cash
+TXN100774,2026-09-13 12:59:37,Nairobi - Thika Road,Electronics,Electric Kettle 1.7L,1,2400,M-Pesa
+TXN100775,2026-09-13 13:02:05,Nairobi - Thika Road,Household,Toilet Paper 10 Rolls,1,450,M-Pesa
+TXN100776,2026-09-13 13:41:50,Mombasa - Nyali,Fresh Produce,Carrots 1kg,2,100,Visa/Mastercard Card
+TXN100777,2026-09-13 13:52:17,Nairobi - Thika Road,Groceries,Kabras Sugar 2kg,2,330,M-Pesa
+TXN100778,2026-09-13 14:41:48,Nairobi - Karen,Fresh Produce,Sukuma Wiki Bunch,1,30,M-Pesa
+TXN100779,2026-09-13 14:51:34,Nairobi - Thika Road,Beverages,Tusker Lager 500ml,2,230,Visa/Mastercard Card
+TXN100780,2026-09-13 16:26:18,Mombasa - Nyali,Groceries,Exe Wheat Flour 2kg,1,205,M-Pesa
+TXN100781,2026-09-13 16:35:18,Mombasa - Nyali,Groceries,Tuzo Tea Leaves 500g,2,290,Cash
+TXN100782,2026-09-13 16:46:03,Kisumu - Milimani,Beverages,Dasani Water 1.5L,2,70,Visa/Mastercard Card
+TXN100783,2026-09-13 16:48:50,Mombasa - Nyali,Household,Sunlight Dish Soap 750ml,1,190,Airtel Money
+TXN100784,2026-09-13 16:57:40,Nairobi - Karen,Beverages,Nescafe Classic 100g,1,535,Cash
+TXN100785,2026-09-13 17:05:49,Nairobi - Westlands,Beverages,Dasani Water 1.5L,3,70,M-Pesa
+TXN100786,2026-09-13 17:13:14,Nairobi - Thika Road,Personal Care,Dove Shampoo 400ml,5,540,M-Pesa
+TXN100787,2026-09-13 20:01:54,Nairobi - Westlands,Personal Care,Sanitary Pads (Pack),2,165,M-Pesa
+TXN100788,2026-09-14 09:07:58,Nairobi - Westlands,Groceries,Pishori Rice 2kg,1,435,M-Pesa
+TXN100789,2026-09-14 09:32:04,Nairobi - Thika Road,Fresh Produce,Carrots 1kg,1,100,M-Pesa
+TXN100790,2026-09-14 11:00:47,Kisumu - Milimani,Beverages,Coca-Cola 2L,2,150,Cash
+TXN100791,2026-09-14 11:08:27,Nairobi - Thika Road,Meat & Dairy,Beef Steak 1kg,4,780,M-Pesa
+TXN100792,2026-09-14 12:02:35,Kisumu - Milimani,Groceries,Weetabix 24s,2,470,M-Pesa
+TXN100793,2026-09-14 12:03:53,Mombasa - Nyali,Fresh Produce,Watermelon (each),5,250,Visa/Mastercard Card
+TXN100794,2026-09-14 12:24:04,Nairobi - Thika Road,Household,Doom Insecticide 300ml,1,380,Visa/Mastercard Card
+TXN100795,2026-09-14 13:06:55,Nairobi - Thika Road,Personal Care,Colgate Toothpaste 100ml,2,180,Visa/Mastercard Card
+TXN100796,2026-09-14 15:28:26,Nairobi - Karen,Groceries,Unga Jogoo Maize Flour 2kg,1,195,M-Pesa
+TXN100797,2026-09-14 15:36:43,Mombasa - Nyali,Fresh Produce,Watermelon (each),3,250,Visa/Mastercard Card
+TXN100798,2026-09-14 16:37:14,Nakuru - Town,Groceries,Unga Jogoo Maize Flour 2kg,1,185,Visa/Mastercard Card
+TXN100799,2026-09-14 19:58:11,Nairobi - Westlands,Beverages,Tusker Lager 500ml,2,235,M-Pesa
+TXN100800,2026-09-15 09:05:26,Eldoret - Elgon View,Beverages,Nescafe Classic 100g,2,510,M-Pesa
+TXN100801,2026-09-15 09:13:19,Nairobi - Karen,Electronics,Extension Cable 4-Way,1,1235,M-Pesa
+TXN100802,2026-09-15 09:49:52,Nairobi - Westlands,Groceries,Fresh Eggs Tray (30),2,495,Cash
+TXN100803,2026-09-15 09:56:00,Nakuru - Town,Clothing & Home,Bath Towel,1,930,Cash
+TXN100804,2026-09-15 11:37:52,Nairobi - Karen,Household,Kitchen Foil Roll,3,270,Visa/Mastercard Card
+TXN100805,2026-09-15 12:00:35,Nairobi - Thika Road,Fresh Produce,Watermelon (each),4,250,M-Pesa
+TXN100806,2026-09-15 12:06:35,Nairobi - Thika Road,Groceries,Exe Wheat Flour 2kg,6,205,M-Pesa
+TXN100807,2026-09-15 12:43:24,Nairobi - Thika Road,Clothing & Home,School Uniform Sweater,2,1100,M-Pesa
+TXN100808,2026-09-15 12:58:46,Nairobi - Thika Road,Personal Care,Colgate Toothpaste 100ml,1,180,Cash
+TXN100809,2026-09-15 13:06:36,Nairobi - Karen,Meat & Dairy,Whole Chicken 1.5kg,3,740,M-Pesa
+TXN100810,2026-09-15 15:25:34,Nairobi - Westlands,Meat & Dairy,Farmer's Choice Sausages 500g,2,465,Airtel Money
+TXN100811,2026-09-15 15:27:56,Nakuru - Town,Beverages,Dasani Water 1.5L,1,70,M-Pesa
+TXN100812,2026-09-15 15:29:32,Nairobi - Westlands,Beverages,Coca-Cola 2L,4,155,Cash
+TXN100813,2026-09-15 15:56:08,Nakuru - Town,Personal Care,Nivea Body Lotion 400ml,3,610,M-Pesa
+TXN100814,2026-09-15 17:17:35,Kisumu - Milimani,Groceries,Kabras Sugar 2kg,1,330,Cash
+TXN100815,2026-09-15 17:49:19,Eldoret - Elgon View,Groceries,Exe Wheat Flour 2kg,2,200,M-Pesa
+TXN100816,2026-09-15 18:37:30,Nairobi - Thika Road,Meat & Dairy,Fresh Tilapia 1kg,2,650,Cash
+TXN100817,2026-09-15 19:25:07,Nairobi - Karen,Groceries,Tuzo Tea Leaves 500g,3,300,Visa/Mastercard Card
+TXN100818,2026-09-16 11:23:48,Mombasa - Nyali,Groceries,Weetabix 24s,5,470,Cash
+TXN100819,2026-09-16 12:34:13,Nairobi - Thika Road,Fresh Produce,Bananas 1kg,2,90,Airtel Money
+TXN100820,2026-09-16 13:34:08,Mombasa - Nyali,Groceries,Brookside Fresh Milk 500ml,2,65,M-Pesa
+TXN100821,2026-09-16 15:07:49,Nairobi - Karen,Groceries,Elianto Cooking Oil 1L,1,370,Cash
+TXN100822,2026-09-16 17:03:58,Nakuru - Town,Beverages,Tusker Lager 500ml,1,225,M-Pesa
+TXN100823,2026-09-16 17:25:58,Nairobi - Thika Road,Groceries,Exe Wheat Flour 2kg,3,205,Cash
+TXN100824,2026-09-16 18:19:39,Mombasa - Nyali,Household,Kitchen Foil Roll,1,260,Cash
+TXN100825,2026-09-16 18:35:47,Mombasa - Nyali,Fresh Produce,Tomatoes 1kg,3,120,M-Pesa
+TXN100826,2026-09-16 20:45:07,Nairobi - Westlands,Household,Jik Bleach 750ml,12,215,M-Pesa
+TXN100827,2026-09-16 20:51:38,Nairobi - Thika Road,Beverages,Coca-Cola 2L,1,150,M-Pesa
+TXN100828,2026-09-17 12:02:46,Nairobi - Westlands,Groceries,Elianto Cooking Oil 1L,1,370,Cash
+TXN100829,2026-09-17 13:07:22,Nakuru - Town,Fresh Produce,Carrots 1kg,2,100,Visa/Mastercard Card
+TXN100830,2026-09-17 13:25:39,Nairobi - Thika Road,Household,Toilet Paper 10 Rolls,2,450,Cash
+TXN100831,2026-09-17 17:35:01,Nairobi - Karen,Beverages,Ketepa Pride Tea Bags 100s,4,320,M-Pesa
+TXN100832,2026-09-17 18:43:17,Nairobi - Thika Road,Groceries,Weetabix 24s,4,470,Visa/Mastercard Card
+TXN100833,2026-09-17 19:36:35,Nairobi - Thika Road,Personal Care,Colgate Toothpaste 100ml,2,180,Visa/Mastercard Card
+TXN100834,2026-09-17 19:45:01,Nairobi - Thika Road,Fresh Produce,Sukuma Wiki Bunch,2,30,M-Pesa
+TXN100835,2026-09-17 20:36:38,Kisumu - Milimani,Meat & Dairy,Farmer's Choice Sausages 500g,5,450,Cash
+TXN100836,2026-09-17 21:17:40,Mombasa - Nyali,Clothing & Home,Cotton T-Shirt,1,800,M-Pesa
+TXN100837,2026-09-18 09:03:42,Nairobi - Westlands,Groceries,Unga Jogoo Maize Flour 2kg,1,195,M-Pesa
+TXN100838,2026-09-18 09:22:00,Eldoret - Elgon View,Meat & Dairy,Whole Chicken 1.5kg,4,705,Cash
+TXN100839,2026-09-18 09:56:12,Nairobi - Karen,Meat & Dairy,Farmer's Choice Sausages 500g,2,465,M-Pesa
+TXN100840,2026-09-18 12:10:30,Mombasa - Nyali,Fresh Produce,Avocado Hass (each),1,40,M-Pesa
+TXN100841,2026-09-18 12:35:14,Kisumu - Milimani,Meat & Dairy,Fresh Tilapia 1kg,4,650,Visa/Mastercard Card
+TXN100842,2026-09-18 13:40:20,Mombasa - Nyali,Groceries,Pishori Rice 2kg,2,420,Visa/Mastercard Card
+TXN100843,2026-09-18 13:43:44,Nakuru - Town,Household,Omo Detergent 1kg,1,325,M-Pesa
+TXN100844,2026-09-18 13:48:34,Mombasa - Nyali,Meat & Dairy,Lato Yoghurt 500ml,3,120,M-Pesa
+TXN100845,2026-09-18 14:07:53,Mombasa - Nyali,Personal Care,Sanitary Pads (Pack),2,160,Cash
+TXN100846,2026-09-18 14:44:58,Nairobi - Karen,Fresh Produce,Watermelon (each),4,260,Cash
+TXN100847,2026-09-18 15:35:52,Mombasa - Nyali,Household,Doom Insecticide 300ml,1,380,M-Pesa
+TXN100848,2026-09-18 15:58:25,Mombasa - Nyali,Beverages,Ketepa Pride Tea Bags 100s,1,310,M-Pesa
+TXN100849,2026-09-18 16:06:13,Nairobi - Westlands,Meat & Dairy,Cheddar Cheese 250g,1,435,Visa/Mastercard Card
+TXN100850,2026-09-18 17:16:03,Eldoret - Elgon View,Fresh Produce,Onions 1kg,1,110,Cash
+TXN100851,2026-09-18 17:21:41,Nairobi - Karen,Electronics,LED Bulb 12W,1,260,M-Pesa
+TXN100852,2026-09-18 17:59:39,Nairobi - Thika Road,Personal Care,Dove Shampoo 400ml,1,540,M-Pesa
+TXN100853,2026-09-18 18:40:28,Nairobi - Westlands,Household,Jik Bleach 750ml,1,215,M-Pesa
+TXN100854,2026-09-18 20:20:46,Nakuru - Town,Clothing & Home,Cooking Pot Set 5pc,1,4115,Visa/Mastercard Card
+TXN100855,2026-09-19 09:04:57,Nakuru - Town,Groceries,Weetabix 24s,2,460,Cash
+TXN100856,2026-09-19 09:29:32,Nairobi - Westlands,Fresh Produce,Carrots 1kg,4,105,M-Pesa
+TXN100857,2026-09-19 10:37:47,Nairobi - Thika Road,Household,Jik Bleach 750ml,1,210,Visa/Mastercard Card
+TXN100858,2026-09-19 12:13:39,Mombasa - Nyali,Beverages,Ketepa Pride Tea Bags 100s,1,310,Store Gift Card
+TXN100859,2026-09-19 14:10:36,Mombasa - Nyali,Groceries,Elianto Cooking Oil 1L,4,360,M-Pesa
+TXN100860,2026-09-19 14:55:34,Nairobi - Thika Road,Personal Care,Dove Shampoo 400ml,4,540,Visa/Mastercard Card
+TXN100861,2026-09-19 15:48:36,Nakuru - Town,Household,Sunlight Dish Soap 750ml,3,185,Cash
+TXN100862,2026-09-19 16:52:13,Nairobi - Karen,Groceries,Brookside Fresh Milk 500ml,1,65,M-Pesa
+TXN100863,2026-09-19 19:19:22,Eldoret - Elgon View,Fresh Produce,Irish Potatoes 2kg,1,155,Airtel Money
+TXN100864,2026-09-19 20:05:37,Nairobi - Westlands,Beverages,Coca-Cola 2L,1,155,Visa/Mastercard Card
+TXN100865,2026-09-20 08:05:52,Nairobi - Westlands,Groceries,Blue Band Margarine 500g,2,265,M-Pesa
+TXN100866,2026-09-20 10:47:17,Mombasa - Nyali,Groceries,Brookside Fresh Milk 500ml,3,65,Visa/Mastercard Card
+TXN100867,2026-09-20 11:43:56,Nairobi - Westlands,Personal Care,Nivea Body Lotion 400ml,6,640,Visa/Mastercard Card
+TXN100868,2026-09-20 12:16:42,Mombasa - Nyali,Groceries,Fresh Eggs Tray (30),5,480,M-Pesa
+TXN100869,2026-09-20 12:40:12,Nairobi - Karen,Beverages,Minute Maid Juice 1L,4,195,Cash
+TXN100870,2026-09-20 13:23:16,Nairobi - Karen,Household,Toilet Paper 10 Rolls,4,465,Visa/Mastercard Card
+TXN100871,2026-09-20 13:33:45,Nairobi - Thika Road,Fresh Produce,Sukuma Wiki Bunch,2,30,Visa/Mastercard Card
+TXN100872,2026-09-20 17:05:52,Nairobi - Karen,Electronics,Extension Cable 4-Way,1,1235,M-Pesa
+TXN100873,2026-09-20 18:24:03,Mombasa - Nyali,Fresh Produce,Tomatoes 1kg,1,120,M-Pesa
+TXN100874,2026-09-20 18:58:42,Nakuru - Town,Fresh Produce,Bananas 1kg,4,90,Visa/Mastercard Card
+TXN100875,2026-09-21 10:34:54,Kisumu - Milimani,Clothing & Home,Cotton T-Shirt,4,800,M-Pesa
+TXN100876,2026-09-21 12:46:51,Eldoret - Elgon View,Meat & Dairy,Beef Steak 1kg,4,765,M-Pesa
+TXN100877,2026-09-21 13:37:34,Eldoret - Elgon View,Household,Jik Bleach 750ml,3,205,M-Pesa
+TXN100878,2026-09-21 14:46:32,Mombasa - Nyali,Groceries,Blue Band Margarine 500g,6,255,M-Pesa
+TXN100879,2026-09-21 17:39:15,Kisumu - Milimani,Clothing & Home,Bath Towel,2,950,M-Pesa
+TXN100880,2026-09-21 17:50:33,Nairobi - Karen,Fresh Produce,Watermelon (each),2,260,M-Pesa
+TXN100881,2026-09-21 19:01:15,Nairobi - Westlands,Groceries,Blue Band Margarine 500g,2,265,Cash
+TXN100882,2026-09-21 19:12:10,Kisumu - Milimani,Groceries,Unga Jogoo Maize Flour 2kg,1,190,Cash
+TXN100883,2026-09-21 19:54:05,Mombasa - Nyali,Beverages,Nescafe Classic 100g,2,520,Airtel Money
+TXN100884,2026-09-21 20:33:02,Mombasa - Nyali,Personal Care,Colgate Toothpaste 100ml,6,180,Visa/Mastercard Card
+TXN100885,2026-09-22 12:17:38,Kisumu - Milimani,Beverages,Minute Maid Juice 1L,5,190,Visa/Mastercard Card
+TXN100886,2026-09-22 12:51:58,Nakuru - Town,Meat & Dairy,Lato Yoghurt 500ml,2,120,Cash
+TXN100887,2026-09-22 13:05:23,Nairobi - Thika Road,Beverages,Ketepa Pride Tea Bags 100s,1,310,M-Pesa
+TXN100888,2026-09-22 13:24:32,Nairobi - Thika Road,Clothing & Home,Cotton T-Shirt,5,800,Cash
+TXN100889,2026-09-22 15:42:52,Nakuru - Town,Meat & Dairy,Farmer's Choice Sausages 500g,1,440,M-Pesa
+TXN100890,2026-09-22 17:26:14,Nairobi - Westlands,Fresh Produce,Bananas 1kg,3,95,Visa/Mastercard Card
+TXN100891,2026-09-22 17:29:43,Mombasa - Nyali,Personal Care,Sanitary Pads (Pack),1,160,Visa/Mastercard Card
+TXN100892,2026-09-22 20:08:19,Nairobi - Westlands,Fresh Produce,Irish Potatoes 2kg,2,165,M-Pesa
+TXN100893,2026-09-22 20:11:32,Nairobi - Westlands,Meat & Dairy,Farmer's Choice Sausages 500g,1,465,M-Pesa
+TXN100894,2026-09-22 20:28:19,Eldoret - Elgon View,Meat & Dairy,Beef Steak 1kg,2,765,Visa/Mastercard Card
+TXN100895,2026-09-22 20:58:10,Nakuru - Town,Fresh Produce,Onions 1kg,1,110,M-Pesa
+TXN100896,2026-09-22 21:41:48,Nairobi - Thika Road,Groceries,Tuzo Tea Leaves 500g,1,290,M-Pesa
+TXN100897,2026-09-23 08:10:34,Nakuru - Town,Groceries,Tuzo Tea Leaves 500g,4,285,M-Pesa
+TXN100898,2026-09-23 11:33:51,Nairobi - Westlands,Clothing & Home,Bedsheet Set Double,1,2370,M-Pesa
+TXN100899,2026-09-23 12:21:22,Nairobi - Thika Road,Household,Toilet Paper 10 Rolls,2,450,M-Pesa
+TXN100900,2026-09-23 12:51:21,Nairobi - Thika Road,Beverages,Tusker Lager 500ml,3,230,Cash
+TXN100901,2026-09-23 13:00:36,Kisumu - Milimani,Personal Care,Colgate Toothpaste 100ml,5,180,Visa/Mastercard Card
+TXN100902,2026-09-23 13:08:46,Nairobi - Karen,Groceries,Fresh Eggs Tray (30),12,495,M-Pesa
+TXN100903,2026-09-23 13:58:20,Nairobi - Thika Road,Personal Care,Dove Shampoo 400ml,12,540,M-Pesa
+TXN100904,2026-09-23 14:01:47,Nairobi - Thika Road,Beverages,Dasani Water 1.5L,2,70,M-Pesa
+TXN100905,2026-09-23 14:26:28,Nakuru - Town,Groceries,Blue Band Margarine 500g,1,250,M-Pesa
+TXN100906,2026-09-23 17:08:40,Nairobi - Thika Road,Groceries,Unga Jogoo Maize Flour 2kg,1,190,Cash
+TXN100907,2026-09-23 17:10:32,Nairobi - Thika Road,Fresh Produce,Avocado Hass (each),2,40,M-Pesa
+TXN100908,2026-09-23 17:28:03,Nairobi - Westlands,Groceries,Unga Jogoo Maize Flour 2kg,1,195,M-Pesa
+TXN100909,2026-09-23 18:01:36,Nairobi - Karen,Household,Doom Insecticide 300ml,5,390,M-Pesa
+TXN100910,2026-09-23 18:05:13,Nairobi - Westlands,Fresh Produce,Carrots 1kg,4,105,Visa/Mastercard Card
+TXN100911,2026-09-23 18:07:00,Nairobi - Thika Road,Beverages,Ketepa Pride Tea Bags 100s,1,310,M-Pesa
+TXN100912,2026-09-23 20:52:24,Nairobi - Westlands,Groceries,Fresh Eggs Tray (30),3,495,M-Pesa
+TXN100913,2026-09-23 20:53:23,Nairobi - Karen,Meat & Dairy,Cheddar Cheese 250g,2,435,M-Pesa
+TXN100914,2026-09-24 10:19:10,Mombasa - Nyali,Fresh Produce,Bananas 1kg,3,90,Airtel Money
+TXN100915,2026-09-24 18:11:56,Mombasa - Nyali,Groceries,Weetabix 24s,5,470,M-Pesa
+TXN100916,2026-09-24 19:14:40,Kisumu - Milimani,Groceries,Pishori Rice 2kg,2,420,M-Pesa
+TXN100917,2026-09-24 21:30:24,Nairobi - Westlands,Beverages,Minute Maid Juice 1L,6,195,Visa/Mastercard Card
+TXN100918,2026-09-25 09:24:03,Mombasa - Nyali,Groceries,Tuzo Tea Leaves 500g,1,290,Cash
+TXN100919,2026-09-25 11:01:09,Nairobi - Westlands,Personal Care,Dove Shampoo 400ml,1,555,Visa/Mastercard Card
+TXN100920,2026-09-25 12:42:44,Nairobi - Westlands,Beverages,Nescafe Classic 100g,4,535,Cash
+TXN100921,2026-09-25 12:43:45,Mombasa - Nyali,Groceries,Fresh Eggs Tray (30),2,480,M-Pesa
+TXN100922,2026-09-25 13:07:43,Eldoret - Elgon View,Meat & Dairy,Whole Chicken 1.5kg,1,705,M-Pesa
+TXN100923,2026-09-25 13:19:39,Nairobi - Thika Road,Beverages,Coca-Cola 2L,3,150,Cash
+TXN100924,2026-09-25 14:34:00,Nairobi - Karen,Personal Care,Dove Shampoo 400ml,1,555,M-Pesa
+TXN100925,2026-09-25 15:40:19,Kisumu - Milimani,Groceries,Brookside Fresh Milk 500ml,3,65,M-Pesa
+TXN100926,2026-09-25 16:12:33,Nairobi - Westlands,Fresh Produce,Sukuma Wiki Bunch,1,30,M-Pesa
+TXN100927,2026-09-25 16:49:57,Nairobi - Westlands,Fresh Produce,Sukuma Wiki Bunch,5,30,Visa/Mastercard Card
+TXN100928,2026-09-25 17:09:53,Mombasa - Nyali,Household,Kitchen Foil Roll,1,260,M-Pesa
+TXN100929,2026-09-25 17:33:26,Nairobi - Thika Road,Fresh Produce,Tomatoes 1kg,3,120,Visa/Mastercard Card
+TXN100930,2026-09-25 17:40:43,Nairobi - Thika Road,Groceries,Kabras Sugar 2kg,2,330,M-Pesa
+TXN100931,2026-09-25 19:36:37,Mombasa - Nyali,Electronics,Microwave Oven 20L,1,9500,Visa/Mastercard Card
+TXN100932,2026-09-25 19:55:31,Nairobi - Thika Road,Groceries,Unga Jogoo Maize Flour 2kg,2,190,M-Pesa
+TXN100933,2026-09-25 20:11:53,Nairobi - Thika Road,Fresh Produce,Watermelon (each),2,250,M-Pesa
+TXN100934,2026-09-25 21:09:07,Eldoret - Elgon View,Electronics,Bluetooth Speaker,1,3725,Airtel Money
+TXN100935,2026-09-25 21:54:51,Nairobi - Westlands,Meat & Dairy,Beef Steak 1kg,4,805,Cash
+TXN100936,2026-09-26 12:16:50,Eldoret - Elgon View,Household,Kitchen Foil Roll,3,255,M-Pesa
+TXN100937,2026-09-26 12:53:03,Nairobi - Thika Road,Beverages,Minute Maid Juice 1L,1,190,M-Pesa
+TXN100938,2026-09-26 13:38:54,Nairobi - Karen,Personal Care,Dove Shampoo 400ml,1,555,Visa/Mastercard Card
+TXN100939,2026-09-26 16:11:04,Nairobi - Karen,Beverages,Ketepa Pride Tea Bags 100s,1,320,Cash
+TXN100940,2026-09-26 19:41:05,Nairobi - Karen,Groceries,Kabras Sugar 2kg,3,340,Visa/Mastercard Card
+TXN100941,2026-09-26 19:48:17,Nairobi - Thika Road,Household,Toilet Paper 10 Rolls,1,450,Cash
+TXN100942,2026-09-26 21:07:25,Nairobi - Westlands,Fresh Produce,Onions 1kg,4,115,M-Pesa
+TXN100943,2026-09-27 08:43:13,Mombasa - Nyali,Fresh Produce,Onions 1kg,1,110,M-Pesa
+TXN100944,2026-09-27 08:54:42,Nairobi - Thika Road,Personal Care,Dettol Soap 175g,2,140,Visa/Mastercard Card
+TXN100945,2026-09-27 10:10:03,Eldoret - Elgon View,Groceries,Tuzo Tea Leaves 500g,2,285,M-Pesa
+TXN100946,2026-09-27 11:13:47,Kisumu - Milimani,Meat & Dairy,Farmer's Choice Sausages 500g,2,450,Cash
+TXN100947,2026-09-27 11:14:19,Nairobi - Thika Road,Groceries,Brookside Fresh Milk 500ml,12,65,Visa/Mastercard Card
+TXN100948,2026-09-27 11:24:26,Nairobi - Westlands,Beverages,Nescafe Classic 100g,2,535,Cash
+TXN100949,2026-09-27 12:39:13,Nairobi - Thika Road,Groceries,Exe Wheat Flour 2kg,4,205,M-Pesa
+TXN100950,2026-09-27 13:46:08,Nairobi - Thika Road,Groceries,Unga Jogoo Maize Flour 2kg,2,190,M-Pesa
+TXN100951,2026-09-27 17:29:38,Nairobi - Karen,Beverages,Nescafe Classic 100g,2,535,M-Pesa
+TXN100952,2026-09-27 17:39:22,Mombasa - Nyali,Fresh Produce,Irish Potatoes 2kg,3,160,Cash
+TXN100953,2026-09-27 18:17:25,Nairobi - Westlands,Clothing & Home,Bath Towel,2,980,M-Pesa
+TXN100954,2026-09-27 18:26:23,Nairobi - Karen,Groceries,Tuzo Tea Leaves 500g,3,300,Visa/Mastercard Card
+TXN100955,2026-09-27 18:51:57,Nairobi - Thika Road,Groceries,Fresh Eggs Tray (30),1,480,Visa/Mastercard Card
+TXN100956,2026-09-27 19:31:12,Nakuru - Town,Groceries,Pishori Rice 2kg,2,410,M-Pesa
+TXN100957,2026-09-27 19:50:09,Nairobi - Karen,Groceries,Pishori Rice 2kg,1,435,M-Pesa
+TXN100958,2026-09-27 20:59:11,Nairobi - Westlands,Meat & Dairy,Lato Yoghurt 500ml,1,125,Visa/Mastercard Card
+TXN100959,2026-09-28 12:03:43,Kisumu - Milimani,Household,Sunlight Dish Soap 750ml,12,190,Cash
+TXN100960,2026-09-28 12:08:12,Nakuru - Town,Fresh Produce,Watermelon (each),3,245,Cash
+TXN100961,2026-09-28 12:11:51,Nairobi - Westlands,Meat & Dairy,Beef Steak 1kg,1,805,M-Pesa
+TXN100962,2026-09-28 12:24:14,Kisumu - Milimani,Personal Care,Dove Shampoo 400ml,1,540,Visa/Mastercard Card
+TXN100963,2026-09-28 12:42:03,Kisumu - Milimani,Electronics,Bluetooth Speaker,1,3800,Cash
+TXN100964,2026-09-28 14:10:18,Nairobi - Karen,Household,Sunlight Dish Soap 750ml,1,195,M-Pesa
+TXN100965,2026-09-28 14:17:09,Nairobi - Thika Road,Groceries,Exe Wheat Flour 2kg,1,205,M-Pesa
+TXN100966,2026-09-28 14:19:16,Kisumu - Milimani,Groceries,Kabras Sugar 2kg,1,330,Airtel Money
+TXN100967,2026-09-28 15:01:40,Nairobi - Karen,Beverages,Dasani Water 1.5L,3,70,M-Pesa
+TXN100968,2026-09-28 15:36:11,Nairobi - Karen,Meat & Dairy,Fresh Tilapia 1kg,3,670,Visa/Mastercard Card
+TXN100969,2026-09-28 16:19:46,Nairobi - Karen,Household,Toilet Paper 10 Rolls,1,465,Cash
+TXN100970,2026-09-28 18:13:10,Nakuru - Town,Fresh Produce,Onions 1kg,1,110,Cash
+TXN100971,2026-09-28 18:23:54,Nairobi - Westlands,Fresh Produce,Carrots 1kg,1,105,Cash
+TXN100972,2026-09-28 18:27:41,Nairobi - Thika Road,Groceries,Pishori Rice 2kg,1,420,M-Pesa
+TXN100973,2026-09-28 18:58:21,Mombasa - Nyali,Fresh Produce,Sukuma Wiki Bunch,4,30,M-Pesa
+TXN100974,2026-09-28 19:15:18,Eldoret - Elgon View,Groceries,Exe Wheat Flour 2kg,1,200,Cash
+TXN100975,2026-09-28 19:32:19,Kisumu - Milimani,Personal Care,Sanitary Pads (Pack),5,160,Visa/Mastercard Card
+TXN100976,2026-09-28 19:34:38,Nairobi - Karen,Beverages,Coca-Cola 2L,1,155,Cash
+TXN100977,2026-09-29 08:40:50,Nairobi - Westlands,Household,Toilet Paper 10 Rolls,2,465,Cash
+TXN100978,2026-09-29 11:45:31,Eldoret - Elgon View,Fresh Produce,Avocado Hass (each),2,40,Visa/Mastercard Card
+TXN100979,2026-09-29 12:26:26,Nairobi - Westlands,Fresh Produce,Carrots 1kg,2,105,M-Pesa
+TXN100980,2026-09-29 12:36:17,Mombasa - Nyali,Electronics,Electric Kettle 1.7L,2,2400,M-Pesa
+TXN100981,2026-09-29 12:37:46,Kisumu - Milimani,Meat & Dairy,Farmer's Choice Sausages 500g,2,450,M-Pesa
+TXN100982,2026-09-29 13:05:52,Nairobi - Karen,Beverages,Minute Maid Juice 1L,4,195,Store Gift Card
+TXN100983,2026-09-29 14:07:57,Eldoret - Elgon View,Electronics,LED Bulb 12W,1,245,Visa/Mastercard Card
+TXN100984,2026-09-29 14:39:00,Nakuru - Town,Personal Care,Colgate Toothpaste 100ml,1,175,Cash
+TXN100985,2026-09-29 17:29:40,Nairobi - Karen,Electronics,Electric Kettle 1.7L,1,2470,M-Pesa
+TXN100986,2026-09-29 17:46:56,Nairobi - Karen,Fresh Produce,Tomatoes 1kg,1,125,M-Pesa
+TXN100987,2026-09-29 18:30:14,Mombasa - Nyali,Electronics,Extension Cable 4-Way,1,1200,Visa/Mastercard Card
+TXN100988,2026-09-29 19:33:49,Eldoret - Elgon View,Household,Doom Insecticide 300ml,2,370,Cash
+TXN100989,2026-09-30 11:27:00,Nairobi - Westlands,Beverages,Dasani Water 1.5L,2,70,Cash
+TXN100990,2026-09-30 13:16:25,Eldoret - Elgon View,Groceries,Elianto Cooking Oil 1L,2,355,Visa/Mastercard Card
+TXN100991,2026-09-30 13:41:31,Nairobi - Westlands,Fresh Produce,Carrots 1kg,1,105,Visa/Mastercard Card
+TXN100992,2026-09-30 13:42:41,Nairobi - Karen,Fresh Produce,Carrots 1kg,1,105,M-Pesa
+TXN100993,2026-09-30 14:58:52,Nairobi - Thika Road,Groceries,Brookside Fresh Milk 500ml,3,65,M-Pesa
+TXN100994,2026-09-30 16:08:45,Nairobi - Thika Road,Fresh Produce,Irish Potatoes 2kg,1,160,M-Pesa
+TXN100995,2026-09-30 17:31:25,Nakuru - Town,Groceries,Unga Jogoo Maize Flour 2kg,5,185,Visa/Mastercard Card
+TXN100996,2026-09-30 17:50:09,Nairobi - Thika Road,Groceries,Elianto Cooking Oil 1L,5,360,Visa/Mastercard Card
+TXN100997,2026-09-30 18:09:47,Nairobi - Westlands,Fresh Produce,Avocado Hass (each),1,40,M-Pesa
+TXN100998,2026-09-30 18:20:35,Nairobi - Thika Road,Beverages,Minute Maid Juice 1L,2,190,M-Pesa
+TXN100999,2026-09-30 18:24:53,Mombasa - Nyali,Fresh Produce,Bananas 1kg,1,90,Cash
+TXN101000,2026-09-30 18:59:04,Nakuru - Town,Fresh Produce,Irish Potatoes 2kg,2,155,Cash
