@@ -76,7 +76,7 @@ logger = logging.getLogger("TypingSim")
 # ============================================================
 
 SCRIPT_DIR = Path(__file__).resolve().parent
-PDF_PATH = SCRIPT_DIR / "input5.pdf"
+PDF_PATH = SCRIPT_DIR / "input6.pdf"
 
 OUTPUT_DIR = Path(r"C:\typing_sim\simulation_output")
 STATE_FILE = OUTPUT_DIR / "typing_state.json"
