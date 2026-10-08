@@ -12,6 +12,8 @@ A modular human typing simulator that:
 - Models biomechanical finger movement, fatigue, drift, and thinking pauses.
 - Simulates realistic typos, adjacent-key slips, transpositions, and backspace repairs.
 - Maintains crash-resilient resumable state and ALWAYS resumes from Column A of the current row.
+- Simulates Application Switching (Alt+Tab), Random Mouse Movements, and Scrolling.
+- Injects Macro-Interruptions (Organic Chaos) to break statistical timing clusters.
 
 Install:
     pip install pynput pywin32
@@ -37,9 +39,12 @@ from typing import Any, Iterable, Optional
 # Optional Windows/execution dependencies
 try:
     from pynput.keyboard import Controller as KeyboardController, Key
+    from pynput.mouse import Controller as MouseController, Button
 except Exception:
     KeyboardController = None
+    MouseController = None
     Key = None
+    Button = None
 
 try:
     from hm import human_click
@@ -63,7 +68,13 @@ logger = logging.getLogger("ExcelTypingSim")
 # CONFIGURATION
 # ============================================================
 
-SCRIPT_DIR = Path(__file__).resolve().parent
+if getattr(sys, 'frozen', False):
+    # Running as a compiled PyInstaller executable
+    SCRIPT_DIR = Path(sys.executable).parent
+else:
+    # Running as a normal Python script
+    SCRIPT_DIR = Path(__file__).resolve().parent
+
 CSV_PATH = SCRIPT_DIR / "input.csv"
 
 OUTPUT_DIR = Path(r"C:\typing_sim\simulation_output_excel")
@@ -81,7 +92,7 @@ EXECUTE_IN_APPLICATION = True
 RANDOM_SEED: Optional[int] = 20261004
 PROFILE_NAME = "average"
 
-STARTUP_DELAY_SECONDS = 35
+STARTUP_DELAY_SECONDS = 60
 WORK_SPRINT_MINUTES = (75, 105)
 LONG_BREAK_MINUTES = (12, 18)
 SHORT_BREAK_MINUTES = (1, 3)
@@ -132,30 +143,6 @@ class HumanProfile:
 
 # Profiles adjusted for "Chunk Reading"
 PROFILES = {
-    "fast_accurate": HumanProfile(
-        name="fast_accurate",
-        base_wpm=60, wpm_stddev=4, min_wpm=45, max_wpm=85,
-        base_error_rate=0.008,
-        correction_probability=0.90,
-        delayed_correction_probability=0.07,
-        omission_probability=0.18,
-        duplication_probability=0.12,
-        transposition_probability=0.18,
-        punctuation_error_probability=0.10,
-        capitalization_error_probability=0.10,
-        space_error_probability=0.08,
-        pause_probability=0.025,
-        word_pause_ms=(45, 180),
-        cell_pause_ms=(150, 350),   
-        row_pause_ms=(1500, 3500),  
-        thinking_pause_ms=(1000, 2500),
-        key_interval_sigma=0.20,
-        correction_delay_ms=(100, 600),
-        fatigue_rate=0.003,
-        fatigue_error_multiplier=0.45,
-        recovery_rate=0.18,
-        uncorrected_probability=0.015,
-    ),
     "average": HumanProfile(
         name="average",
         base_wpm=48, wpm_stddev=7, min_wpm=32, max_wpm=72,
@@ -179,30 +166,6 @@ PROFILES = {
         fatigue_error_multiplier=0.75,
         recovery_rate=0.15,
         uncorrected_probability=0.035,
-    ),
-    "slow_careful": HumanProfile(
-        name="slow_careful",
-        base_wpm=38, wpm_stddev=5, min_wpm=25, max_wpm=55,
-        base_error_rate=0.009,
-        correction_probability=0.90,
-        delayed_correction_probability=0.10,
-        omission_probability=0.14,
-        duplication_probability=0.10,
-        transposition_probability=0.16,
-        punctuation_error_probability=0.09,
-        capitalization_error_probability=0.10,
-        space_error_probability=0.08,
-        pause_probability=0.095,
-        word_pause_ms=(100, 380),
-        cell_pause_ms=(300, 800),   
-        row_pause_ms=(3500, 7000),  
-        thinking_pause_ms=(2000, 5000),
-        key_interval_sigma=0.25,
-        correction_delay_ms=(150, 1100),
-        fatigue_rate=0.0035,
-        fatigue_error_multiplier=0.50,
-        recovery_rate=0.17,
-        uncorrected_probability=0.015,
     ),
 }
 
@@ -288,7 +251,6 @@ FINGER = {
     **{k: "R_pinky" for k in "p0"},
 }
 
-
 def key_distance(a: str, b: str) -> float:
     a = a.lower()
     b = b.lower()
@@ -297,7 +259,6 @@ def key_distance(a: str, b: str) -> float:
     ax, ay = KEY_POSITIONS[a]
     bx, by = KEY_POSITIONS[b]
     return math.hypot(ax - bx, ay - by)
-
 
 def nearby_keys(char: str, radius: float = 1.65) -> list[str]:
     c = char.lower()
@@ -342,118 +303,6 @@ class CSVDocumentParser:
                         )
                     )
         return cells
-
-
-# ============================================================
-# EMPIRICAL CALIBRATION
-# ============================================================
-
-class EmpiricalCalibrator:
-    def __init__(
-        self,
-        path: Path,
-        max_rows: int = CALIBRATION_MAX_ROWS,
-        trim_fraction: float = CALIBRATION_TRIM_FRACTION,
-    ):
-        self.path = Path(path)
-        self.max_rows = max_rows
-        self.trim_fraction = max(0.0, min(0.2, trim_fraction))
-
-    @staticmethod
-    def _trim(values: list[float], fraction: float) -> list[float]:
-        if not values:
-            return []
-        values = sorted(values)
-        n = int(len(values) * fraction)
-        if n * 2 >= len(values):
-            return values
-        return values[n:len(values) - n]
-
-    @staticmethod
-    def _stats(values: list[float]) -> dict[str, Optional[float]]:
-        if not values:
-            return {
-                "count": 0, "mean": None, "median": None,
-                "std": None, "p05": None, "p95": None,
-            }
-        ordered = sorted(values)
-        return {
-            "count": len(values),
-            "mean": statistics.mean(values),
-            "median": statistics.median(values),
-            "std": statistics.stdev(values) if len(values) > 1 else 0.0,
-            "p05": ordered[int(0.05 * (len(ordered) - 1))],
-            "p95": ordered[int(0.95 * (len(ordered) - 1))],
-        }
-
-    def fit(self) -> dict[str, Any]:
-        if not self.path.exists():
-            raise FileNotFoundError(f"Reference dataset not found: {self.path}")
-
-        dd_values: list[float] = []
-        with self.path.open("r", encoding="utf-8-sig", newline="") as f:
-            reader = csv.DictReader(f)
-            for idx, row in enumerate(reader):
-                if idx >= self.max_rows:
-                    break
-                for k, v in row.items():
-                    if k and k.startswith("DD."):
-                        try:
-                            val = float(v)
-                            if val > 0:
-                                dd_values.append(val)
-                        except ValueError:
-                            pass
-
-        dd_values = self._trim(dd_values, self.trim_fraction)
-        iki = self._stats(dd_values)
-
-        log_sigma = None
-        if len(dd_values) > 1:
-            log_sigma = statistics.stdev([math.log(x) for x in dd_values])
-
-        return {
-            "dataset_type": "CMU_keystroke_dynamics",
-            "rows_used": min(self.max_rows, len(dd_values)),
-            "inter_key_dd_seconds": iki,
-            "lognormal_iki_sigma": log_sigma,
-        }
-
-    def apply_to_profile(self, profile: HumanProfile, report: dict[str, Any]) -> HumanProfile:
-        import copy
-        calibrated = copy.deepcopy(profile)
-        iki = report.get("inter_key_dd_seconds") or {}
-        iki_mean = iki.get("mean")
-        iki_median = iki.get("median")
-        iki_p95 = iki.get("p95")
-
-        if iki_mean and iki_mean > 0:
-            calibrated.base_wpm = max(
-                calibrated.min_wpm,
-                min(calibrated.max_wpm, 60.0 / (iki_mean * 5.0)),
-            )
-
-        sigma = report.get("lognormal_iki_sigma")
-        if sigma is not None:
-            calibrated.key_interval_sigma = max(0.08, min(0.70, float(sigma)))
-
-        if iki_median:
-            calibrated.word_pause_ms = (
-                max(30.0, min(100.0, iki_median * 1000 * 0.45)),
-                max(120.0, min(450.0, iki_median * 1000 * 1.5)),
-            )
-
-        if iki_p95:
-            calibrated.thinking_pause_ms = (
-                max(350.0, iki_p95 * 1000),
-                max(1200.0, iki_p95 * 1000 * 5.0),
-            )
-
-        return calibrated
-
-    def write_report(self, report: dict[str, Any], path: Path) -> None:
-        path.parent.mkdir(parents=True, exist_ok=True)
-        path.write_text(json.dumps(report, indent=2), encoding="utf-8")
 
 
 # ============================================================
@@ -621,12 +470,6 @@ class Metrics:
             "error_rate": round(len(errors) / max(1, len(key_events)), 6),
             "correction_count": len(corrections),
             "pause_count": len(pauses),
-            "mean_key_latency_ms": (
-                round(statistics.mean(latencies), 3) if latencies else None
-            ),
-            "median_key_latency_ms": (
-                round(statistics.median(latencies), 3) if latencies else None
-            ),
         }
 
 
@@ -674,8 +517,64 @@ class WindowsExcelExecutor:
         self.keyboard = (
             KeyboardController() if enabled and KeyboardController is not None else None
         )
+        self.mouse = (
+            MouseController() if enabled and MouseController is not None else None
+        )
         if enabled and self.keyboard is None:
             raise RuntimeError("Keyboard execution requested, but pynput is unavailable.")
+
+    # --- Mouse & Navigation Integrations ---
+    def random_mouse_nudge(self, rng: random.Random) -> None:
+        if not self.enabled or not self.mouse:
+            return
+        current_x, current_y = self.mouse.position
+        dx = rng.randint(-15, 15)
+        dy = rng.randint(-15, 15)
+        self.mouse.position = (current_x + dx, current_y + dy)
+
+    def scroll_randomly(self, rng: random.Random) -> None:
+        if not self.enabled or not self.mouse:
+            return
+        scroll_amount = rng.randint(2, 6)
+        self.mouse.scroll(0, scroll_amount)
+        time.sleep(rng.uniform(0.3, 0.8))
+        self.mouse.scroll(0, -scroll_amount)
+        time.sleep(rng.uniform(0.2, 0.5))
+        self.random_mouse_nudge(rng)
+
+    def switch_application(self, rng: random.Random, delay: float, scroll_source: bool = False) -> None:
+        if not self.enabled:
+            return
+        
+        self.safely_exit_ribbon()
+        
+        # Switch to the source document (via Z-order)
+        self.keyboard.press(Key.alt)
+        time.sleep(0.1)
+        self.tap(Key.tab)
+        time.sleep(0.1)
+        self.keyboard.release(Key.alt)
+        
+        # Simulate reading the first half of the data
+        time.sleep(delay / 2)
+        
+        # Optionally scroll down the source document to read more
+        if scroll_source and self.mouse:
+            scroll_amount = rng.randint(-6, -2)  # Negative values scroll down
+            self.mouse.scroll(0, scroll_amount)
+            # Pause again after scrolling to read the new text
+            time.sleep(rng.uniform(0.5, 1.5))
+            
+        # Simulate reading the second half of the data
+        time.sleep(delay / 2)
+        
+        # Switch back to Excel
+        self.keyboard.press(Key.alt)
+        time.sleep(0.1)
+        self.tap(Key.tab)
+        time.sleep(0.1)
+        self.keyboard.release(Key.alt)
+        time.sleep(0.5)
 
     def tap(self, key: Any, hold: float = 0.05) -> None:
         if not self.enabled:
@@ -696,7 +595,6 @@ class WindowsExcelExecutor:
             time.sleep(0.05)
 
     def safely_exit_ribbon(self) -> None:
-        """Presses Esc twice to guarantee Excel menus/ribbons are cleanly closed."""
         if not self.enabled:
             return
         self.tap(Key.esc)
@@ -707,20 +605,17 @@ class WindowsExcelExecutor:
     def _alt_sequence(self, keys: list[str]) -> None:
         if not self.enabled:
             return
-        # Clear out any stuck states before beginning
         self.safely_exit_ribbon()
         
         self.tap(Key.alt)
-        time.sleep(0.35)  # Increased: Excel UI requires ample time to render ribbon
+        time.sleep(0.35) 
         for k in keys:
             self.tap(k)
-            time.sleep(0.2)  # Increased: Give Excel UI time to process the menu navigation
+            time.sleep(0.2) 
             
         time.sleep(0.2)
-        # Force a clean break out of the ribbon if the sequence ended prematurely
         self.safely_exit_ribbon()
 
-    # --- Core Typing ---
     def backspace(self) -> None:
         if self.enabled: self.tap(Key.backspace)
 
@@ -742,25 +637,11 @@ class WindowsExcelExecutor:
     def alt_enter(self) -> None:
         self._hold_and_tap([Key.alt], Key.enter)
 
-    # --- Font Formatting ---
     def toggle_bold(self) -> None:
         self._hold_and_tap([Key.ctrl], 'b')
 
-    def toggle_italics(self) -> None:
-        self._hold_and_tap([Key.ctrl], 'i')
-
-    def toggle_underline(self) -> None:
-        self._hold_and_tap([Key.ctrl], 'u')
-
-    def strikethrough(self) -> None:
-        self._hold_and_tap([Key.ctrl], '5')
-
-    # --- Alignment ---
     def align_center(self) -> None:
         self._alt_sequence(['h', 'a', 'c'])
-
-    def align_left(self) -> None:
-        self._alt_sequence(['h', 'a', 'l'])
 
     def align_right(self) -> None:
         self._alt_sequence(['h', 'a', 'r'])
@@ -768,15 +649,8 @@ class WindowsExcelExecutor:
     def wrap_text(self) -> None:
         self._alt_sequence(['h', 'w'])
 
-    # --- Borders & Colors ---
     def all_borders(self) -> None:
         self._alt_sequence(['h', 'b', 'a'])
-
-    def thick_outside_borders(self) -> None:
-        self._alt_sequence(['h', 'b', 't'])
-
-    def remove_borders(self) -> None:
-        self._hold_and_tap([Key.ctrl, Key.shift], '_')
 
     def fill_color_default(self) -> None:
         self._alt_sequence(['h', 'h'])
@@ -784,7 +658,6 @@ class WindowsExcelExecutor:
         if self.enabled: self.tap(Key.enter)
         self.safely_exit_ribbon()
 
-    # --- Number Formatting ---
     def format_currency(self) -> None:
         self._hold_and_tap([Key.ctrl, Key.shift], '4')  
 
@@ -794,10 +667,6 @@ class WindowsExcelExecutor:
     def format_date(self) -> None:
         self._hold_and_tap([Key.ctrl, Key.shift], '3')  
 
-    def format_time(self) -> None:
-        self._hold_and_tap([Key.ctrl, Key.shift], '2')  
-
-    # --- Structural ---
     def autofit_column(self) -> None:
         self._alt_sequence(['h', 'o', 'i'])
 
@@ -806,11 +675,6 @@ class WindowsExcelExecutor:
 
     def insert_filters(self) -> None:
         self._hold_and_tap([Key.ctrl, Key.shift], 'l')
-
-    def convert_to_table(self) -> None:
-        self._hold_and_tap([Key.ctrl], 't')
-        time.sleep(0.5)
-        if self.enabled: self.tap(Key.enter)
 
 
 # ============================================================
@@ -920,58 +784,6 @@ class ExcelTypingSimulation:
                 return char, True
 
             return wrong, True
-
-        if error_type == "omission":
-            self.emit(
-                "key",
-                intended=char,
-                actual=None,
-                error_type="omission",
-                row_idx=cell.row_idx,
-                col_idx=cell.col_idx,
-            )
-            if mode == "immediate":
-                delay = self.rng.uniform(*self.profile.correction_delay_ms)
-                self.sleep_simulated(delay / 1000)
-                self.executor.tap(char)
-                self.emit(
-                    "correction",
-                    intended=char,
-                    actual=char,
-                    corrected=True,
-                    row_idx=cell.row_idx,
-                    col_idx=cell.col_idx,
-                )
-                return char, True
-            return "", True
-
-        if error_type == "duplication":
-            self.executor.tap(char)
-            self.executor.tap(char)
-            self.emit(
-                "key",
-                intended=char,
-                actual=char + char,
-                error_type="duplication",
-                row_idx=cell.row_idx,
-                col_idx=cell.col_idx,
-            )
-            self.sleep_simulated(self.behavior.character_delay(None, char) * 2)
-
-            if mode in ("immediate", "delayed"):
-                delay = self.rng.uniform(*self.profile.correction_delay_ms)
-                self.sleep_simulated(delay / 1000)
-                self.executor.backspace()
-                self.emit(
-                    "correction",
-                    intended=char,
-                    actual=char,
-                    corrected=True,
-                    row_idx=cell.row_idx,
-                    col_idx=cell.col_idx,
-                )
-            return char, True
-
         return char, True
 
     def type_cell(self, cell: CellItem) -> None:
@@ -984,14 +796,6 @@ class ExcelTypingSimulation:
 
             if char == "\n":
                 self.executor.alt_enter()
-                self.emit(
-                    "format",
-                    intended="\n",
-                    actual="\n",
-                    row_idx=cell.row_idx,
-                    col_idx=cell.col_idx,
-                    metadata={"action": "excel_cell_alt_enter"},
-                )
                 self.sleep_simulated(self.rng.uniform(0.2, 0.5))
                 i += 1
                 previous = "\n"
@@ -1018,24 +822,18 @@ class ExcelTypingSimulation:
             )
             self.sleep_simulated(delay)
 
-            if char in " \t" and self.behavior.should_pause(char):
-                self.emit_pause(
-                    self.behavior.pause_duration("word_boundary"),
-                    "word_boundary",
-                    row_idx=cell.row_idx,
-                    col_idx=cell.col_idx,
-                )
+            # Randomly drift the mouse mid-word on long cells
+            if self.rng.random() < 0.005:
+                self.executor.random_mouse_nudge(self.rng)
 
             previous = char
             i += 1
 
     def apply_smart_formatting(self, cell: CellItem) -> None:
-        """Determines and applies formatting based on cell context."""
         text = cell.text.strip()
         if not text:
             return
 
-        # 1. Header Row Formatting
         if cell.row_idx == 0:
             self.executor.align_center()
             time.sleep(0.2)
@@ -1043,38 +841,21 @@ class ExcelTypingSimulation:
             time.sleep(0.2)
             self.executor.fill_color_default()
             
-            self.emit("format", metadata={"action": "header_formatting_applied"}, row_idx=cell.row_idx, col_idx=cell.col_idx)
-
             if cell.is_last_in_row:
                 self.executor.insert_filters()
-                self.emit("format", metadata={"action": "insert_filters"}, row_idx=cell.row_idx, col_idx=cell.col_idx)
             return
 
-        # 2. Data Row Formatting Conditions
         if len(text) > 40 and " " in text:
             self.executor.wrap_text()
             self.executor.autofit_row()
-            self.emit("format", metadata={"action": "wrap_text_and_autofit"}, row_idx=cell.row_idx, col_idx=cell.col_idx)
-            
         elif text.startswith("$") or text.startswith("€") or text.startswith("£"):
             self.executor.format_currency()
-            self.emit("format", metadata={"action": "format_currency"}, row_idx=cell.row_idx, col_idx=cell.col_idx)
-            
         elif text.endswith("%"):
             self.executor.format_percentage()
-            self.emit("format", metadata={"action": "format_percentage"}, row_idx=cell.row_idx, col_idx=cell.col_idx)
-            
         elif "-" in text and len(text) >= 8 and sum(c.isdigit() for c in text) >= 6:
             self.executor.format_date()
-            self.emit("format", metadata={"action": "format_date"}, row_idx=cell.row_idx, col_idx=cell.col_idx)
-            
         elif text.replace(".", "").replace(",", "").isdigit():
             self.executor.align_right()
-            self.emit("format", metadata={"action": "align_right"}, row_idx=cell.row_idx, col_idx=cell.col_idx)
-            
-        elif text.lower() in ["void", "cancelled", "n/a", "deleted"]:
-            self.executor.strikethrough()
-            self.emit("format", metadata={"action": "strikethrough"}, row_idx=cell.row_idx, col_idx=cell.col_idx)
 
     def run(self, start_index: int = 0) -> dict[str, Any]:
         session_started = datetime.now(timezone.utc)
@@ -1101,46 +882,37 @@ class ExcelTypingSimulation:
                 sprint_duration = self.rng.uniform(*WORK_SPRINT_MINUTES)
                 sprint_start_ms = self.elapsed_ms
 
+            # Injected Macro-Interruption (Organic Chaos)
+            # 0.5% chance per cell to stop and walk away for 2 to 15 minutes
+            if self.rng.random() < 0.005:
+                interrupt_duration = self.rng.uniform(2 * 60, 15 * 60)
+                logger.info(f"[ORGANIC CHAOS] Sudden interruption! Pausing for {interrupt_duration/60:.1f} min...")
+                self.emit("break", metadata={"type": "organic_interruption", "duration": interrupt_duration})
+                self.sleep_simulated(interrupt_duration)
+                self.behavior.recover(interrupt_duration / 60)
+
             if cell.row_idx == 0:
                 self.executor.toggle_bold()
-                self.emit("format", metadata={"action": "toggle_bold_on"}, row_idx=cell.row_idx, col_idx=cell.col_idx)
 
-            # Type the cell text safely outside the ribbon
             self.executor.safely_exit_ribbon()
             self.type_cell(cell)
-
-            # Keep cursor on current cell to apply formatting
             self.executor.commit_in_place()
-            
-            # Universal formatting applied to all cells
             self.executor.autofit_column()
-            self.emit("format", metadata={"action": "autofit_column_width"}, row_idx=cell.row_idx, col_idx=cell.col_idx)
-            
-            # Smart formatting based on content
             self.apply_smart_formatting(cell)
 
             if cell.is_last_in_row:
-                # Ensure the ribbon is completely deactivated before navigating the worksheet
                 self.executor.safely_exit_ribbon()
                 self.executor.down()
                 self.executor.home()
 
-                self.emit(
-                    "navigation",
-                    metadata={"action": "enter_new_row"},
-                    row_idx=cell.row_idx,
-                    col_idx=cell.col_idx,
-                )
+                # Navigation Diversity: Occasional random scrolling between rows
+                if self.rng.random() < 0.08:
+                    logger.info(f"Row {cell.row_idx+1}: Simulating reading scroll/mouse refocus...")
+                    self.executor.scroll_randomly(self.rng)
+
                 self.rows_since_break += 1
-                
-                # Reading pause for the new row
                 pause_dur = self.behavior.pause_duration("row_transition")
-                self.emit_pause(
-                    pause_dur,
-                    "row_transition",
-                    row_idx=cell.row_idx,
-                    col_idx=cell.col_idx,
-                )
+                self.emit_pause(pause_dur, "row_transition", row_idx=cell.row_idx, col_idx=cell.col_idx)
 
                 if self.rows_since_break >= self.next_break_target:
                     brk_duration = self.rng.uniform(*SHORT_BREAK_MINUTES)
@@ -1150,45 +922,40 @@ class ExcelTypingSimulation:
                     self.rows_since_break = 0
                     self.next_break_target = self.rng.randint(*SHORT_BREAK_INTERVAL_ROWS)
             else:
-                # Tab securely to the next cell
                 self.executor.safely_exit_ribbon()
                 self.executor.tab()
-                self.emit(
-                    "navigation",
-                    metadata={"action": "tab_next_column"},
-                    row_idx=cell.row_idx,
-                    col_idx=cell.col_idx,
-                )
+                
+                # Accidental mouse bump
+                if self.rng.random() < 0.05:
+                    self.executor.random_mouse_nudge(self.rng)
                 
                 pause_dur = self.behavior.pause_duration("cell_transition")
                 reason = "cell_transition"
 
+                # Application Switching logic tied into the "glance back" probability
                 if self.rng.random() < 0.15:
-                    glance_pause = self.rng.uniform(1000, 2500)
-                    pause_dur += glance_pause
-                    reason = "glance_back_at_source"
-                    logger.info(f"Row {cell.row_idx+1}: Glancing back at source document mid-row...")
+                    # INCREASED DELAY: 3.5 to 9 seconds to simulate actual reading
+                    glance_pause = self.rng.uniform(3500, 9000)
+                    logger.info(f"Row {cell.row_idx+1}: Checking source document...")
+                    
+                    if self.rng.random() < 0.40:
+                        # 25% chance to scroll down in the source document while reading
+                        needs_scroll = self.rng.random() < 0.25
+                        self.executor.switch_application(
+                            rng=self.rng, 
+                            delay=glance_pause / 1000, 
+                            scroll_source=needs_scroll
+                        )
+                        reason = "alt_tab_source_check"
+                    else:
+                        pause_dur += glance_pause
+                        reason = "glance_back_at_source"
 
-                self.emit_pause(
-                    pause_dur,
-                    reason,
-                    row_idx=cell.row_idx,
-                    col_idx=cell.col_idx,
-                )
+                self.emit_pause(pause_dur, reason, row_idx=cell.row_idx, col_idx=cell.col_idx)
 
-            # Checkpoint the exact cell we just completed
             self.state.save(index + 1, self.session_id, self.seed)
 
         summary = self.metrics.summary()
-        summary.update({
-            "session_id": self.session_id,
-            "seed": self.seed,
-            "profile": self.profile.name,
-            "started_at": session_started.isoformat(),
-            "finished_at": datetime.now(timezone.utc).isoformat(),
-            "csv": str(CSV_PATH),
-        })
-
         self.config.summary_file.write_text(json.dumps(summary, indent=2), encoding="utf-8")
         return summary
 
@@ -1204,7 +971,6 @@ def build_cli() -> argparse.ArgumentParser:
     parser.add_argument("--seed", type=int, default=RANDOM_SEED)
     parser.add_argument("--offline", action="store_true", help="Generate events without typing.")
     return parser
-
 
 def main() -> None:
     args = build_cli().parse_args()
@@ -1230,58 +996,31 @@ def main() -> None:
     start_index = int(state.get("cell_index", 0))
 
     profile = PROFILES[config.profile_name]
-
     parser = CSVDocumentParser(args.csv)
     cells = parser.parse()
-    if not cells:
-        raise RuntimeError("No readable rows found in the CSV.")
-
-    # --- RESUMPTION LOGIC: SNAP TO BEGINNING OF CURRENT ROW ---
+    
     if 0 < start_index < len(cells):
         target_row = cells[start_index].row_idx
         while start_index > 0 and cells[start_index - 1].row_idx == target_row:
             start_index -= 1
             
-    starting_row_number = cells[start_index].row_idx + 1 
-
-    logger.info(f"Target CSV: {args.csv} ({len(cells)} total cells)")
-    
-    if start_index > 0:
-        logger.info(f"RESUMING SAVED SESSION: Found checkpoint.")
-        logger.info(f"--> PLEASE CLICK COLUMN A of ROW {starting_row_number} IN EXCEL! <--")
-    else:
-        logger.info("--> PLEASE CLICK COLUMN A of ROW 1 IN EXCEL! <--")
-
     if config.execute:
         for remaining in range(STARTUP_DELAY_SECONDS, 0, -1):
             print(f"Starting in {remaining}s... Focus the correct cell in Excel!", end="\r", flush=True)
             time.sleep(1)
         print(" " * 65, end="\r")
 
-        if human_click is not None:
-            human_click(SAFE_EXCEL_CELL_CLICK[0], SAFE_EXCEL_CELL_CLICK[1])
-
     simulation = ExcelTypingSimulation(
-        cells=cells,
-        config=config,
-        profile=profile,
-        seed=seed,
-        session_id=session_id,
+        cells=cells, config=config, profile=profile, seed=seed, session_id=session_id
     )
 
     try:
-        summary = simulation.run(start_index=start_index)
-        logger.info("Simulation completed fully.")
-        logger.info(json.dumps(summary, indent=2))
-        
-        # Clear state file if simulation finishes completely
+        simulation.run(start_index=start_index)
         if state_manager.path.exists():
             state_manager.clear()
-            
     except KeyboardInterrupt:
-        logger.warning("\nSimulation interrupted by user. State has been preserved at the start of the current row.")
+        logger.warning("\nInterrupted by user. State preserved.")
         raise
-
 
 if __name__ == "__main__":
     main()

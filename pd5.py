@@ -359,7 +359,7 @@ class PDFDocumentParser:
             x in font for x in ("italic", "oblique")
         )
 
-        underline = bool(flags & 4)
+        underline = False
 
         return bold, italic, underline
 
@@ -519,11 +519,10 @@ class EmpiricalCalibrator:
             f.seek(0)
             try:
                 dialect = csv.Sniffer().sniff(sample, delimiters=",;\t| ")
+                reader = csv.DictReader(f, dialect=dialect)
             except csv.Error:
-                dialect = csv.excel
-                dialect.delimiter = ","
+                reader = csv.DictReader(f, dialect=csv.excel, delimiter=",")
 
-            reader = csv.DictReader(f, dialect=dialect)
             for row in reader:
                 yield {str(k).strip(): (v or "").strip() for k, v in row.items() if k is not None}
 
@@ -898,7 +897,6 @@ class HumanBehaviorModel:
                 ("substitution", 0.45),
                 ("omission", self.profile.omission_probability),
                 ("duplication", self.profile.duplication_probability),
-                ("transposition", self.profile.transposition_probability),
             ])
 
         if char in ".,;:!?":
