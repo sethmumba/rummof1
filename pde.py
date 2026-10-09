@@ -63,7 +63,13 @@ logger = logging.getLogger("ExcelTypingSim")
 # CONFIGURATION
 # ============================================================
 
-SCRIPT_DIR = Path(__file__).resolve().parent
+if getattr(sys, 'frozen', False):
+    # Running as a compiled PyInstaller executable
+    SCRIPT_DIR = Path(sys.executable).parent
+else:
+    # Running as a normal Python script
+    SCRIPT_DIR = Path(__file__).resolve().parent
+
 CSV_PATH = SCRIPT_DIR / "input.csv"
 
 OUTPUT_DIR = Path(r"C:\typing_sim\simulation_output_excel")
@@ -81,7 +87,7 @@ EXECUTE_IN_APPLICATION = True
 RANDOM_SEED: Optional[int] = 20261004
 PROFILE_NAME = "average"
 
-STARTUP_DELAY_SECONDS = 35
+STARTUP_DELAY_SECONDS = 100
 WORK_SPRINT_MINUTES = (75, 105)
 LONG_BREAK_MINUTES = (12, 18)
 SHORT_BREAK_MINUTES = (1, 3)

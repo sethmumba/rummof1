@@ -44,9 +44,11 @@ from PIL import Image
 # Optional Windows/execution dependencies.
 try:
     from pynput.keyboard import Controller as KeyboardController, Key
+    from pynput.mouse import Controller as MouseController
 except Exception:
     KeyboardController = None
     Key = None
+    MouseController = None
 
 try:
     import win32clipboard
@@ -134,6 +136,7 @@ class HumanProfile:
     punctuation_error_probability: float
     capitalization_error_probability: float
     space_error_probability: float
+    mouse_fidget_probability: float
 
     pause_probability: float
     word_pause_ms: tuple[float, float]
@@ -163,6 +166,7 @@ PROFILES = {
         punctuation_error_probability=0.10,
         capitalization_error_probability=0.10,
         space_error_probability=0.08,
+        mouse_fidget_probability=0.001,
         pause_probability=0.025,
         word_pause_ms=(45, 180),
         punctuation_pause_ms=(100, 350),
@@ -186,6 +190,7 @@ PROFILES = {
         punctuation_error_probability=0.15,
         capitalization_error_probability=0.16,
         space_error_probability=0.13,
+        mouse_fidget_probability=0.003,
         pause_probability=0.055,
         word_pause_ms=(60, 260),
         punctuation_pause_ms=(120, 500),
@@ -209,6 +214,7 @@ PROFILES = {
         punctuation_error_probability=0.09,
         capitalization_error_probability=0.10,
         space_error_probability=0.08,
+        mouse_fidget_probability=0.005,
         pause_probability=0.095,
         word_pause_ms=(100, 380),
         punctuation_pause_ms=(180, 650),
@@ -1131,10 +1137,15 @@ class WindowsExecutor:
             if enabled and KeyboardController is not None
             else None
         )
+        self.mouse = (
+            MouseController()
+            if enabled and MouseController is not None
+            else None
+        )
 
-        if enabled and self.keyboard is None:
+        if enabled and (self.keyboard is None or self.mouse is None):
             raise RuntimeError(
-                "Keyboard execution requested, but pynput is unavailable."
+                "Keyboard/Mouse execution requested, but pynput is unavailable."
             )
 
     @staticmethod
@@ -1157,6 +1168,31 @@ class WindowsExecutor:
             )
         finally:
             win32clipboard.CloseClipboard()
+
+    def accidental_mouse_artifact(self, rng: random.Random) -> str:
+        if not self.enabled or self.mouse is None:
+            return "simulated_only"
+
+        try:
+            # 50/50 chance to either jiggle the cursor or accidentally scroll
+            if rng.random() < 0.5:
+                curr_x, curr_y = self.mouse.position
+                steps = rng.randint(2, 5)
+                for _ in range(steps):
+                    dx = rng.randint(-15, 15)
+                    dy = rng.randint(-15, 15)
+                    self.mouse.position = (curr_x + dx, curr_y + dy)
+                    curr_x, curr_y = self.mouse.position
+                    time.sleep(0.01)
+                return "accidental_movement"
+            else:
+                # Accidental trackpad scroll (small vertical/horizontal scroll)
+                dx = rng.randint(-1, 1)
+                dy = rng.choice([-2, -1, 1, 2])
+                self.mouse.scroll(dx, dy)
+                return "accidental_scroll"
+        except Exception:
+            return "failed"
 
     def tap(self, key: Any, hold: float = 0.06) -> None:
         if not self.enabled:
@@ -1733,6 +1769,16 @@ class TypingSimulation:
                 i += 2
                 previous = second
                 continue
+
+            # NEW LOGIC: Accidental mouse fidget check
+            if self.rng.random() < self.profile.mouse_fidget_probability:
+                logger.info("Simulating accidental mouse/touchpad artifact")
+                artifact_type = self.executor.accidental_mouse_artifact(self.rng)
+                self.emit(
+                    "mouse_artifact",
+                    item=item,
+                    metadata={"action": artifact_type}
+                )
 
             error_type = self.behavior.choose_error(char)
 
